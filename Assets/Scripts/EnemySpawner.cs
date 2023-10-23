@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -8,6 +9,10 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private GameObject[] enemyPrefabs;
 
     [SerializeField] private bool canSpawn = true;
+
+    [SerializeField] public int spawned = 0;
+
+    [SerializeField] private int spawnMax = 5;
 
     private void Start()
     {
@@ -27,6 +32,24 @@ public class EnemySpawner : MonoBehaviour
             GameObject enemyToSpawn = enemyPrefabs[rand];
 
             Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+
+            spawned++;
         }
     }
+
+    private void Update()
+    {
+        if (spawned >= spawnMax)
+        {
+            canSpawn = false;
+        }
+        else
+        {
+            canSpawn = true;
+        }
+    }
+
+
+
+
 }
