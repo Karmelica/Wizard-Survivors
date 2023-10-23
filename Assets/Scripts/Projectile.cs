@@ -5,7 +5,7 @@ public class Projectile : MonoBehaviour
     [SerializeField]
     public Rigidbody2D body;
     public Vector3 mousePos;
-
+    private float time = 3f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -29,5 +29,9 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        time -= Time.deltaTime;
+        if (time <= 0) {
+            Destroy(gameObject);
+        }
     }
 }
