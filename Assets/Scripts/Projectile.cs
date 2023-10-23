@@ -1,8 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -20,7 +15,7 @@ public class Projectile : MonoBehaviour
     void MousePos()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        
+
     }
     // Start is called before the first frame update
     void Start()

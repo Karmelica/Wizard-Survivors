@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -16,7 +12,7 @@ public class Enemy : MonoBehaviour
     private float enemyMoveX;
     private float enemyMoveY;
 
-    
+
 
     void EnemyMove()
     {
@@ -25,11 +21,11 @@ public class Enemy : MonoBehaviour
         rbody2D.AddForce(0.5f * -speed * new Vector2(enemyMoveX, enemyMoveY).normalized, ForceMode2D.Force);
     }
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
         rbody2D = GetComponent<Rigidbody2D>();
     }
 

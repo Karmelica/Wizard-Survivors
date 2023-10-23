@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -15,11 +14,11 @@ public class EnemySpawner : MonoBehaviour
         StartCoroutine(Spawner());
     }
 
-    private IEnumerator Spawner () 
-    { 
+    private IEnumerator Spawner()
+    {
         WaitForSeconds wait = new WaitForSeconds(spawnRate);
 
-        while (canSpawn) 
+        while (canSpawn)
         {
             yield return wait;
 

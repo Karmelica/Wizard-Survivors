@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BackgroundMusic : MonoBehaviour
@@ -12,7 +10,7 @@ public class BackgroundMusic : MonoBehaviour
         {
             backgroundMusic = this;
             DontDestroyOnLoad(backgroundMusic);
-        } 
+        }
         else
         {
             Destroy(gameObject);
