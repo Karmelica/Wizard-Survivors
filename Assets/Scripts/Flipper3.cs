@@ -3,7 +3,7 @@ using UnityEngine;
 public class Flipper3 : MonoBehaviour
 {
     [SerializeField]
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
 
 
     void Flip()
@@ -22,7 +22,7 @@ public class Flipper3 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame

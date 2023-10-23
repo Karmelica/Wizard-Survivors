@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
@@ -5,13 +6,7 @@ public class Attack : MonoBehaviour
 {
     [SerializeField]
     public SpriteRenderer anim;
-    public float cooldown = 3.0f;
-
-    void SwordSwing()
-    {
-        cooldown = 3.0f;
-        anim.enabled = true;
-    }
+    public float cooldown = 4.0f;
 
 
     // Start is called before the first frame update
@@ -24,9 +19,13 @@ public class Attack : MonoBehaviour
     void Update()
     {
         cooldown -= Time.deltaTime;
-        if (cooldown <= 0.0f)
+        if (cooldown <= 1.0f)
         {
-            SwordSwing();
+            anim.enabled = true;
+        }
+        if (cooldown <= 0.0f) {
+            cooldown = 4.0f;
+            anim.enabled = false;
         }
     }
 }
