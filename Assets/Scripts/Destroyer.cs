@@ -1,14 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Destroyer : MonoBehaviour
 {
-    [SerializeField] EnemySpawner Spawner;
+    [SerializeField]
+    public EnemySpawner spawner;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(collision.gameObject);
-        Spawner.spawned--;
+        spawner.spawned--;
+    }
+
+    void Start()
+    {
+        spawner = EnemySpawner.FindObjectOfType<EnemySpawner>();
     }
 }

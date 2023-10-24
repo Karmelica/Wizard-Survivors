@@ -1,18 +1,18 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] private float spawnRate = 1f;
+    [SerializeField]
 
-    [SerializeField] private GameObject[] enemyPrefabs;
+    public GameObject[] enemyPrefabs;
 
-    [SerializeField] private bool canSpawn = true;
+    [SerializeField]
 
-    [SerializeField] public int spawned = 0;
-
-    [SerializeField] private int spawnMax = 5;
+    private float spawnRate = 1f;
+    private bool canSpawn = true;
+    public int spawned = 0;
+    private int spawnMax = 5;
 
     private void Start()
     {

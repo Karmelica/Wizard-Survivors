@@ -3,17 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Spawner
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - obstacles
+  - Obstacles
   - Water
   - UI
   - Player
-  - enemy
-  - 
+  - Enemy
+  - Weapon
   - 
   - 
   - 

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Kolizja : MonoBehaviour
@@ -18,6 +16,6 @@ public class Kolizja : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

@@ -3,6 +3,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
+
+    public EnemySpawner spawner;
     public Rigidbody2D body;
     public Vector3 mousePos;
     private float time = 3f;
@@ -11,6 +13,8 @@ public class Projectile : MonoBehaviour
     {
         Destroy(collision.gameObject);
         Destroy(gameObject);
+        spawner.spawned--;
+
     }
     void MousePos()
     {
@@ -20,6 +24,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spawner = EnemySpawner.FindObjectOfType<EnemySpawner>();
         MousePos();
         body = GetComponent<Rigidbody2D>();
         body.AddForce(50f * mousePos.normalized, ForceMode2D.Impulse);
@@ -30,7 +35,8 @@ public class Projectile : MonoBehaviour
     void Update()
     {
         time -= Time.deltaTime;
-        if (time <= 0) {
+        if (time <= 0)
+        {
             Destroy(gameObject);
         }
     }

@@ -171,7 +171,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 8
+  m_LinearDrag: 6
   m_AngularDrag: 0.25
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -575,9 +575,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sword
       objectReference: {fileID: 0}
+    - target: {fileID: 214944897933497850, guid: dcaadd2c81059cc4dbaadd47da06ae0e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 269254829236921439, guid: dcaadd2c81059cc4dbaadd47da06ae0e, type: 3}
       propertyPath: m_Name
       value: AnimSprite
+      objectReference: {fileID: 0}
+    - target: {fileID: 269254829236921439, guid: dcaadd2c81059cc4dbaadd47da06ae0e, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 1359682402112210924, guid: dcaadd2c81059cc4dbaadd47da06ae0e, type: 3}
       propertyPath: m_IsTrigger
@@ -660,7 +668,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8312725919517191994, guid: dcaadd2c81059cc4dbaadd47da06ae0e, type: 3}
   m_PrefabInstance: {fileID: 1124361625}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1283799217
+--- !u!1 &1207246856
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -668,22 +676,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1283799219}
-  - component: {fileID: 1283799218}
+  - component: {fileID: 1207246858}
+  - component: {fileID: 1207246857}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1283799218
+--- !u!114 &1207246857
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283799217}
+  m_GameObject: {fileID: 1207246856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ffa5f09f3789c545ac7a035a078ec25, type: 3}
@@ -693,16 +701,14 @@ MonoBehaviour:
   enemyPrefabs:
   - {fileID: 7026042985259673346, guid: 219721222746e344ca517d2bc09e4e63, type: 3}
   - {fileID: 7026042985259673346, guid: e663eaf4a32af4e42b6454d6d070b5f6, type: 3}
-  canSpawn: 1
-  spawnCount: 0
-  spawnMax: 5
---- !u!4 &1283799219
+  spawned: 0
+--- !u!4 &1207246858
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1283799217}
+  m_GameObject: {fileID: 1207246856}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: -1}
@@ -842,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ba8cd5d83d5e6458aaece7bfce4e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Spawner: {fileID: 1283799218}
+  spawner: {fileID: 1207246857}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -850,4 +856,4 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1387721169}
   - {fileID: 1428496171}
-  - {fileID: 1283799219}
+  - {fileID: 1207246858}
