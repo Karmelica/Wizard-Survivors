@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -13,7 +14,6 @@ public class EnemySpawner : MonoBehaviour
     private bool canSpawn = true;
     public int spawned = 0;
     private int spawnMax = 5;
-
     private void Start()
     {
         StartCoroutine(Spawner());
@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (spawned >= spawnMax)
+        if (spawned == spawnMax -1)
         {
             canSpawn = false;
         }
@@ -48,8 +48,4 @@ public class EnemySpawner : MonoBehaviour
             canSpawn = true;
         }
     }
-
-
-
-
 }
