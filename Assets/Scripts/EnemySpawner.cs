@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-
     public GameObject[] enemyPrefabs;
-
-    [SerializeField]
 
     private float spawnRate = 1f;
     private bool canSpawn = true;
     public int spawned = 0;
     private int spawnMax = 5;
+    private bool oneTime = false;
     private void Start()
     {
         StartCoroutine(Spawner());
@@ -39,13 +36,16 @@ public class EnemySpawner : MonoBehaviour
 
     private void Update()
     {
-        if (spawned == spawnMax -1)
+        if (spawned >= spawnMax)
         {
             canSpawn = false;
+            oneTime = true;
         }
-        else
+        else if (oneTime == true)
         {
             canSpawn = true;
+            StartCoroutine(Spawner());
+            oneTime = false;
         }
     }
 }
