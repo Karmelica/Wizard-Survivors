@@ -9,12 +9,15 @@ public class TimeManager : MonoBehaviour
     
     public UnityEvent GResumed;
 
-    private bool Paused; 
+    private bool Paused;
+
+    public GameObject PauseScreen;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        PauseScreen.SetActive(false);
+        Time.timeScale = 1;
     }
 
     // Update is called once per frame
@@ -24,13 +27,16 @@ public class TimeManager : MonoBehaviour
         {
             Paused = !Paused;
 
+
             if (Paused)
             {
                 Time.timeScale = 0;
+                PauseScreen.SetActive(true); 
             }
             else
             {
                 Time.timeScale = 1;
+                PauseScreen.SetActive(false);
             }
         }
     }

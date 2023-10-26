@@ -6,7 +6,7 @@ public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
 
-    private float spawnRate = 1f;
+    public float spawnRate = 1f;
     private bool canSpawn = true;
     public int spawned = 0;
     private int spawnMax = 5;
