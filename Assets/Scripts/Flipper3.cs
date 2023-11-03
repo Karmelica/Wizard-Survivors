@@ -4,18 +4,19 @@ public class Flipper3 : MonoBehaviour
 {
     [SerializeField]
     public SpriteRenderer spriteRenderer;
+    public Transform player;
 
 
     void Flip()
     {
         if (Input.GetAxis("Horizontal") < 0)
         {
-            transform.position = new Vector3(-0.2f, 0, 0); ;
+            transform.position = new Vector3(player.position.x + -0.2f, player.position.y, 0);
             spriteRenderer.flipX = true;
         }
         if (Input.GetAxis("Horizontal") > 0)
         {
-            transform.position = new Vector3(0.2f, 0, 0); ;
+            transform.position = new Vector3(player.position.x + 0.2f, player.position.y, 0); ;
             spriteRenderer.flipX = false;
         }
     }
