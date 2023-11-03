@@ -1389,6 +1389,10 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8481728264441104254, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1207246857}
     - target: {fileID: 8487839395094826081, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: spriteRenderer
       value: 

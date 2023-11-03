@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8312725919517191994}
+  - component: {fileID: 8688065144649469187}
+  - component: {fileID: 1489041093670801614}
+  - component: {fileID: 5360145585268060409}
   m_Layer: 0
   m_Name: Sword
   m_TagString: Untagged
@@ -32,6 +35,47 @@ Transform:
   - {fileID: 2635401737996812477}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8688065144649469187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214944897933497850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98951c28d24c6454596b662ff30fdda1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 1606203354687382714}
+  colid: {fileID: 1359682402112210924}
+  cooldownOrg: 4
+--- !u!114 &1489041093670801614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214944897933497850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed612043de06aac48827eca7fe0a02ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 1606203354687382714}
+--- !u!114 &5360145585268060409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 214944897933497850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ba8cd5d83d5e6458aaece7bfce4e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
 --- !u!1 &269254829236921439
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,9 +88,6 @@ GameObject:
   - component: {fileID: 1606203354687382714}
   - component: {fileID: 1359682402112210924}
   - component: {fileID: 93198732565777822}
-  - component: {fileID: 9045337466082873656}
-  - component: {fileID: 5340400665175882726}
-  - component: {fileID: 7934759798291141911}
   m_Layer: 0
   m_Name: AnimSprite
   m_TagString: Untagged
@@ -187,44 +228,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &9045337466082873656
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269254829236921439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98951c28d24c6454596b662ff30fdda1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 1606203354687382714}
-  colid: {fileID: 1359682402112210924}
-  cooldownOrg: 4
---- !u!114 &5340400665175882726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269254829236921439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed612043de06aac48827eca7fe0a02ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
---- !u!114 &7934759798291141911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269254829236921439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8ba8cd5d83d5e6458aaece7bfce4e50, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawner: {fileID: 0}
