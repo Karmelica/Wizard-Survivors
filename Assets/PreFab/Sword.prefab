@@ -43,9 +43,10 @@ GameObject:
   - component: {fileID: 2635401737996812477}
   - component: {fileID: 1606203354687382714}
   - component: {fileID: 1359682402112210924}
-  - component: {fileID: 8829609786813009232}
   - component: {fileID: 93198732565777822}
   - component: {fileID: 9045337466082873656}
+  - component: {fileID: 5340400665175882726}
+  - component: {fileID: 7934759798291141911}
   m_Layer: 0
   m_Name: AnimSprite
   m_TagString: Untagged
@@ -165,18 +166,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.651722, y: 0.51396716}
   m_EdgeRadius: 0
---- !u!114 &8829609786813009232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 269254829236921439}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb9d9159f33add344bd562ad2a87f87d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &93198732565777822
 Animator:
   serializedVersion: 5
@@ -213,3 +202,29 @@ MonoBehaviour:
   anim: {fileID: 1606203354687382714}
   colid: {fileID: 1359682402112210924}
   cooldownOrg: 4
+--- !u!114 &5340400665175882726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269254829236921439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed612043de06aac48827eca7fe0a02ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 0}
+--- !u!114 &7934759798291141911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269254829236921439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ba8cd5d83d5e6458aaece7bfce4e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
