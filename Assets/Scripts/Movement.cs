@@ -29,11 +29,11 @@ public class Movement : MonoBehaviour
         MyInput();
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            rbody.AddForce(1f * -speed * new Vector2(moveX, moveY).normalized, ForceMode2D.Force);
+            rbody.AddForce(1f * speed * new Vector2(moveX, moveY).normalized, ForceMode2D.Force);
         }
         else
         {
-            rbody.AddForce(0.5f * -speed * new Vector2(moveX, moveY).normalized, ForceMode2D.Force);
+            rbody.AddForce(0.5f * speed * new Vector2(moveX, moveY).normalized, ForceMode2D.Force);
         }
     }
 }
