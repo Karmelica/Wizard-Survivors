@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     {
         enemyMoveX = transform.position.x;
         enemyMoveY = transform.position.y;
-        rbody2D.AddForce(0.5f * -speed * new Vector2(enemyMoveX, enemyMoveY).normalized, ForceMode2D.Force);
+        rbody2D.AddForce(0.5f * -speed * new Vector2(enemyMoveX - player.position.x, enemyMoveY - player.position.y).normalized, ForceMode2D.Force);
     }
 
 
