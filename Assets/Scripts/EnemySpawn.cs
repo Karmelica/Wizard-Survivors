@@ -2,7 +2,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawn : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
     
