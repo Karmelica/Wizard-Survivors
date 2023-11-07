@@ -51,7 +51,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pfFireball: {fileID: 1805113043313996540, guid: 4d5757ce760acde4ea58884b71c65f8b, type: 3}
   player: {fileID: 4007742114265204684}
-  shoot: 317
 --- !u!114 &7182158682728169412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +65,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rbody: {fileID: 0}
   speed: 5
+  isDashing: 0
 --- !u!50 &3981570110704479562
 Rigidbody2D:
   serializedVersion: 4
@@ -131,7 +131,6 @@ GameObject:
   - component: {fileID: 58236835569276629}
   - component: {fileID: 5587131848458238446}
   - component: {fileID: 6543951413038812596}
-  - component: {fileID: 6876393984217693974}
   m_Layer: 3
   m_Name: Fox
   m_TagString: Player
@@ -269,15 +268,3 @@ PolygonCollider2D:
       - {x: 0.13944122, y: 0.0928733}
       - {x: 0.10336028, y: 0.1143526}
   m_UseDelaunayMesh: 0
---- !u!114 &6876393984217693974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8496611021690434858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41ff46c7999db7840b521a99fb4a1c95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
