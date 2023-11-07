@@ -5,7 +5,6 @@ public class Projectile : MonoBehaviour
     [SerializeField]
 
     public GameObject player;
-    public EnemySpawner spawner;
     public Rigidbody2D body;
 
     [SerializeField]
@@ -19,7 +18,7 @@ public class Projectile : MonoBehaviour
     {
         Destroy(collision.gameObject);
         Destroy(gameObject);
-        EnemySpawner.spawned--;
+        EnemySpawn.spawned--;
 
     }
     void MousePos()
@@ -33,7 +32,6 @@ public class Projectile : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        spawner = EnemySpawner.FindObjectOfType<EnemySpawner>();
         MousePos();
         body = GetComponent<Rigidbody2D>();
         body.AddForce(2f * (new Vector2(mousePosX, mousePosY)).normalized, ForceMode2D.Impulse);

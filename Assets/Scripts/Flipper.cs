@@ -10,11 +10,11 @@ public class Flipper : MonoBehaviour
     {
         if (player.transform.position.x <= transform.position.x)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else
         {
-            transform.localScale = Vector3.one;
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         }
     }
     // Start is called before the first frame update
