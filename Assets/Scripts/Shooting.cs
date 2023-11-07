@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -13,7 +12,7 @@ public class Shooting : MonoBehaviour
 
     void Fireball()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(1))
         {
             Instantiate(pfFireball, player.transform.position, Quaternion.identity);
         }
@@ -22,7 +21,7 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         player = GameObject.FindGameObjectWithTag("Player");
         Cursor.lockState = CursorLockMode.Confined;
     }

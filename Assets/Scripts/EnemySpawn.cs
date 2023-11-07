@@ -1,11 +1,10 @@
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
-    
+
     public float spawnRate = 1f;
     private bool canSpawn = true;
     public static int spawned = 0;
