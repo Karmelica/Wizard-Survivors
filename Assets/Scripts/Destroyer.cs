@@ -19,7 +19,7 @@ public class Destroyer : MonoBehaviour
     void Update()
     {
         time -= Time.deltaTime;
-        if(time <= 0)
+        if (time <= 0)
         {
             Destroy(gameObject);
         }

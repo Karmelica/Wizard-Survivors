@@ -1,14 +1,16 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
+    [Header("KeyBinds")]
+
+    public KeyCode attack = KeyCode.Space;
+
     [SerializeField]
     private Transform pfSlash;
     public float cooldown = 3f;
     private float cooldownOne = 0f;
 
-    private
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,7 @@ public class Attack : MonoBehaviour
     void Update()
     {
         cooldownOne -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Space) && cooldownOne <= 0f)
+        if (Input.GetKeyDown(attack) && cooldownOne <= 0f)
         {
             cooldownOne = cooldown;
             if (transform.rotation.y == 0)
