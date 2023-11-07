@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -5,7 +6,7 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     private Transform pfFireball;
 
-    public Transform player;
+    public GameObject player;
     [Header("Controls")]
 
     public KeyCode Shoot = KeyCode.Mouse0;
@@ -21,6 +22,8 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        player = GameObject.FindGameObjectWithTag("Player");
         Cursor.lockState = CursorLockMode.Confined;
     }
 
