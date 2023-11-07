@@ -4,7 +4,7 @@ public class Enemy : MonoBehaviour
 {
 
     [Header("Properties")]
-    public Transform player;
+    public GameObject player;
     public Rigidbody2D rbody2D;
 
     [Header("Ruch")]
@@ -18,14 +18,14 @@ public class Enemy : MonoBehaviour
     {
         enemyMoveX = transform.position.x;
         enemyMoveY = transform.position.y;
-        rbody2D.AddForce(0.5f * -speed * new Vector2(enemyMoveX - player.position.x, enemyMoveY - player.position.y).normalized, ForceMode2D.Force);
+        rbody2D.AddForce(0.5f * -speed * new Vector2(enemyMoveX - player.transform.position.x, enemyMoveY - player.transform.position.y).normalized, ForceMode2D.Force);
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        player = GameObject.FindGameObjectWithTag("Player");
         rbody2D = GetComponent<Rigidbody2D>();
     }
 

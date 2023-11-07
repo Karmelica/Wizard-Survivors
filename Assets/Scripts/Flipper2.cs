@@ -3,23 +3,21 @@ using UnityEngine;
 public class Flipper2 : MonoBehaviour
 {
     [SerializeField]
-    private SpriteRenderer spriteRenderer;
-
     void Flip()
     {
         if (Input.GetAxis("Horizontal") < 0)
         {
-            spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         if (Input.GetAxis("Horizontal") > 0)
         {
-            spriteRenderer.flipX = false;
+            transform.localScale = Vector3.one;
         }
     }
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame

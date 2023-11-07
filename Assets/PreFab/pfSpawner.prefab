@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5722047476007890143}
   - component: {fileID: 8520477399676140931}
   m_Layer: 7
-  m_Name: Spawner
+  m_Name: pfSpawner
   m_TagString: Spawner
   m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0

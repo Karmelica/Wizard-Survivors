@@ -4,21 +4,23 @@ public class Flipper : MonoBehaviour
 {
     [SerializeField]
     private SpriteRenderer spriteRenderer;
+    private GameObject player;
 
     void Flip()
     {
-        if (transform.position.x >= 0)
+        if (player.transform.position.x <= transform.position.x)
         {
-            spriteRenderer.flipX = true;
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else
         {
-            spriteRenderer.flipX = false;
+            transform.localScale = Vector3.one;
         }
     }
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 

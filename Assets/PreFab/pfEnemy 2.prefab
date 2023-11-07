@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0e04454e2ed39b44aa5ace36d046eb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
+  spriteRenderer: {fileID: 1334657797533268363}
 --- !u!60 &10497552523500121
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -221,7 +221,7 @@ GameObject:
   - component: {fileID: 6779059546134093130}
   - component: {fileID: 5915956735069033738}
   m_Layer: 6
-  m_Name: Enemy 2
+  m_Name: pfEnemy 2
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
