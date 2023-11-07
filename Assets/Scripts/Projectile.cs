@@ -8,7 +8,7 @@ public class Projectile : MonoBehaviour
     public Rigidbody2D body;
 
     [SerializeField]
-    
+
     private Vector3 mousePos;
     private float mousePosX;
     private float mousePosY;

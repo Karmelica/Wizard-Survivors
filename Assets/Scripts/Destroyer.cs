@@ -14,4 +14,9 @@ public class Destroyer : MonoBehaviour
     {
 
     }
+
+    void Update()
+    {
+
+    }
 }

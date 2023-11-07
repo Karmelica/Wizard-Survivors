@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class TimeManager : MonoBehaviour
 {
     public UnityEvent GPaused;
-    
+
     public UnityEvent GResumed;
 
     private bool Paused;
@@ -23,7 +21,7 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape)) 
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Paused = !Paused;
 
@@ -31,7 +29,7 @@ public class TimeManager : MonoBehaviour
             if (Paused)
             {
                 Time.timeScale = 0;
-                PauseScreen.SetActive(true); 
+                PauseScreen.SetActive(true);
             }
             else
             {
