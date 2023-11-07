@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8312725919517191994}
   - component: {fileID: 8688065144649469187}
   - component: {fileID: 1489041093670801614}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Sword
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -75,7 +75,8 @@ GameObject:
   - component: {fileID: 1606203354687382714}
   - component: {fileID: 1359682402112210924}
   - component: {fileID: 93198732565777822}
-  m_Layer: 0
+  - component: {fileID: 1360930638564606403}
+  m_Layer: 9
   m_Name: AnimSprite
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -215,3 +216,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1360930638564606403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269254829236921439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8ba8cd5d83d5e6458aaece7bfce4e50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawner: {fileID: 0}
