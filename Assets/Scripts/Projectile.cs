@@ -19,7 +19,7 @@ public class Projectile : MonoBehaviour
     {
         Destroy(collision.gameObject);
         Destroy(gameObject);
-        spawner.spawned--;
+        EnemySpawner.spawned--;
 
     }
     void MousePos()

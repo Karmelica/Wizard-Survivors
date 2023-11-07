@@ -5,11 +5,11 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
-
+    
     public float spawnRate = 1f;
     private bool canSpawn = true;
-    public int spawned = 0;
-    private int spawnMax = 5;
+    public static int spawned = 0;
+    private int spawnMax = 10;
     private bool oneTime = false;
     private void Start()
     {
