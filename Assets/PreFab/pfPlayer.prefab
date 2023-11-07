@@ -51,7 +51,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pfFireball: {fileID: 1805113043313996540, guid: 4d5757ce760acde4ea58884b71c65f8b, type: 3}
   player: {fileID: 4007742114265204684}
-  Shoot: 323
+  shoot: 317
 --- !u!114 &7182158682728169412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,7 +117,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7723341378304f44095bb5bcf9ea8c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attack: 32
   pfSlash: {fileID: 2313812488302209286, guid: c5f93bd4380a9764d9ea10c6d3cc473e, type: 3}
+  cooldown: 3
 --- !u!1 &8496611021690434858
 GameObject:
   m_ObjectHideFlags: 0

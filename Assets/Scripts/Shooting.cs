@@ -4,11 +4,7 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField]
     private Transform pfFireball;
-
     public GameObject player;
-    [Header("Controls")]
-
-    public KeyCode Shoot = KeyCode.Mouse0;
 
     void Fireball()
     {

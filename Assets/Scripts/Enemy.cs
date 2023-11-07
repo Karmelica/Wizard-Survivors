@@ -12,6 +12,9 @@ public class Enemy : MonoBehaviour
     private float enemyMoveX;
     private float enemyMoveY;
 
+    [SerializeField]
+    public float despawnTime = 60f;
+
 
 
     void EnemyMove()
@@ -33,5 +36,15 @@ public class Enemy : MonoBehaviour
     void FixedUpdate()
     {
         EnemyMove();
+    }
+
+    void Update()
+    {
+        despawnTime -= Time.deltaTime;
+        if (despawnTime < 0)
+        {
+            Destroy(gameObject);
+            EnemySpawn.spawned--;
+        }
     }
 }

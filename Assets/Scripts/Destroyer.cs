@@ -3,6 +3,7 @@ using UnityEngine;
 public class Destroyer : MonoBehaviour
 {
     [SerializeField]
+    private float time = 3f;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -17,6 +18,10 @@ public class Destroyer : MonoBehaviour
 
     void Update()
     {
-
+        time -= Time.deltaTime;
+        if (time <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
