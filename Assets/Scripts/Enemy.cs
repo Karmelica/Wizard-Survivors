@@ -6,7 +6,8 @@ public class Enemy : MonoBehaviour
     [Header("Properties")]
     public GameObject player;
     public Rigidbody2D rbody2D;
-    static public int enemyDmg = 2;
+
+    static public int enemyDmg = 25;
     static public int enemyExp = 2;
 
     [Header("Ruch")]
