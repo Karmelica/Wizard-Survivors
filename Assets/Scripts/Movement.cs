@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Threading;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -6,19 +7,20 @@ public class Movement : MonoBehaviour
     private float moveX;
     private float moveY;
     private Rigidbody2D rbody;
+    public Collider2D collider2d;
 
     [Header("Ruch")]
     public float speed = 5;
     static public float dashCooldown = 5f;
     public bool isDashing = false;
 
-    void OnCollisionEnter2D(Collision2D collison)
-    {
-        if (isDashing)
-        {
-            Destroy(collison.gameObject);
-        }
-    }
+    //void OnCollisionEnter2D(Collision2D collison)
+    //{
+    //    if (isDashing)
+    //    {
+    //        Destroy(collison.gameObject);
+    //    }
+    //}
     void Dash()
     {
         isDashing = true;
@@ -35,6 +37,7 @@ public class Movement : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody2D>();
         rbody.freezeRotation = true;
+        dashCooldown = 0f;
     }
 
     // Update is called once per frame
@@ -53,6 +56,16 @@ public class Movement : MonoBehaviour
     }
     void Update()
     {
+        if (isDashing)
+        {
+            collider2d.isTrigger = true;
+        }
+        else if (!isDashing)
+        {
+            collider2d.isTrigger = false;
+        }
+        
+
         dashCooldown -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown <= 0)
         {

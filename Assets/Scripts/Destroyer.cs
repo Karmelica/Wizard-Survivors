@@ -9,6 +9,7 @@ public class Destroyer : MonoBehaviour
     {
         Destroy(collision.gameObject);
         EnemySpawn.spawned--;
+        Stats.exp++;
     }
 
     void Start()

@@ -6,12 +6,9 @@ public class Enemy : MonoBehaviour
     [Header("Properties")]
     public GameObject player;
     public Rigidbody2D rbody2D;
-<<<<<<< Updated upstream
-    static public int enemyDmg = 2;
-=======
+
     static public int enemyDmg = 25;
     static public int enemyExp = 2;
->>>>>>> Stashed changes
 
     [Header("Ruch")]
     public float speed = 4;
@@ -22,6 +19,15 @@ public class Enemy : MonoBehaviour
     public float despawnTime = 60f;
 
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+            EnemySpawn.spawned--;
+            Stats.exp++;
+        }
+    }
 
     void EnemyMove()
     {
