@@ -1,20 +1,20 @@
-using System.Runtime.CompilerServices;
+using System.Collections;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-
-    [Header("Ruch")]
-    public Rigidbody2D rbody;
-    public float speed = 5;
     private float moveX;
     private float moveY;
+    private Rigidbody2D rbody;
+
+    [Header("Ruch")]
+    public float speed = 5;
     private float dashCooldown = 5f;
     public bool isDashing = false;
 
     void OnCollisionEnter2D(Collision2D collison)
     {
-        if (isDashing && dashCooldown >= 4f)
+        if (isDashing)
         {
             Destroy(collison.gameObject);
         }
@@ -44,13 +44,19 @@ public class Movement : MonoBehaviour
         rbody.AddForce(0.5f * speed * new Vector2(moveX, moveY).normalized, ForceMode2D.Force);
     }
 
+    IEnumerator DashHandler()
+    {
+        dashCooldown = 5f;
+        Dash();
+        yield return new WaitForSeconds(1.5f);
+        isDashing = false;
+    }
     void Update()
     {
         dashCooldown -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown <= 0)
         {
-            dashCooldown = 5f;
-            Dash();
+            StartCoroutine(DashHandler());
         }
     }
 }
