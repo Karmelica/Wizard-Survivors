@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [Header("Properties")]
     public GameObject player;
     public Rigidbody2D rbody2D;
+    static public int enemyDmg = 2;
 
     [Header("Ruch")]
     public float speed = 4;
