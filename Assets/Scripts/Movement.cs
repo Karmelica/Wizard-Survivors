@@ -37,6 +37,7 @@ public class Movement : MonoBehaviour
     {
         rbody = GetComponent<Rigidbody2D>();
         rbody.freezeRotation = true;
+        dashCooldown = 0f;
     }
 
     // Update is called once per frame

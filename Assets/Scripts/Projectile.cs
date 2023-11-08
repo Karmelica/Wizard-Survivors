@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 
     public GameObject player;
     public Rigidbody2D body;
+    public Stats stats;
 
     [SerializeField]
 
@@ -19,7 +20,7 @@ public class Projectile : MonoBehaviour
         Destroy(collision.gameObject);
         Destroy(gameObject);
         EnemySpawn.spawned--;
-
+        Stats.exp++;
     }
     void MousePos()
     {
