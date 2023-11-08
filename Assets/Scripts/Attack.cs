@@ -8,8 +8,7 @@ public class Attack : MonoBehaviour
 
     [SerializeField]
     private Transform pfSlash;
-    public float cooldown = 3f;
-    private float cooldownOne = 0f;
+    static public float attackCooldown = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,10 +19,10 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        cooldownOne -= Time.deltaTime;
-        if (Input.GetKeyDown(attack) && cooldownOne <= 0f)
+        attackCooldown -= Time.deltaTime;
+        if (Input.GetKeyDown(attack) && attackCooldown <= 0f)
         {
-            cooldownOne = cooldown;
+            attackCooldown = 3f;
             if (transform.rotation.y == 0)
             {
                 Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0), transform.rotation);

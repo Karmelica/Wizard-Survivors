@@ -10,10 +10,12 @@ public class TimeManager : MonoBehaviour
     private bool Paused;
 
     public GameObject PauseScreen;
+    public GameObject GameOverScreen;
 
     // Start is called before the first frame update
     void Start()
     {
+        GameOverScreen.SetActive(false);
         PauseScreen.SetActive(false);
         Time.timeScale = 1;
     }
@@ -36,6 +38,12 @@ public class TimeManager : MonoBehaviour
                 Time.timeScale = 1;
                 PauseScreen.SetActive(false);
             }
+        }
+
+        if (Stats.currentHp <= 0)
+        {
+            Time.timeScale = 0;
+            GameOverScreen.SetActive(true);
         }
     }
 }

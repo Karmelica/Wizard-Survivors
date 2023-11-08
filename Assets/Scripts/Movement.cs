@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
 
     [Header("Ruch")]
     public float speed = 5;
-    private float dashCooldown = 5f;
+    static public float dashCooldown = 5f;
     public bool isDashing = false;
 
     void OnCollisionEnter2D(Collision2D collison)

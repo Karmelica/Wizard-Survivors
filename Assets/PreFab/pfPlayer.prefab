@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3981570110704479562}
   - component: {fileID: 6239264353647156424}
   - component: {fileID: -4347809588913682561}
+  - component: {fileID: 5571546035917568139}
   m_Layer: 3
   m_Name: pfPlayer
   m_TagString: Player
@@ -63,7 +64,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b149c1ce6677a1241bcac19ae7b74318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rbody: {fileID: 0}
   speed: 5
   isDashing: 0
 --- !u!50 &3981570110704479562
@@ -119,7 +119,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attack: 32
   pfSlash: {fileID: 2313812488302209286, guid: c5f93bd4380a9764d9ea10c6d3cc473e, type: 3}
-  cooldown: 3
+--- !u!114 &5571546035917568139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4126212245634156363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90a939e0c8b472544b4c9da7b45a0cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8496611021690434858
 GameObject:
   m_ObjectHideFlags: 0
