@@ -5,10 +5,8 @@ public class CooldownUI : MonoBehaviour
 {
 
     [SerializeField]
-    public GameObject dash;
-    public GameObject attack;
-    private TextMeshProUGUI DashCooldown;
-    private TextMeshProUGUI AttackCooldown;
+    public TextMeshProUGUI DashCooldown;
+    public TextMeshProUGUI AttackCooldown;
 
     private int dashCooldownInt;
     private int attackCooldownInt;
@@ -16,8 +14,6 @@ public class CooldownUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        DashCooldown = dash.GetComponent<TextMeshProUGUI>();
-        AttackCooldown = attack.GetComponent<TextMeshProUGUI>();
 
     }
 

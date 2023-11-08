@@ -134,7 +134,6 @@ GameObject:
   - component: {fileID: 102018138}
   - component: {fileID: 102018141}
   - component: {fileID: 102018140}
-  - component: {fileID: 102018139}
   m_Layer: 5
   m_Name: dashCooldown
   m_TagString: Untagged
@@ -161,20 +160,6 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: -150}
   m_SizeDelta: {x: 436.4768, y: 60.1663}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &102018139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 102018137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 732576265196224448f4565be8038fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dash: {fileID: 0}
-  attack: {fileID: 0}
 --- !u!114 &102018140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1216,7 +1201,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -115.83948, y: 244.18002}
+  m_AnchoredPosition: {x: -115.839355, y: 244.18005}
   m_SizeDelta: {x: 191.33997, y: 96.83038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &529798898
@@ -1653,6 +1638,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 322434922}
   - {fileID: 2114521960}
   - {fileID: 1123608243}
   - {fileID: 1424046683}
@@ -1664,7 +1650,6 @@ RectTransform:
   - {fileID: 1237269826}
   - {fileID: 102018138}
   - {fileID: 1705200334}
-  - {fileID: 322434922}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1684,8 +1669,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 732576265196224448f4565be8038fe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dash: {fileID: 102018137}
-  attack: {fileID: 1705200333}
+  DashCooldown: {fileID: 102018140}
+  AttackCooldown: {fileID: 1705200336}
 --- !u!4 &733896609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8318878717862590523, guid: cc82fe2d19d803c4e902a9928e0a68b8, type: 3}
@@ -1833,7 +1818,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -116.99963, y: 152.28003}
+  m_AnchoredPosition: {x: -116.99951, y: 152.28003}
   m_SizeDelta: {x: 191.33997, y: 96.83038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &918647111
@@ -2386,7 +2371,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -115.83948, y: 335.58002}
+  m_AnchoredPosition: {x: -115.839355, y: 335.58008}
   m_SizeDelta: {x: 191.33997, y: 96.83038}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1237269827
@@ -2792,6 +2777,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1457586446}
     - target: {fileID: 3981570110704479562, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3981570110704479562, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: m_Constraints
       value: 4
       objectReference: {fileID: 0}
@@ -2863,6 +2852,10 @@ PrefabInstance:
       propertyPath: speed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 7182158682728169412, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
+      propertyPath: collider2d
+      value: 
+      objectReference: {fileID: 1903124894}
     - target: {fileID: 8481728264441104254, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: spawner
       value: 
@@ -3462,6 +3455,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5722047476007890143, guid: 3b886ce8f8447994b93e6acd360e34c9, type: 3}
   m_PrefabInstance: {fileID: 1366663468}
+  m_PrefabAsset: {fileID: 0}
+--- !u!60 &1903124894 stripped
+PolygonCollider2D:
+  m_CorrespondingSourceObject: {fileID: 6543951413038812596, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
+  m_PrefabInstance: {fileID: 1428496171}
   m_PrefabAsset: {fileID: 0}
 --- !u!50 &1943610501 stripped
 Rigidbody2D:
