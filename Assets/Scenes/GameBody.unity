@@ -3117,15 +3117,13 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5571546035917568139, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
-
+      propertyPath: 
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5571546035917568139, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: maxHp
       value: 1000
       objectReference: {fileID: 0}
-    - target: {fileID: 5571546035917568139, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
-
-      propertyPath: expBar
-      value: 
-      objectReference: {fileID: 319873181}
     - target: {fileID: 5571546035917568139, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: healthBar
       value: 
