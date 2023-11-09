@@ -1,20 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class CursorCustom : MonoBehaviour
+public class CursorCustomized : MonoBehaviour
 {
-    private float mousePos;
+    private Vector2 mousePos;
 
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Cursor.visible = false;
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = mousePos;
     }
 }
