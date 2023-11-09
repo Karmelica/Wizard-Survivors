@@ -21,7 +21,6 @@ public class Shooting : MonoBehaviour
     {
         fireballCooldown = 0f;
         player = GameObject.FindGameObjectWithTag("Player");
-        Cursor.lockState = CursorLockMode.Confined;
     }
 
     // Update is called once per frame
