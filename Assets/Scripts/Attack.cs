@@ -13,7 +13,7 @@ public class Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        attackCooldown = 0f;
     }
 
     // Update is called once per frame

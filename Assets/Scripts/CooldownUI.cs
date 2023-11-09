@@ -1,15 +1,18 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CooldownUI : MonoBehaviour
 {
 
     [SerializeField]
-    public TextMeshProUGUI DashCooldown;
-    public TextMeshProUGUI AttackCooldown;
+    public Image FireballCooldown;
+    public Image DashCooldown;
+    public Image AttackCooldown;
 
     private int dashCooldownInt;
     private int attackCooldownInt;
+    private int fireballCooldownInt;
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +26,8 @@ public class CooldownUI : MonoBehaviour
         if (Movement.dashCooldown > 0f)
         {
             DashCooldown.enabled = true;
-
             dashCooldownInt = Mathf.RoundToInt(Movement.dashCooldown);
-            DashCooldown.text = ("Dash cooldown: " + dashCooldownInt.ToString());
+            DashCooldown.fillAmount = Movement.dashCooldown / 5f;
         }
         else
         {
@@ -36,11 +38,22 @@ public class CooldownUI : MonoBehaviour
         {
             AttackCooldown.enabled = true;
             attackCooldownInt = Mathf.RoundToInt(Attack.attackCooldown);
-            AttackCooldown.text = ("Attack cooldown: " + attackCooldownInt.ToString());
+            AttackCooldown.fillAmount = Attack.attackCooldown / 3f;
         }
         else
         {
             AttackCooldown.enabled = false;
+        }
+
+        if (Shooting.fireballCooldown > 0f)
+        {
+            FireballCooldown.enabled = true;
+            fireballCooldownInt = Mathf.RoundToInt(Shooting.fireballCooldown);
+            FireballCooldown.fillAmount = Shooting.fireballCooldown / 1f;
+        }
+        else
+        {
+            FireballCooldown.enabled = false;
         }
     }
 }
