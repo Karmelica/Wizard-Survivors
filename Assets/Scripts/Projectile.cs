@@ -18,9 +18,10 @@ public class Projectile : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(collision.gameObject);
+        ExpManager.Instance.AddExp(Enemy.enemyExp);
         Destroy(gameObject);
         EnemySpawn.spawned--;
-        Stats.exp++;
+
     }
     void MousePos()
     {
@@ -32,6 +33,8 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<ExpManager>();
+        GetComponent<Enemy>();
         player = GameObject.FindGameObjectWithTag("Player");
         MousePos();
         body = GetComponent<Rigidbody2D>();
