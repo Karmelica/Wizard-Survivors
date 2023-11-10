@@ -17,6 +17,7 @@ public class Stats : MonoBehaviour
     [Header("Components")]
     public HealthBar healthBar;
     public ExpBar expBar;
+    public LevelCounter levelCounter;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -65,6 +66,8 @@ public class Stats : MonoBehaviour
 
         currentExp = 0;
         maxExp += 100;
+
+        levelCounter.LevelCount(currentLevel);
     }
 
     public void GainExp()
