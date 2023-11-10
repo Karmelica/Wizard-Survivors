@@ -56,7 +56,7 @@ public class Movement : MonoBehaviour
     {
         dashCooldown = 5f;
         Dash();
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1);
         tr.emitting = false;
         isDashing = false;
     }
