@@ -6,7 +6,9 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
     [Header("Stats")]
-    public int maxHp = 100;
+    public int maxHp = 20;
+    public int maxExp = 100;
+    public int currentLevel = 1;
     public static int exp = 0;
     public int playerDmg = 1;
     static public int currentHp;
@@ -15,7 +17,7 @@ public class Stats : MonoBehaviour
     [Header("Components")]
     public HealthBar healthBar;
     public ExpBar expBar;
-
+    public LevelCounter levelCounter;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -31,12 +33,49 @@ public class Stats : MonoBehaviour
         healthBar.SetHealth(currentHp);
     }
 
+    private void OnEnable()
+    {
+        ExpManager.Instance.ExpChange += HandleExpChange;
+    }
+
+    private void OnDisable()
+    {
+        ExpManager.Instance.ExpChange -= HandleExpChange;
+    }
+
+
+    public void HandleExpChange(int newExp)
+    {
+        currentExp += newExp;
+        
+        expBar.SetExp(currentExp);
+        expBar.MaxExp(maxExp);
+
+        if (currentExp >= maxExp) 
+        {
+            LevelUp();
+        }
+    }
+
+    private void LevelUp()
+    {
+        maxHp += 10;
+        currentHp = maxHp;
+
+        currentLevel++;
+
+        currentExp = 0;
+        maxExp += 100;
+
+        levelCounter.LevelCount(currentLevel);
+    }
+
     public void GainExp()
     {
         if (exp >= currentExp)
         {
             currentExp = exp;
-            expBar.SetExp(currentExp);
+            
         }
     }
 

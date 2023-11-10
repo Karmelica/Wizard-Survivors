@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rbody2D;
 
     static public int enemyDmg = 25;
-    static public int enemyExp = 2;
+    static public int enemyExp = 100;
 
     [Header("Ruch")]
     public float speed = 4;
@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
         {
             Destroy(gameObject);
             EnemySpawn.spawned--;
-            Stats.exp++;
+            ExpManager.Instance.AddExp(enemyExp);
         }
     }
 
