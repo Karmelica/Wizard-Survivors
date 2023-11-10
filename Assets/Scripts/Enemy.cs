@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [Header("Properties")]
     public GameObject player;
     public Rigidbody2D rbody2D;
+    public CoinDrop coinDrop;
 
     static public int enemyDmg = 25;
     static public int enemyExp = 100;
@@ -26,6 +27,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             EnemySpawn.spawned--;
             ExpManager.Instance.AddExp(enemyExp);
+            coinDrop.Drop();
         }
     }
 

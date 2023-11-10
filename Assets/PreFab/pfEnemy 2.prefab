@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: 8020632464414137212}
   - component: {fileID: 6779059546134093130}
   - component: {fileID: 5915956735069033738}
+  - component: {fileID: 1219204895510423524}
   m_Layer: 6
   m_Name: pfEnemy 2
   m_TagString: Enemy
@@ -284,5 +285,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4007742114265204684, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
   rbody2D: {fileID: 0}
+  coinDrop: {fileID: 1219204895510423524}
   speed: 5
   despawnTime: 60
+--- !u!114 &1219204895510423524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7026042985259673346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03131f02ca824fd4fa29766f45080889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coin: {fileID: 5321820179275007038, guid: 10a0a070277e50e4ab6b249cdf8e4485, type: 3}
+  tr: {fileID: 8020632464414137212}
