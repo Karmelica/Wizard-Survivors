@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -21,7 +22,6 @@ public class Projectile : MonoBehaviour
         ExpManager.Instance.AddExp(Enemy.enemyExp);
         Destroy(gameObject);
         EnemySpawn.spawned--;
-
     }
     void MousePos()
     {

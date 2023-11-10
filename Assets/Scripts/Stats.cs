@@ -9,6 +9,7 @@ public class Stats : MonoBehaviour
     public int maxHp = 20;
     public int maxExp = 100;
     public int currentLevel = 1;
+    public int currentCoins;
     public static int exp = 0;
     public int playerDmg = 1;
     static public int currentHp;
@@ -24,6 +25,11 @@ public class Stats : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             TakeDamage(Enemy.enemyDmg);
+        }
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            Destroy(collision.gameObject);
+            currentCoins++;
         }
     }
 

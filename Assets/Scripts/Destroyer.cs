@@ -10,11 +10,11 @@ public class Destroyer : MonoBehaviour
         Destroy(collision.gameObject);
         EnemySpawn.spawned--;
         ExpManager.Instance.AddExp(Enemy.enemyExp);
+
     }
 
     void Start()
     {
-
     }
 
     void Update()
