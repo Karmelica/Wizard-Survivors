@@ -6,6 +6,9 @@ public class Movement : MonoBehaviour
 {
     private float moveX;
     private float moveY;
+
+    [SerializeField]
+    private TrailRenderer tr;
     private Rigidbody2D rbody;
     public Collider2D collider2d;
 
@@ -24,6 +27,7 @@ public class Movement : MonoBehaviour
     void Dash()
     {
         isDashing = true;
+        tr.emitting = true;
         rbody.AddForce(speed * new Vector2(moveX, moveY).normalized, ForceMode2D.Impulse);
     }
     void MyInput()
@@ -35,6 +39,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tr = GetComponent<TrailRenderer>();
         rbody = GetComponent<Rigidbody2D>();
         rbody.freezeRotation = true;
         dashCooldown = 0f;
@@ -52,6 +57,7 @@ public class Movement : MonoBehaviour
         dashCooldown = 5f;
         Dash();
         yield return new WaitForSeconds(1.5f);
+        tr.emitting = false;
         isDashing = false;
     }
     void Update()
