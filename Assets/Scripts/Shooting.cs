@@ -5,13 +5,15 @@ public class Shooting : MonoBehaviour
     [SerializeField]
     private Transform pfFireball;
     public GameObject player;
-    static public float fireballCooldown = 1f;
+    public float setFireballCooldown = 1f;
+    static public float fireballCooldown;
+    static public float uiFireballCooldown;
 
     void Fireball()
     {
         if (Input.GetMouseButtonDown(1) && fireballCooldown <= 0f)
         {
-            fireballCooldown = 1f;
+            fireballCooldown = setFireballCooldown;
             Instantiate(pfFireball, player.transform.position, Quaternion.identity);
         }
     }
@@ -19,6 +21,7 @@ public class Shooting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        uiFireballCooldown = setFireballCooldown;
         fireballCooldown = 0f;
         player = GameObject.FindGameObjectWithTag("Player");
     }

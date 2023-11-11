@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,37 +22,11 @@ public class CooldownUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Movement.dashCooldown > 0f)
-        {
-            DashCooldown.enabled = true;
-            dashCooldownInt = Mathf.RoundToInt(Movement.dashCooldown);
-            DashCooldown.fillAmount = Movement.dashCooldown / 5f;
-        }
-        else
-        {
-            DashCooldown.enabled = false;
-        }
+        DashCooldown.fillAmount = Movement.dashCooldown / Movement.uiDashCooldown;
 
-        if (Attack.attackCooldown > 0f)
-        {
-            AttackCooldown.enabled = true;
-            attackCooldownInt = Mathf.RoundToInt(Attack.attackCooldown);
-            AttackCooldown.fillAmount = Attack.attackCooldown / 3f;
-        }
-        else
-        {
-            AttackCooldown.enabled = false;
-        }
+        AttackCooldown.fillAmount = Attack.attackCooldown / Attack.uiAttackCooldown;
 
-        if (Shooting.fireballCooldown > 0f)
-        {
-            FireballCooldown.enabled = true;
-            fireballCooldownInt = Mathf.RoundToInt(Shooting.fireballCooldown);
-            FireballCooldown.fillAmount = Shooting.fireballCooldown / 1f;
-        }
-        else
-        {
-            FireballCooldown.enabled = false;
-        }
+        FireballCooldown.fillAmount = Shooting.fireballCooldown / Shooting.uiFireballCooldown;
+
     }
 }
