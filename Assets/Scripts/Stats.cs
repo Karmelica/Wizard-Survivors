@@ -1,6 +1,3 @@
-using System.Diagnostics.Tracing;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
-using UnityEditor;
 using UnityEngine;
 
 public class Stats : MonoBehaviour
@@ -20,7 +17,7 @@ public class Stats : MonoBehaviour
     public ExpBar expBar;
     public LevelCounter levelCounter;
 
-    
+
 
 
     private void OnTriggerEnter(Collider other)
@@ -67,11 +64,11 @@ public class Stats : MonoBehaviour
     public void HandleExpChange(int newExp)
     {
         currentExp += newExp;
-        
+
         expBar.SetExp(currentExp);
         expBar.MaxExp(maxExp);
 
-        if (currentExp >= maxExp) 
+        if (currentExp >= maxExp)
         {
             LevelUp();
         }
@@ -97,7 +94,7 @@ public class Stats : MonoBehaviour
         if (exp >= currentExp)
         {
             currentExp = exp;
-            
+
         }
     }
 

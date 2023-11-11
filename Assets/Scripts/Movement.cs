@@ -1,7 +1,5 @@
 using System.Collections;
-using System.Threading;
 using UnityEngine;
-using UnityEngine.Assertions.Must;
 
 public class Movement : MonoBehaviour
 {
@@ -15,7 +13,9 @@ public class Movement : MonoBehaviour
 
     [Header("Ruch")]
     public float speed = 5;
-    static public float dashCooldown = 5f;
+    static public float dashCooldown;
+    static public float uiDashCooldown;
+    public float setDashCooldown = 5f;
     public bool isDashing = false;
 
     void Flip()
@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
     }
     IEnumerator DashHandler()
     {
-        dashCooldown = 5f;
+        dashCooldown = setDashCooldown;
         Dash();
         yield return new WaitForSeconds(1);
         trailRenderer.GetComponent<TrailRenderer>().emitting = false;
@@ -55,6 +55,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        uiDashCooldown = setDashCooldown;
         rbody = GetComponent<Rigidbody2D>();
         rbody.freezeRotation = true;
         dashCooldown = 0f;
@@ -80,7 +81,7 @@ public class Movement : MonoBehaviour
         {
             collider2d.isTrigger = false;
         }
-        
+
 
         dashCooldown -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown <= 0)
