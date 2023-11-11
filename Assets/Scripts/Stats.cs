@@ -38,6 +38,10 @@ public class Stats : MonoBehaviour
                 TakeDamage(Enemy.enemyDmg);
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("Coin"))
         {
             Destroy(collision.gameObject);
@@ -45,7 +49,7 @@ public class Stats : MonoBehaviour
         }
     }
 
-    
+
     void TakeDamage(int damage)
     {
         currentHp -= damage;
