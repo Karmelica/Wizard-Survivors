@@ -10,8 +10,6 @@ public class ExpBar : MonoBehaviour
     {
         slider.minValue = exp;
         slider.value = exp;
-
-
     }
 
     public void MaxExp(int exp)

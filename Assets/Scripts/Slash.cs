@@ -1,13 +1,15 @@
 using UnityEngine;
 
-public class Destroyer : MonoBehaviour
+public class Slash : MonoBehaviour
 {
     [SerializeField]
-    private float time = 3f;
+    private float time = 2f;
+    static public int heal = 1;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(collision.gameObject);
+        Stats.currentHp += heal;
         EnemySpawn.spawned--;
         ExpManager.Instance.AddExp(Enemy.enemyExp);
 

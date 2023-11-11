@@ -1,23 +1,24 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Stats : MonoBehaviour
 {
     [Header("Stats")]
-    public int maxHp = 20;
+    static public int maxHp = 20;
+    static public int currentHp;
+    public static int exp = 0;
     public int maxExp = 100;
+    public int currentExp;
     public int currentLevel = 1;
     public int currentCoins;
-    public static int exp = 0;
     public int playerDmg = 1;
-    static public int currentHp;
-    public int currentExp;
 
     [Header("Components")]
+    public TextMeshProUGUI textMeshHP;
     public HealthBar healthBar;
     public ExpBar expBar;
     public LevelCounter levelCounter;
-
-
 
 
     private void OnTriggerEnter(Collider other)
@@ -44,6 +45,7 @@ public class Stats : MonoBehaviour
         }
     }
 
+    
     void TakeDamage(int damage)
     {
         currentHp -= damage;
@@ -77,7 +79,8 @@ public class Stats : MonoBehaviour
     private void LevelUp()
     {
         maxHp += 10;
-        Enemy.enemyDmg += 2;
+        Slash.heal++;
+        Enemy.enemyDmg++;
         currentHp = maxHp;
 
         currentLevel++;
@@ -87,6 +90,7 @@ public class Stats : MonoBehaviour
 
         levelCounter.LevelCount(currentLevel);
         healthBar.SetMaxHealth(maxHp);
+        expBar.SetStartExp(currentExp);
     }
 
     public void GainExp()
@@ -94,7 +98,6 @@ public class Stats : MonoBehaviour
         if (exp >= currentExp)
         {
             currentExp = exp;
-
         }
     }
 
@@ -110,6 +113,7 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        textMeshHP.text = currentHp + "/" + maxHp;
         GainExp();
     }
 }
