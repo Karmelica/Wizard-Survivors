@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Threading;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 public class Movement : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class Movement : MonoBehaviour
     private float moveY;
 
     [SerializeField]
-    private TrailRenderer tr;
+    public GameObject trailRenderer;
     private Rigidbody2D rbody;
     public Collider2D collider2d;
 
@@ -17,17 +18,32 @@ public class Movement : MonoBehaviour
     static public float dashCooldown = 5f;
     public bool isDashing = false;
 
-    //void OnCollisionEnter2D(Collision2D collison)
-    //{
-    //    if (isDashing)
-    //    {
-    //        Destroy(collison.gameObject);
-    //    }
-    //}
+    void Flip()
+    {
+        if (Input.GetAxis("Horizontal") < 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 180, 0);
+            trailRenderer.transform.position = transform.position + new Vector3(0, 0, 1f);
+        }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            trailRenderer.transform.position = transform.position + new Vector3(0, 0, 1f);
+        }
+    }
+    IEnumerator DashHandler()
+    {
+        dashCooldown = 5f;
+        Dash();
+        yield return new WaitForSeconds(1);
+        trailRenderer.GetComponent<TrailRenderer>().emitting = false;
+        isDashing = false;
+    }
+
     void Dash()
     {
         isDashing = true;
-        tr.emitting = true;
+        trailRenderer.GetComponent<TrailRenderer>().emitting = true;
         rbody.AddForce(speed * new Vector2(moveX, moveY).normalized, ForceMode2D.Impulse);
     }
     void MyInput()
@@ -39,7 +55,6 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        tr = GetComponent<TrailRenderer>();
         rbody = GetComponent<Rigidbody2D>();
         rbody.freezeRotation = true;
         dashCooldown = 0f;
@@ -52,17 +67,12 @@ public class Movement : MonoBehaviour
         rbody.AddForce(0.5f * speed * new Vector2(moveX, moveY).normalized, ForceMode2D.Force);
     }
 
-    IEnumerator DashHandler()
-    {
-        dashCooldown = 5f;
-        Dash();
-        yield return new WaitForSeconds(1);
-        tr.emitting = false;
-        isDashing = false;
-    }
     void Update()
     {
-        if (isDashing)
+
+        Flip();
+
+        if (isDashing || GodMode.godMode)
         {
             collider2d.isTrigger = true;
         }
