@@ -20,11 +20,25 @@ public class Stats : MonoBehaviour
     public ExpBar expBar;
     public LevelCounter levelCounter;
 
+    
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Coin"))
+        {
+            Destroy(other.gameObject);
+            currentCoins++;
+        }
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            TakeDamage(Enemy.enemyDmg);
+            if (GodMode.godMode == false)
+            {
+                TakeDamage(Enemy.enemyDmg);
+            }
         }
         if (collision.gameObject.CompareTag("Coin"))
         {
