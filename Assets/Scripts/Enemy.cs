@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public Rigidbody2D rbody2D;
     public CoinDrop coinDrop;
 
-    static public int enemyDmg = 25;
+    static public int enemyDmg = 5;
     static public int enemyExp = 100;
 
     [Header("Ruch")]
