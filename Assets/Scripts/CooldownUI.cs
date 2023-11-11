@@ -10,7 +10,17 @@ public class CooldownUI : MonoBehaviour
     public Image AttackCooldown;
     public Image overHealBar;
     private float overHeal;
+    private float vel = 1f;
 
+    private void OverHeal()
+    {
+        if (Stats.currentHp > Stats.maxHp)
+        {
+            overHeal = Stats.currentHp - Stats.maxHp;
+            float fillAmount = Mathf.SmoothDamp(overHealBar.fillAmount, overHeal/Stats.maxHp, ref vel, 200 * Time.deltaTime);
+            overHealBar.fillAmount = fillAmount;
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +36,11 @@ public class CooldownUI : MonoBehaviour
 
         FireballCooldown.fillAmount = Shooting.fireballCooldown / Shooting.uiFireballCooldown;
         
-        if (Stats.currentHp >= Stats.maxHp)
-        {
-            overHeal = Stats.currentHp - Stats.maxHp;
-            overHealBar.fillAmount = overHeal / (Stats.maxHp);
-        }
+        OverHeal();
+        
     }
 }
+
+/*
+ * po przekroczeniu ca³ego ¿ycia ma dodawaæ overheal a¿ do realnego overheal
+ */
