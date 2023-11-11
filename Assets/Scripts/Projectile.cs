@@ -17,10 +17,12 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Vector3 deadPreFabCoords = collision.gameObject.transform.position;
         Destroy(collision.gameObject);
         ExpManager.Instance.AddExp(Enemy.enemyExp);
         Destroy(gameObject);
         EnemySpawn.spawned--;
+        FindAnyObjectByType<CoinDrop>().Drop(deadPreFabCoords);
     }
     void MousePos()
     {

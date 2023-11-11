@@ -8,11 +8,12 @@ public class Slash : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Vector3 deadPreFabCoords = collision.gameObject.transform.position;
         Destroy(collision.gameObject);
         Stats.currentHp += heal;
         EnemySpawn.spawned--;
         ExpManager.Instance.AddExp(Enemy.enemyExp);
-
+        FindAnyObjectByType<CoinDrop>().Drop(deadPreFabCoords);
     }
 
     void Start()
