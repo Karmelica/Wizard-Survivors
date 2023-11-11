@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8626697803605259279}
   - component: {fileID: 8827032486844778515}
   - component: {fileID: 6192538756943095780}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Coin
   m_TagString: Coin
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ PolygonCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

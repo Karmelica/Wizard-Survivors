@@ -66,6 +66,7 @@ public class Stats : MonoBehaviour
     private void LevelUp()
     {
         maxHp += 10;
+        Enemy.enemyDmg += 2;
         currentHp = maxHp;
 
         currentLevel++;
@@ -74,6 +75,7 @@ public class Stats : MonoBehaviour
         maxExp += 100;
 
         levelCounter.LevelCount(currentLevel);
+        healthBar.SetMaxHealth(maxHp);
     }
 
     public void GainExp()
