@@ -1,13 +1,18 @@
+using System.Linq.Expressions;
 using UnityEngine;
 
 public class CoinDrop : MonoBehaviour
 {
-    public GameObject coin;
+    public GameObject prefab;
     public Transform tr;
 
-    public void Drop()
+    void Start()
     {
-        Vector3 position = transform.position;
-        Object.Instantiate(coin, position, Quaternion.identity);
+        prefab = Resources.Load("Coin") as GameObject;
+    }
+
+    public void Drop(Vector3 deadPreFabPosition)
+    {
+        GameObject.Instantiate(prefab, deadPreFabPosition, Quaternion.identity);
     }
 }

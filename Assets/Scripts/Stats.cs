@@ -19,6 +19,7 @@ public class Stats : MonoBehaviour
     public HealthBar healthBar;
     public ExpBar expBar;
     public LevelCounter levelCounter;
+    public CoinCounter coinCounter;
 
 
     private void OnTriggerEnter(Collider other)
@@ -27,6 +28,7 @@ public class Stats : MonoBehaviour
         {
             Destroy(other.gameObject);
             currentCoins++;
+            coinCounter.CoinCount(currentLevel);
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -38,14 +40,19 @@ public class Stats : MonoBehaviour
                 TakeDamage(Enemy.enemyDmg);
             }
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.CompareTag("Coin"))
         {
             Destroy(collision.gameObject);
             currentCoins++;
+            coinCounter.CoinCount(currentCoins);
         }
     }
 
-    
+
     void TakeDamage(int damage)
     {
         currentHp -= damage;

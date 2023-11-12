@@ -23,9 +23,9 @@ public class EnemySpawn : MonoBehaviour
         {
             yield return wait;
 
-            int rand = Random.Range(0, enemyPrefabs.Length);
+            int randomlySelectedPrefabType = Random.Range(0, enemyPrefabs.Length);
 
-            GameObject enemyToSpawn = enemyPrefabs[rand];
+            GameObject enemyToSpawn = enemyPrefabs[randomlySelectedPrefabType];
 
             Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
 

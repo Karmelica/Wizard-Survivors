@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
     [Header("Properties")]
     public GameObject player;
     public Rigidbody2D rbody2D;
-    public CoinDrop coinDrop;
 
     static public int enemyDmg = 5;
     static public int enemyExp = 100;
@@ -24,10 +23,11 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Vector3 deadPreFabCoords = collision.gameObject.transform.position;
             Destroy(gameObject);
             EnemySpawn.spawned--;
             ExpManager.Instance.AddExp(enemyExp);
-            coinDrop.Drop();
+            FindAnyObjectByType<CoinDrop>().Drop(deadPreFabCoords);
         }
     }
 
