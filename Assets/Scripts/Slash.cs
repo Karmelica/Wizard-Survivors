@@ -3,7 +3,8 @@ using UnityEngine;
 public class Slash : MonoBehaviour
 {
     [SerializeField]
-    private float time = 2f;
+    public HealthBar healthBar;
+    private float time = 1f;
     static public int heal = 1;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -11,6 +12,7 @@ public class Slash : MonoBehaviour
         Vector3 deadPreFabCoords = collision.gameObject.transform.position;
         Destroy(collision.gameObject);
         Stats.currentHp += heal;
+        healthBar.SetHealth(Stats.currentHp);
         EnemySpawn.spawned--;
         ExpManager.Instance.AddExp(Enemy.enemyExp);
         FindAnyObjectByType<CoinDrop>().Drop(deadPreFabCoords);
@@ -18,6 +20,7 @@ public class Slash : MonoBehaviour
 
     void Start()
     {
+        healthBar = FindObjectOfType<HealthBar>();
     }
 
     void Update()

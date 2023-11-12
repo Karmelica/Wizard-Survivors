@@ -13,6 +13,6 @@ public class CoinDrop : MonoBehaviour
 
     public void Drop(Vector3 deadPreFabPosition)
     {
-        GameObject.Instantiate(prefab, deadPreFabPosition, Quaternion.identity);
+        Instantiate(prefab, deadPreFabPosition, Quaternion.identity);
     }
 }
