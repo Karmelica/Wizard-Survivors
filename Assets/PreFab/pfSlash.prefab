@@ -165,3 +165,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8ba8cd5d83d5e6458aaece7bfce4e50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  time: 1.8
+  setHeal: 1

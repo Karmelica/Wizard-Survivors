@@ -13,6 +13,8 @@ public class Stats : MonoBehaviour
     public int currentLevel = 1;
     public int currentCoins;
     public int playerDmg = 1;
+    private float overHeal;
+    private float vel = 1f;
 
     [Header("Components")]
     public TextMeshProUGUI textMeshHP;
@@ -20,6 +22,7 @@ public class Stats : MonoBehaviour
     public ExpBar expBar;
     public LevelCounter levelCounter;
     public CoinCounter coinCounter;
+    public Image overHealBar;
 
 
     private void OnTriggerEnter(Collider other)
@@ -107,10 +110,31 @@ public class Stats : MonoBehaviour
             currentExp = exp;
         }
     }
+    private void OverHeal()
+    {
+        if (currentHp > maxHp * 2)
+        {
+            currentHp = maxHp * 2;
+        }
+
+        if (currentHp > maxHp)
+        {
+            overHeal = currentHp - maxHp;
+            float fillAmount = Mathf.SmoothDamp(overHealBar.fillAmount, overHeal / maxHp, ref vel, 200 * Time.deltaTime);
+            overHealBar.fillAmount = fillAmount;
+        }
+        else
+        {
+            overHeal = 0;
+            float fillAmount = Mathf.SmoothDamp(overHealBar.fillAmount, overHeal, ref vel, 200 * Time.deltaTime);
+            overHealBar.fillAmount = fillAmount;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        overHeal = 0;
         currentHp = maxHp;
         healthBar.SetMaxHealth(maxHp);
         currentExp = exp;
@@ -120,6 +144,7 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        OverHeal();
         textMeshHP.text = currentHp + "/" + maxHp;
         GainExp();
     }
