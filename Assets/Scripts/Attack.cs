@@ -23,7 +23,7 @@ public class Attack : MonoBehaviour
     void Update()
     {
         attackCooldown -= Time.deltaTime;
-        if (Input.GetKeyDown(attack) && attackCooldown <= 0f)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && attackCooldown <= 0f)
         {
             attackCooldown = setAttackCooldown;
             if (transform.rotation.y == 0)

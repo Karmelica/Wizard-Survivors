@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Stats : MonoBehaviour
 {
     [Header("Stats")]
-    static public int maxHp = 20;
+    public int maxHp = 20;
     static public int currentHp;
     public static int exp = 0;
     public int maxExp = 100;
@@ -24,7 +24,7 @@ public class Stats : MonoBehaviour
     public CoinCounter coinCounter;
     public Image overHealBar;
 
-
+    /* nie wiem skad sie to wzielo wiec narazie zostawie
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Coin"))
@@ -34,6 +34,7 @@ public class Stats : MonoBehaviour
             coinCounter.CoinCount(currentLevel);
         }
     }
+    */
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy"))
