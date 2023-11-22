@@ -11,6 +11,7 @@ public class ShopUIManager : MonoBehaviour
     public Stats stats;
     public CoinCounter coinCounter;
     public ShopManager shopManager;
+    public HealthBar healthBar;
 
     [Header("Properties")]
     [SerializeField] 
@@ -49,6 +50,7 @@ public class ShopUIManager : MonoBehaviour
             stats.maxHp += 20;
             stats.currentCoins -= shopManager.coinCostHp;
             coinCounter.CoinCount(stats.currentCoins);
+            healthBar.SetMaxHealth(stats.maxHp);
         }
     }
 
