@@ -50,6 +50,7 @@ public class ShopUIManager : MonoBehaviour
             stats.maxHp += 20;
             stats.currentCoins -= shopManager.coinCostHp;
             coinCounter.CoinCount(stats.currentCoins);
+            Stats.currentHp = stats.maxHp;
             healthBar.SetMaxHealth(stats.maxHp);
         }
     }
