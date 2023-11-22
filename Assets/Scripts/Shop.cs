@@ -5,8 +5,12 @@ using UnityEngine;
 public class ShopManager : MonoBehaviour
 {
     [SerializeField] 
-    bool check = false;
+    public bool check = false;
     bool bActive = true;
+
+    [Header("Properties")]
+    public int coinCostHp = 10;
+
 
     public void Shop()
     {

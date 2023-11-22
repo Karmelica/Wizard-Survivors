@@ -10,8 +10,12 @@ public class ShopUIManager : MonoBehaviour
     [Header("Components")]
     public Stats stats;
     public CoinCounter coinCounter;
+    public ShopManager shopManager;
 
-    [SerializeField] Button button;
+    [Header("Properties")]
+    [SerializeField] 
+    Button button;
+    
 
 
     private void Awake()
@@ -40,10 +44,10 @@ public class ShopUIManager : MonoBehaviour
 
     public void IncreaseHealth()
     {
-        if (stats.currentCoins >= 10)
+        if (stats.currentCoins >= shopManager.coinCostHp)
         {
             stats.maxHp += 20;
-            stats.currentCoins -= 10;
+            stats.currentCoins -= shopManager.coinCostHp;
             coinCounter.CoinCount(stats.currentCoins);
         }
     }

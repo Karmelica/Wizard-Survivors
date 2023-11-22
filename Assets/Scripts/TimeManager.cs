@@ -4,13 +4,15 @@ using UnityEngine.Events;
 public class TimeManager : MonoBehaviour
 {
     public UnityEvent GPaused;
-
     public UnityEvent GResumed;
-
     private bool Paused;
-
+    
+    [Header("Screens")]
     public GameObject PauseScreen;
     public GameObject GameOverScreen;
+    
+    [Header("Components")]
+    public ShopManager shopManager;
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +25,7 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && shopManager.check == false)
         {
             Paused = !Paused;
 
