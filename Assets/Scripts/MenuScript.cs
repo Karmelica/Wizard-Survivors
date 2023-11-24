@@ -5,6 +5,7 @@ public class MenuScript : MonoBehaviour
 {
     public void OnPlayButton()
     {
+        Cursor.visible = false;
         SceneManager.LoadScene(2);
     }
 
@@ -20,6 +21,7 @@ public class MenuScript : MonoBehaviour
 
     public void OnBackButton()
     {
+        Cursor.visible = true;
         SceneManager.LoadScene(0);
     }
 }
