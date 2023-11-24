@@ -32,11 +32,13 @@ public class TimeManager : MonoBehaviour
 
             if (Paused)
             {
+                Cursor.visible = true;
                 Time.timeScale = 0;
                 PauseScreen.SetActive(true);
             }
             else
             {
+                Cursor.visible = false;
                 Time.timeScale = 1;
                 PauseScreen.SetActive(false);
             }
