@@ -5,7 +5,7 @@ public class TimeManager : MonoBehaviour
 {
     public UnityEvent GPaused;
     public UnityEvent GResumed;
-    private bool Paused;
+    public bool Paused;
     
     [Header("Screens")]
     public GameObject PauseScreen;
@@ -13,6 +13,7 @@ public class TimeManager : MonoBehaviour
     
     [Header("Components")]
     public ShopManager shopManager;
+    
 
     // Start is called before the first frame update
     void Start()

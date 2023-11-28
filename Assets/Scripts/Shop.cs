@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Android;
 
 public class ShopManager : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class ShopManager : MonoBehaviour
 
     [Header("Properties")]
     public int coinCostHp = 10;
+    public int coinCostDc = 15;
 
+    public TimeManager timeManager;
 
     public void Shop()
     {
