@@ -13,7 +13,7 @@ public class ShopUIManager : MonoBehaviour
     public ShopManager shopManager;
     public HealthBar healthBar;
     public Movement movement;
-    public GameObject Shop;
+    public GameObject shop;
     public GameObject cooldownUpgradeButton;
 
     private void Awake()
@@ -31,7 +31,7 @@ public class ShopUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Shop.SetActive(false);  
+        shop.SetActive(false);  
     }
 
     // Update is called once per frame
@@ -68,11 +68,11 @@ public class ShopUIManager : MonoBehaviour
     {
       if (bActive)
         {
-            Shop.SetActive(true);
+            shop.SetActive(true);
         }
        else if (!bActive)
         {
-            Shop.SetActive(false);
+            shop.SetActive(false);
         }
     }
 }
