@@ -14,7 +14,7 @@ public class ShopUIManager : MonoBehaviour
     public HealthBar healthBar;
     public Movement movement;
     public GameObject Shop;
-
+    public GameObject cooldownUpgradeButton;
 
     private void Awake()
     {
@@ -57,8 +57,10 @@ public class ShopUIManager : MonoBehaviour
         if (stats.currentCoins >= shopManager.coinCostDc)
         {
             movement.setDashCooldown = 3f;
+            Movement.uiDashCooldown = 3f;
             stats.currentCoins -= shopManager.coinCostDc;
             coinCounter.CoinCount(stats.currentCoins);
+            cooldownUpgradeButton.SetActive(false);
         }
     }
 
