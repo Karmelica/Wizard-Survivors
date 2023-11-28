@@ -12,11 +12,8 @@ public class ShopUIManager : MonoBehaviour
     public CoinCounter coinCounter;
     public ShopManager shopManager;
     public HealthBar healthBar;
-
-    [Header("Properties")]
-    [SerializeField] 
-    Button button;
-    
+    public Movement movement;
+    public GameObject Shop;
 
 
     private void Awake()
@@ -34,7 +31,7 @@ public class ShopUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        button.gameObject.SetActive(false);
+        Shop.SetActive(false);  
     }
 
     // Update is called once per frame
@@ -55,15 +52,25 @@ public class ShopUIManager : MonoBehaviour
         }
     }
 
+    public void CooldownDecrease()
+    {
+        if (stats.currentCoins >= shopManager.coinCostDc)
+        {
+            movement.setDashCooldown = 3f;
+            stats.currentCoins -= shopManager.coinCostDc;
+            coinCounter.CoinCount(stats.currentCoins);
+        }
+    }
+
     public void ButtonActive(bool bActive)
     {
       if (bActive)
         {
-            button.gameObject.SetActive(true);
+            Shop.SetActive(true);
         }
        else if (!bActive)
         {
-            button.gameObject.SetActive(false);
+            Shop.SetActive(false);
         }
     }
 }
