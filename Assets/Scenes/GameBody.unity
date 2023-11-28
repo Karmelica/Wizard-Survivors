@@ -3268,10 +3268,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stats: {fileID: 1943610508}
   coinCounter: {fileID: 51975004}
-  shopManager: {fileID: 1943610513}
+  shopManager: {fileID: 1428496173}
   healthBar: {fileID: 1123608244}
   movement: {fileID: 1943610515}
-  Shop: {fileID: 2127631125}
+  shop: {fileID: 2127631125}
+  cooldownUpgradeButton: {fileID: 966083428}
 --- !u!4 &1098992916
 Transform:
   m_ObjectHideFlags: 0
@@ -3742,7 +3743,7 @@ MonoBehaviour:
   Paused: 0
   PauseScreen: {fileID: 2114521959}
   GameOverScreen: {fileID: 322434921}
-  shopManager: {fileID: 1943610513}
+  shopManager: {fileID: 0}
 --- !u!4 &1146608068
 Transform:
   m_ObjectHideFlags: 0
@@ -4438,6 +4439,10 @@ PrefabInstance:
       propertyPath: spriteRenderer
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2595192706793886448, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
+      propertyPath: timeManager
+      value: 
+      objectReference: {fileID: 1146608067}
     - target: {fileID: 3245047050426871915, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: m_IsTrigger
       value: 0
@@ -4606,16 +4611,24 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4007742114265204684, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1683925785}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4126212245634156363, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1943610513}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
 --- !u!4 &1428496172 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4007742114265204684, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
   m_PrefabInstance: {fileID: 1428496171}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1428496173 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2595192706793886448, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
+  m_PrefabInstance: {fileID: 1428496171}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1457586446}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f808c05073672408f86968458b728c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1429185199
 GameObject:
   m_ObjectHideFlags: 0
@@ -5305,22 +5318,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90a939e0c8b472544b4c9da7b45a0cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1943610513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1457586446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31f808c05073672408f86968458b728c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  check: 0
-  coinCostHp: 10
-  coinCostDc: 15
-  timeManager: {fileID: 1146608067}
 --- !u!114 &1943610515 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7182158682728169412, guid: a636d0e665a227d42bb1e214784fe543, type: 3}

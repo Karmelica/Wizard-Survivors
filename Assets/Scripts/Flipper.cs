@@ -3,7 +3,6 @@ using UnityEngine;
 public class Flipper : MonoBehaviour
 {
     [SerializeField]
-    private SpriteRenderer spriteRenderer;
     private GameObject player;
 
     void Flip()
@@ -21,7 +20,6 @@ public class Flipper : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
