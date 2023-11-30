@@ -10,8 +10,9 @@ public class TimeManager : MonoBehaviour
     [Header("Screens")]
     public GameObject PauseScreen;
     public GameObject GameOverScreen;
-    
+
     [Header("Components")]
+    public GameObject cursor;
     public ShopManager shopManager;
     
 
@@ -34,12 +35,14 @@ public class TimeManager : MonoBehaviour
             if (Paused)
             {
                 Cursor.visible = true;
+                cursor.SetActive(false);
                 Time.timeScale = 0;
                 PauseScreen.SetActive(true);
             }
             else
             {
                 Cursor.visible = false;
+                cursor.SetActive(true);
                 Time.timeScale = 1;
                 PauseScreen.SetActive(false);
             }
