@@ -11,8 +11,10 @@ public class Slash : MonoBehaviour
     {
         Vector3 deadPreFabCoords = collision.gameObject.transform.position;
         Destroy(collision.gameObject);
+        /* narazie zostawiam to wylaczone
         Stats.currentHp += heal;
         healthBar.SetHealth(Stats.currentHp);
+        */
         EnemySpawn.spawned--;
         ExpManager.Instance.AddExp(Enemy.enemyExp);
         FindAnyObjectByType<CoinDrop>().Drop(deadPreFabCoords);
