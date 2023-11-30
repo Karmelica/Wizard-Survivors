@@ -2298,6 +2298,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: pfSpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 8520477399676140931, guid: 3b886ce8f8447994b93e6acd360e34c9, type: 3}
+      propertyPath: enemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520477399676140931, guid: 3b886ce8f8447994b93e6acd360e34c9, type: 3}
+      propertyPath: enemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 7026042985259673346, guid: 1f5b213ef2cd8b04fbaecbaa6ce81ebf, type: 3}
+    - target: {fileID: 8520477399676140931, guid: 3b886ce8f8447994b93e6acd360e34c9, type: 3}
+      propertyPath: enemyPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 7026042985259673346, guid: e663eaf4a32af4e42b6454d6d070b5f6, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
