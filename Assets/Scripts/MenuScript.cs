@@ -1,12 +1,13 @@
 using System.Collections;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour
 {
-    [SerializeField] public Animator animatorTerrain;
-    [SerializeField] public Animator animatorCanvas;
-    [SerializeField] public GameObject canvas;
+    public Animator animatorTerrain;
+    public Animator animatorCanvas;
+    public GameObject canvas;
 
     private IEnumerator Licznik()
     {
@@ -36,5 +37,14 @@ public class MenuScript : MonoBehaviour
     {
         Cursor.visible = true;
         SceneManager.LoadScene(0);
+    }
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+        if (PlayerPrefs.HasKey("musicVolume"))
+        {
+            AudioListener.volume = PlayerPrefs.GetFloat("musicVolume");
+        }
     }
 }

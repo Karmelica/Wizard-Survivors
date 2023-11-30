@@ -8,6 +8,7 @@ public class ShopUIManager : MonoBehaviour
     public static ShopUIManager Instance;
 
     [Header("Components")]
+    public GameObject cursor;
     public Stats stats;
     public CoinCounter coinCounter;
     public ShopManager shopManager;
@@ -68,10 +69,14 @@ public class ShopUIManager : MonoBehaviour
     {
       if (bActive)
         {
+            Cursor.visible = true;
+            cursor.SetActive(false);
             shop.SetActive(true);
         }
        else if (!bActive)
         {
+            Cursor.visible = false;
+            cursor.SetActive(true);
             shop.SetActive(false);
         }
     }
