@@ -11,6 +11,7 @@ public class Attack : MonoBehaviour
     static public float uiAttackCooldown;
     static public float attackCooldown;
     public float setAttackCooldown = 3f;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +26,7 @@ public class Attack : MonoBehaviour
         attackCooldown -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Mouse0) && attackCooldown <= 0f)
         {
+            animator.Play("Attack");
             attackCooldown = setAttackCooldown;
             if (transform.rotation.y == 0)
             {
