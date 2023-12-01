@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Wizard-Survivors.sln"
+    "dotnet.defaultSolution": "Wizard-Survivors.sln",
+    "dotnet.preferCSharpExtension": true
 }
