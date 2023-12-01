@@ -12425,6 +12425,7 @@ MonoBehaviour:
   check: 0
   coinCostHp: 10
   coinCostDc: 15
+  coinCostSw: 0
   timeManager: {fileID: 1146608067}
 --- !u!1 &1971652869
 GameObject:
