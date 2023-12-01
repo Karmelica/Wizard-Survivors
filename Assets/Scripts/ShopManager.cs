@@ -12,7 +12,6 @@ public class ShopManager : MonoBehaviour
     [Header("Properties")]
     public int coinCostHp = 10;
     public int coinCostDc = 15;
-    public int coinCostSw = 30;
 
     public TimeManager timeManager;
 

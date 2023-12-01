@@ -16,7 +16,6 @@ public class ShopUIManager : MonoBehaviour
     public Movement movement;
     public GameObject shop;
     public GameObject cooldownUpgradeButton;
-    public GameObject swiftBootsUpgradeButton;
 
     private void Awake()
     {
@@ -63,18 +62,6 @@ public class ShopUIManager : MonoBehaviour
             stats.currentCoins -= shopManager.coinCostDc;
             coinCounter.CoinCount(stats.currentCoins);
             cooldownUpgradeButton.SetActive(false);
-        }
-    }
-
-    public void SwiftBoots()
-    {
-        if (stats.currentCoins >= shopManager.coinCostSw)
-        {
-            movement.speed = 8;
-            stats.currentCoins -= shopManager.coinCostSw;
-            coinCounter.CoinCount(stats.currentCoins);
-            swiftBootsUpgradeButton.SetActive(false);
-            
         }
     }
 
