@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
     public GameObject trailRenderer;
     private Rigidbody2D rbody;
     public Collider2D collider2d;
+    public Animator animator;
 
     [Header("Ruch")]
     public float speed = 5;
@@ -43,6 +44,7 @@ public class Movement : MonoBehaviour
     void Dash()
     {
         isDashing = true;
+        animator.Play("Dash");
         trailRenderer.GetComponent<TrailRenderer>().emitting = true;
         rbody.AddForce(speed * new Vector2(moveX, moveY).normalized, ForceMode2D.Impulse);
     }
@@ -88,5 +90,7 @@ public class Movement : MonoBehaviour
         {
             StartCoroutine(DashHandler());
         }
+
+
     }
 }
