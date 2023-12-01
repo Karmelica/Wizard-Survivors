@@ -3,8 +3,7 @@ using UnityEngine;
 public class Shooting : MonoBehaviour
 {
     [SerializeField]
-    public Animator animator;
-    public Transform pfFireball;
+    private Transform pfFireball;
     public GameObject player;
     public float setFireballCooldown = 1f;
     static public float fireballCooldown;
@@ -14,7 +13,6 @@ public class Shooting : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && fireballCooldown <= 0f)
         {
-            animator.Play("Attack");
             fireballCooldown = setFireballCooldown;
             Instantiate(pfFireball, player.transform.position, Quaternion.identity);
         }
