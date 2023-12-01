@@ -18,11 +18,11 @@ public class CooldownUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DashCooldown.fillAmount = Movement.dashCooldown / Movement.uiDashCooldown;
+        DashCooldown.fillAmount = 1 - (Movement.dashCooldown / Movement.uiDashCooldown);
 
-        AttackCooldown.fillAmount = Attack.attackCooldown / Attack.uiAttackCooldown;
+        AttackCooldown.fillAmount = 1 - (Attack.attackCooldown / Attack.uiAttackCooldown);
 
-        FireballCooldown.fillAmount = Shooting.fireballCooldown / Shooting.uiFireballCooldown;
+        FireballCooldown.fillAmount = 1 - (Shooting.fireballCooldown / Shooting.uiFireballCooldown);
         
         
     }

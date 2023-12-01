@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player");
         rbody2D = GetComponent<Rigidbody2D>();
+        rbody2D.freezeRotation = true;
     }
 
     // Update is called once per frame

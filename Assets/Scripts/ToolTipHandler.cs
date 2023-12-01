@@ -1,0 +1,31 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.EventSystems;
+
+public class ToolTipHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+{
+
+    public GameObject toolTip;
+    // Start is called before the first frame update
+    void Start()
+    {
+        toolTip.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+    public void OnPointerEnter(PointerEventData eventData) 
+    {
+        toolTip.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        toolTip.SetActive(false);
+    }
+}
