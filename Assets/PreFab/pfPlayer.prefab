@@ -178,12 +178,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4007742114265204684}
+  - component: {fileID: 3981570110704479562}
   - component: {fileID: 3028800166207298786}
   - component: {fileID: 3695185683359033521}
   - component: {fileID: 7182158682728169412}
-  - component: {fileID: 3981570110704479562}
   - component: {fileID: -4347809588913682561}
   - component: {fileID: 5571546035917568139}
+  - component: {fileID: 8755581517302622204}
   m_Layer: 3
   m_Name: pfPlayer
   m_TagString: Player
@@ -208,51 +209,6 @@ Transform:
   - {fileID: 5209801050760978302}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3028800166207298786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4126212245634156363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abcaac1e6e14c5d45a86ae07b95f45f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugGodMode: 0
---- !u!114 &3695185683359033521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4126212245634156363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba36fbcf1dd85d45ac617eac7360bb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pfFireball: {fileID: 1805113043313996540, guid: 4d5757ce760acde4ea58884b71c65f8b, type: 3}
-  player: {fileID: 4007742114265204684}
-  setFireballCooldown: 1
---- !u!114 &7182158682728169412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4126212245634156363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b149c1ce6677a1241bcac19ae7b74318, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trailRenderer: {fileID: 0}
-  collider2d: {fileID: 0}
-  speed: 5
-  setDashCooldown: 5
-  isDashing: 0
 --- !u!50 &3981570110704479562
 Rigidbody2D:
   serializedVersion: 4
@@ -280,6 +236,52 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &3028800166207298786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4126212245634156363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abcaac1e6e14c5d45a86ae07b95f45f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugGodMode: 0
+--- !u!114 &3695185683359033521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4126212245634156363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba36fbcf1dd85d45ac617eac7360bb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  player: {fileID: 4007742114265204684}
+  setFireballCooldown: 1
+--- !u!114 &7182158682728169412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4126212245634156363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b149c1ce6677a1241bcac19ae7b74318, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trailRenderer: {fileID: 0}
+  collider2d: {fileID: 0}
+  animator: {fileID: 0}
+  speed: 5
+  setDashCooldown: 5
+  isDashing: 0
 --- !u!114 &-4347809588913682561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,6 +297,7 @@ MonoBehaviour:
   attack: 32
   pfSlash: {fileID: 2313812488302209286, guid: c5f93bd4380a9764d9ea10c6d3cc473e, type: 3}
   setAttackCooldown: 3
+  animator: {fileID: 0}
 --- !u!114 &5571546035917568139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -319,6 +322,22 @@ MonoBehaviour:
   levelCounter: {fileID: 0}
   coinCounter: {fileID: 0}
   overHealBar: {fileID: 0}
+--- !u!114 &8755581517302622204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4126212245634156363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f808c05073672408f86968458b728c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  check: 0
+  coinCostHp: 10
+  coinCostDc: 15
+  timeManager: {fileID: 0}
 --- !u!1 &7935739688993505524
 GameObject:
   m_ObjectHideFlags: 0
