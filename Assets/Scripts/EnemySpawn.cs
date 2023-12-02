@@ -3,48 +3,61 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs;
+	public Transform holder;
+	public GameObject[] enemyPrefabs;
 
-    public float spawnRate = 1f;
-    private bool canSpawn = true;
-    public static int spawned = 0;
-    private int spawnMax = 10;
-    private bool oneTime = false;
-    private void Start()
-    {
-        StartCoroutine(Spawner());
-    }
+	static public float spawnRate;
+	static public int spawnMax;
+	static public int spawned = 0;
+	public float setSpawnRate = 6f;
+	public int SetSpawnMax = 10;
 
-    private IEnumerator Spawner()
-    {
-        WaitForSeconds wait = new WaitForSeconds(spawnRate);
+	private bool oneTime = false;
+	private bool canSpawn = true;
 
-        while (canSpawn)
-        {
-            yield return wait;
+	private IEnumerator Spawner()
+	{
+		while (canSpawn)
+		{
+			yield return new WaitForSeconds(spawnRate);
 
-            int randomlySelectedPrefabType = Random.Range(0, enemyPrefabs.Length);
+			int randomlySelectedPrefabType = Random.Range(0, enemyPrefabs.Length);
 
-            GameObject enemyToSpawn = enemyPrefabs[randomlySelectedPrefabType];
+			GameObject enemyToSpawn = enemyPrefabs[randomlySelectedPrefabType];
 
-            Instantiate(enemyToSpawn, transform.position, Quaternion.identity);
+			Vector3 randomPos = Random.insideUnitCircle.normalized * 4;
 
-            spawned++;
-        }
-    }
+			Instantiate(enemyToSpawn, holder.transform.position + randomPos, Quaternion.identity);
 
-    private void Update()
-    {
-        if (spawned >= spawnMax)
-        {
-            canSpawn = false;
-            oneTime = true;
-        }
-        else if (oneTime == true)
-        {
-            canSpawn = true;
-            StartCoroutine(Spawner());
-            oneTime = false;
-        }
-    }
+			spawned++;
+		}
+	}
+
+	private void Start()
+	{
+		spawnRate = setSpawnRate;
+		spawnMax = SetSpawnMax;
+		StartCoroutine(Spawner());
+		StartCoroutine(Spawner());
+		StartCoroutine(Spawner());
+		StartCoroutine(Spawner());
+	}
+
+	private void Update()
+	{
+		if (spawned >= spawnMax)
+		{
+			canSpawn = false;
+			oneTime = true;
+		}
+		else if (oneTime == true)
+		{
+			canSpawn = true;
+			StartCoroutine(Spawner());
+			StartCoroutine(Spawner());
+			StartCoroutine(Spawner());
+			StartCoroutine(Spawner());
+			oneTime = false;
+		}
+	}
 }

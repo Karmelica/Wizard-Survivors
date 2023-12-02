@@ -20,8 +20,6 @@ public class ExpBar : MonoBehaviour
     public void SetExp(int exp)
     {
         slider.value = exp;
-
-
     }
 
 }

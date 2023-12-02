@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     [Header("Properties")]
     public GameObject player;
     public Rigidbody2D rbody2D;
+    public float despawnTime = 60f;
 
     static public int enemyDmg = 5;
     static public int enemyExp = 100;
@@ -15,8 +16,6 @@ public class Enemy : MonoBehaviour
     private float enemyMoveX;
     private float enemyMoveY;
 
-    [SerializeField]
-    public float despawnTime = 60f;
 
 
     private void OnTriggerEnter2D(Collider2D collision)

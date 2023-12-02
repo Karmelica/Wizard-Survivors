@@ -5,19 +5,20 @@ using UnityEngine.Android;
 
 public class ShopManager : MonoBehaviour
 {
-    [SerializeField] 
     public bool check = false;
-    bool bActive = true;
+    private readonly bool bActive = true;
 
     [Header("Properties")]
     public int coinCostHp = 10;
     public int coinCostDc = 15;
+    public int coinCostBOS = 20;
 
     public TimeManager timeManager;
+    public ShopUIManager shopUIManager;
 
     public void Shop()
     {
-        if (Input.GetKeyDown(KeyCode.B) && check == false)
+        if (Input.GetKeyDown(KeyCode.B) && check == false && Stats.unlockShop)
         {
             Time.timeScale = 0f;
             check = !check;
@@ -29,12 +30,6 @@ public class ShopManager : MonoBehaviour
             check = !check;
             ShopUIManager.Instance.ButtonActive(!bActive);
         }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
     }
 
     // Update is called once per frame

@@ -6,18 +6,18 @@ public class Movement : MonoBehaviour
     private float moveX;
     private float moveY;
 
-    [SerializeField]
     public GameObject trailRenderer;
     private Rigidbody2D rbody;
     public Collider2D collider2d;
     public Animator animator;
 
     [Header("Ruch")]
-    public float speed = 5;
+    public static float playerSpeed;
+    public float setPlayerSpeed = 5f;
     static public float dashCooldown;
     static public float uiDashCooldown;
     public float setDashCooldown = 5f;
-    public bool isDashing = false;
+    private bool isDashing = false;
 
     void Flip()
     {
@@ -46,7 +46,7 @@ public class Movement : MonoBehaviour
         isDashing = true;
         animator.Play("Dash");
         trailRenderer.GetComponent<TrailRenderer>().emitting = true;
-        rbody.AddForce(speed * new Vector2(moveX, moveY).normalized, ForceMode2D.Impulse);
+        rbody.AddForce(playerSpeed * new Vector2(moveX, moveY).normalized, ForceMode2D.Impulse);
     }
     void MyInput()
     {
@@ -57,6 +57,7 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerSpeed = setPlayerSpeed;
         uiDashCooldown = setDashCooldown;
         rbody = GetComponent<Rigidbody2D>();
         rbody.freezeRotation = true;
@@ -67,7 +68,7 @@ public class Movement : MonoBehaviour
     void FixedUpdate()
     {
         MyInput();
-        rbody.AddForce(0.5f * speed * new Vector2(moveX, moveY).normalized, ForceMode2D.Force);
+        rbody.AddForce(0.5f * playerSpeed * new Vector2(moveX, moveY).normalized, ForceMode2D.Force);
     }
 
     void Update()

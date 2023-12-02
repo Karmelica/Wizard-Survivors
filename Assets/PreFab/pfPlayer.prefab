@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5209801050760978302}
   - component: {fileID: 1958188691933897095}
   - component: {fileID: 2772099433366747489}
-  - component: {fileID: 7191936662238280541}
+  - component: {fileID: 5007369536215927220}
   m_Layer: 0
   m_Name: FoxSprite
   m_TagString: Untagged
@@ -107,8 +107,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!60 &7191936662238280541
-PolygonCollider2D:
+--- !u!70 &5007369536215927220
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -139,36 +139,9 @@ PolygonCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.32, y: 0.32}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.07344748, y: 0.14976595}
-      - {x: -0.089292586, y: 0.14188102}
-      - {x: -0.11340833, y: 0.09823146}
-      - {x: -0.14436714, y: 0.040344488}
-      - {x: -0.14761418, y: -0.011444356}
-      - {x: -0.09619351, y: -0.033939987}
-      - {x: -0.10859849, y: -0.08050784}
-      - {x: -0.1432792, y: -0.064756356}
-      - {x: -0.1506697, y: -0.12283629}
-      - {x: -0.11049238, y: -0.15442637}
-      - {x: -0.017548215, y: -0.15656449}
-      - {x: 0.06262439, y: -0.15721318}
-      - {x: 0.10491877, y: -0.13606597}
-      - {x: 0.07825942, y: -0.08098629}
-      - {x: 0.08787775, y: -0.00482315}
-      - {x: 0.14482313, y: 0.063408315}
-      - {x: 0.11258842, y: 0.11858517}
-  m_UseDelaunayMesh: 0
+  m_Offset: {x: 0.011526756, y: -0.0065867007}
+  m_Size: {x: 0.15533207, y: 0.30023986}
+  m_Direction: 0
 --- !u!1 &4126212245634156363
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,7 +194,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 5
   m_LinearDrag: 6
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -248,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abcaac1e6e14c5d45a86ae07b95f45f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugGodMode: 0
+  setGodMode: 0
 --- !u!114 &3695185683359033521
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,6 +235,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  pfFireball: {fileID: 0}
   player: {fileID: 4007742114265204684}
   setFireballCooldown: 1
 --- !u!114 &7182158682728169412
@@ -279,9 +253,8 @@ MonoBehaviour:
   trailRenderer: {fileID: 0}
   collider2d: {fileID: 0}
   animator: {fileID: 0}
-  speed: 5
+  setPlayerSpeed: 30
   setDashCooldown: 5
-  isDashing: 0
 --- !u!114 &-4347809588913682561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -316,6 +289,7 @@ MonoBehaviour:
   currentLevel: 1
   currentCoins: 0
   playerDmg: 1
+  shopUIManager: {fileID: 0}
   textMeshHP: {fileID: 0}
   healthBar: {fileID: 0}
   expBar: {fileID: 0}
@@ -337,7 +311,9 @@ MonoBehaviour:
   check: 0
   coinCostHp: 10
   coinCostDc: 15
+  coinCostBOS: 20
   timeManager: {fileID: 0}
+  shopUIManager: {fileID: 0}
 --- !u!1 &7935739688993505524
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,19 +1,18 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class CooldownUI : MonoBehaviour
 {
+    public ShopManager shopManager;
 
-    [SerializeField]
+    public TextMeshProUGUI hpUpgradeCost;
+    public TextMeshProUGUI dashUpgradeCost;
+    public TextMeshProUGUI speedUpgradeCost;
+
     public Image FireballCooldown;
     public Image DashCooldown;
     public Image AttackCooldown;
-
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -23,8 +22,11 @@ public class CooldownUI : MonoBehaviour
         AttackCooldown.fillAmount = 1 - (Attack.attackCooldown / Attack.uiAttackCooldown);
 
         FireballCooldown.fillAmount = 1 - (Shooting.fireballCooldown / Shooting.uiFireballCooldown);
-        
-        
+
+
+        hpUpgradeCost.text = shopManager.coinCostHp.ToString();
+        dashUpgradeCost.text = shopManager.coinCostDc.ToString();
+        speedUpgradeCost.text = shopManager.coinCostBOS.ToString();
     }
 }
 
