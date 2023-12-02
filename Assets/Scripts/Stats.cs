@@ -1,9 +1,12 @@
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Stats : MonoBehaviour
 {
+    public static bool unlockShop;
+
     [Header("Stats")]
     public int maxHp = 20;
     static public int currentHp;
@@ -13,10 +16,11 @@ public class Stats : MonoBehaviour
     public int currentLevel = 1;
     public int currentCoins;
     public int playerDmg = 1;
-    private float overHeal;
-    private float vel = 1f;
+    //private float overHeal;
+    //private float vel = 1f;
 
     [Header("Components")]
+    public ShopUIManager shopUIManager;
     public TextMeshProUGUI textMeshHP;
     public HealthBar healthBar;
     public ExpBar expBar;
@@ -60,7 +64,6 @@ public class Stats : MonoBehaviour
     void TakeDamage(int damage)
     {
         currentHp -= damage;
-        healthBar.SetHealth(currentHp);
     }
 
     private void OnEnable()
@@ -90,7 +93,7 @@ public class Stats : MonoBehaviour
     private void LevelUp()
     {
         maxHp += 10;
-        Slash.heal++;
+        //Slash.heal++;
         Enemy.enemyDmg++;
         currentHp = maxHp;
 
@@ -102,6 +105,20 @@ public class Stats : MonoBehaviour
         levelCounter.LevelCount(currentLevel);
         healthBar.SetMaxHealth(maxHp);
         expBar.SetStartExp(currentExp);
+
+        if (currentLevel % 2 == 0)
+        {
+            EnemySpawn.spawnMax++;
+        }
+        if (currentLevel % 3 == 0)
+        {
+            unlockShop = true;
+        }
+        if(currentLevel % 4 == 0)
+        {
+            EnemySpawn.spawnRate /= 2;
+        }
+        
     }
 
     public void GainExp()
@@ -111,7 +128,11 @@ public class Stats : MonoBehaviour
             currentExp = exp;
         }
     }
-    private void OverHeal()
+
+    
+
+    /* leczenie atakiem i tak na razie jest wy³¹czone
+     * private void OverHeal()
     {
         if (currentHp > maxHp * 2)
         {
@@ -130,12 +151,12 @@ public class Stats : MonoBehaviour
             float fillAmount = Mathf.SmoothDamp(overHealBar.fillAmount, overHeal, ref vel, 200 * Time.deltaTime);
             overHealBar.fillAmount = fillAmount;
         }
-    }
+    }*/
 
     // Start is called before the first frame update
     void Start()
     {
-        overHeal = 0;
+        //overHeal = 0;
         currentHp = maxHp;
         healthBar.SetMaxHealth(maxHp);
         currentExp = exp;
@@ -145,8 +166,10 @@ public class Stats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OverHeal();
+        //OverHeal();
         textMeshHP.text = currentHp + "/" + maxHp;
+        coinCounter.CoinCount(currentCoins);
+        healthBar.SetHealth(currentHp);
         GainExp();
     }
 }

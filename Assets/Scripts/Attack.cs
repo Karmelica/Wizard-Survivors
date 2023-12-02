@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class Attack : MonoBehaviour
 {
-    [Header("KeyBinds")]
-
-    public KeyCode attack = KeyCode.Space;
-
     [SerializeField]
     private Transform pfSlash;
     static public float uiAttackCooldown;
@@ -24,7 +20,7 @@ public class Attack : MonoBehaviour
     void Update()
     {
         attackCooldown -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Mouse0) && attackCooldown <= 0f)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && attackCooldown <= 0f && Time.timeScale != 0)
         {
             animator.Play("Attack");
             attackCooldown = setAttackCooldown;

@@ -12,7 +12,7 @@ public class Shooting : MonoBehaviour
 
     void Fireball()
     {
-        if (Input.GetMouseButtonDown(1) && fireballCooldown <= 0f)
+        if (Input.GetMouseButtonDown(1) && fireballCooldown <= 0f && Time.timeScale != 0)
         {
             animator.Play("Attack");
             fireballCooldown = setFireballCooldown;
