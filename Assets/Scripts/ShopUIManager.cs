@@ -28,7 +28,7 @@ public class ShopUIManager : MonoBehaviour
     {
         if (stats.currentCoins >= shopManager.coinCostHp && canBuy)
         {
-            stats.maxHp += 20;
+            stats.maxHp += Mathf.RoundToInt(stats.maxHp * 0.33f);
             stats.currentCoins -= shopManager.coinCostHp;
             shopManager.coinCostHp++;
             healthBar.SetMaxHealth(stats.maxHp);

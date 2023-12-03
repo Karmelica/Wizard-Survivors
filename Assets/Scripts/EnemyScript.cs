@@ -1,13 +1,12 @@
+using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class EnemyScript : MonoBehaviour
 {
-
 	[Header("Properties")]
 	public GameObject player;
 	public Rigidbody2D rbody2D;
-	public float despawnTime = 60f;
+	[SerializeField] private float despawnTime = 30f;
 
 	[Header("Stats")]
 	static public int enemyDmg = 5;
@@ -25,16 +24,12 @@ public class EnemyScript : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Player"))
 		{
-			Vector3 deadPreFabCoords = collision.gameObject.transform.position;
-			Destroy(gameObject);
-			EnemySpawn.spawned--;
-			ExpManager.Instance.AddExp(enemyExp);
-			FindAnyObjectByType<CoinDrop>().Drop(deadPreFabCoords);
+			TakeDamage(2);
 		}
 		if (collision.CompareTag("Weapon"))
 		{
 			TakeDamage(collision.GetComponent<Damage>().attackDamage);
-			if(collision.gameObject.name == "pfProjectile(Clone)")
+			if (collision.gameObject.name == "pfProjectile(Clone)")
 			{
 				Destroy(collision.gameObject);
 			}
@@ -49,9 +44,9 @@ public class EnemyScript : MonoBehaviour
 	{
 		Vector3 deadPreFabCoords = transform.position;
 		Destroy(gameObject);
-		EnemySpawn.spawned--;
+		//EnemySpawn.spawned--;
 		ExpManager.Instance.AddExp(enemyExp);
-		FindAnyObjectByType<CoinDrop>().Drop(deadPreFabCoords);  
+		FindAnyObjectByType<CoinDrop>().Drop(deadPreFabCoords);
 	}
 
 	void EnemyMove()
@@ -83,11 +78,18 @@ public class EnemyScript : MonoBehaviour
 		{
 			EnemyDied();
 		}
+
 		despawnTime -= Time.deltaTime;
-		if (despawnTime < 0)
+
+		if (despawnTime < 20f)
 		{
-			Destroy(gameObject);
-			EnemySpawn.spawned--;
+			speed = 12;
 		}
-	}
+        if (despawnTime < 0)
+        {
+            Destroy(gameObject);
+            //EnemySpawn.spawned--;
+        }
+
+    }
 }
