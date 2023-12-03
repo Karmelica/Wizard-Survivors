@@ -9,6 +9,8 @@ public class CooldownUI : MonoBehaviour
     public TextMeshProUGUI hpUpgradeCost;
     public TextMeshProUGUI dashUpgradeCost;
     public TextMeshProUGUI speedUpgradeCost;
+    public TextMeshProUGUI slashUpgradeCost;
+    public TextMeshProUGUI projUpgradeCost;
 
     public Image FireballCooldown;
     public Image DashCooldown;
@@ -21,12 +23,14 @@ public class CooldownUI : MonoBehaviour
 
         AttackCooldown.fillAmount = 1 - (Attack.attackCooldown / Attack.uiAttackCooldown);
 
-        FireballCooldown.fillAmount = 1 - (Shooting.fireballCooldown / Shooting.uiFireballCooldown);
+        FireballCooldown.fillAmount = 1 - (Attack.fireballCooldown / Attack.uiFireballCooldown);
 
 
         hpUpgradeCost.text = shopManager.coinCostHp.ToString();
-        dashUpgradeCost.text = shopManager.coinCostDc.ToString();
+        dashUpgradeCost.text = shopManager.coinCostDashCdUp.ToString();
         speedUpgradeCost.text = shopManager.coinCostBOS.ToString();
+        slashUpgradeCost.text = shopManager.coinCostSlashUp.ToString();
+        projUpgradeCost.text = shopManager.coinCostProjUp.ToString();
     }
 }
 

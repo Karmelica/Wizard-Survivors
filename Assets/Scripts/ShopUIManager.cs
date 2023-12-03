@@ -14,13 +14,14 @@ public class ShopUIManager : MonoBehaviour
     public ShopManager shopManager;
     public HealthBar healthBar;
     public Movement movement;
-    public Damage damge;
 
     [Header("GameObjects")]
     public GameObject cursor;
     public GameObject shop;
     public GameObject cooldownUpgradeButton;
     public GameObject bootsOfSwiftnessUpgradeButton;
+    public GameObject slashUpgradeButton;
+    public GameObject projectileUpgradeButton;
     public GameObject shopIndicator;
 
     public void IncreaseHealth()
@@ -38,11 +39,11 @@ public class ShopUIManager : MonoBehaviour
 
     public void CooldownDecrease()
     {
-        if (stats.currentCoins >= shopManager.coinCostDc && canBuy)
+        if (stats.currentCoins >= shopManager.coinCostDashCdUp && canBuy)
         {
             movement.setDashCooldown = 3f;
             Movement.uiDashCooldown = 3f;
-            stats.currentCoins -= shopManager.coinCostDc;
+            stats.currentCoins -= shopManager.coinCostDashCdUp;
             cooldownUpgradeButton.SetActive(false);
             Stats.unlockShop = false;
             canBuy = false;
@@ -55,6 +56,29 @@ public class ShopUIManager : MonoBehaviour
             Movement.playerSpeed*= 1.2f;
             stats.currentCoins -= shopManager.coinCostBOS;
             bootsOfSwiftnessUpgradeButton.SetActive(false);
+            Stats.unlockShop = false;
+            canBuy = false;
+        }
+    }
+
+    public void SlashUpgrade()
+    {
+        if (stats.currentCoins >= shopManager.coinCostSlashUp && canBuy)
+        {
+            Attack.attackUpgraded = true;
+            stats.currentCoins -= shopManager.coinCostSlashUp;
+            slashUpgradeButton.SetActive(false);
+            Stats.unlockShop = false;
+            canBuy = false;
+        }
+    }
+    public void ProjectileUpgrade()
+    {
+        if (stats.currentCoins >= shopManager.coinCostProjUp && canBuy)
+        {
+            Attack.projectileUpgraded = true;
+            stats.currentCoins -= shopManager.coinCostProjUp;
+            projectileUpgradeButton.SetActive(false);
             Stats.unlockShop = false;
             canBuy = false;
         }

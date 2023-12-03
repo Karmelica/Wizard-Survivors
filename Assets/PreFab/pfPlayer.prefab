@@ -153,7 +153,6 @@ GameObject:
   - component: {fileID: 4007742114265204684}
   - component: {fileID: 3981570110704479562}
   - component: {fileID: 3028800166207298786}
-  - component: {fileID: 3695185683359033521}
   - component: {fileID: 7182158682728169412}
   - component: {fileID: -4347809588913682561}
   - component: {fileID: 5571546035917568139}
@@ -222,22 +221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   setGodMode: 0
---- !u!114 &3695185683359033521
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4126212245634156363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cba36fbcf1dd85d45ac617eac7360bb3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  pfFireball: {fileID: 0}
-  player: {fileID: 4007742114265204684}
-  setFireballCooldown: 1
 --- !u!114 &7182158682728169412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,10 +250,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7723341378304f44095bb5bcf9ea8c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attack: 32
   pfSlash: {fileID: 2313812488302209286, guid: c5f93bd4380a9764d9ea10c6d3cc473e, type: 3}
   setAttackCooldown: 3
-  animator: {fileID: 0}
+  animator: {fileID: 2772099433366747489}
 --- !u!114 &5571546035917568139
 MonoBehaviour:
   m_ObjectHideFlags: 0

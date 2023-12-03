@@ -10,8 +10,10 @@ public class ShopManager : MonoBehaviour
 
     [Header("Properties")]
     public int coinCostHp = 10;
-    public int coinCostDc = 15;
+    public int coinCostDashCdUp = 15;
     public int coinCostBOS = 20;
+    public int coinCostSlashUp = 40;
+    public int coinCostProjUp = 80;
 
     public TimeManager timeManager;
     public ShopUIManager shopUIManager;

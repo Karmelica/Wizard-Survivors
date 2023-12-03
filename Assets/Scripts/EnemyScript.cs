@@ -83,16 +83,11 @@ public class EnemyScript : MonoBehaviour
 		{
 			EnemyDied();
 		}
-
-		if (enemyCurrentHp <= 0)
+		despawnTime -= Time.deltaTime;
+		if (despawnTime < 0)
 		{
-			despawnTime -= Time.deltaTime;
-			if (despawnTime < 0)
-			{
-				Destroy(gameObject);
-				EnemySpawn.spawned--;
-			}
-
+			Destroy(gameObject);
+			EnemySpawn.spawned--;
 		}
 	}
 }

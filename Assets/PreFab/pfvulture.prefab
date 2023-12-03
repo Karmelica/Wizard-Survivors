@@ -288,6 +288,7 @@ GameObject:
   - component: {fileID: 6779059546134093130}
   - component: {fileID: 5915956735069033738}
   - component: {fileID: 5718907392666446206}
+  - component: {fileID: 3368228175462991333}
   m_Layer: 6
   m_Name: pfvulture
   m_TagString: Enemy
@@ -372,6 +373,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   tr: {fileID: 8020632464414137212}
+--- !u!114 &3368228175462991333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7026042985259673346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad448e54a04ed1541b2dc36464f5a345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  colider: {fileID: 3696673639529461420}
+  stats: {fileID: 0}
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &7226263659551725311
 GameObject:
   m_ObjectHideFlags: 0
