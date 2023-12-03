@@ -6,13 +6,15 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
 	private float attackInterval = 2f;
+	private readonly float attackRange = 0.4f;
+	private Rigidbody2D rb;
 	public GameObject player;
 	public Stats stats;
-	public LayerMask playerMask;
 
 	// Start is called before the first frame update
 	void Start()
 	{
+		rb = GetComponent<Rigidbody2D>();
 		player = GameObject.Find("Player");
 		stats = player.GetComponent<Stats>();
 	}
@@ -21,12 +23,11 @@ public class EnemyAttack : MonoBehaviour
 	void Update()
 	{
         attackInterval -= Time.deltaTime;
-        Vector2 direction = new Vector2(player.transform.position.x - transform.position.x, player.transform.position.y - transform.position.y).normalized;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 0.3f, playerMask);
-        Debug.DrawRay(transform.position, direction);
-        if (hit && attackInterval < 0 && !Movement.isDashing)
+		float distance = (transform.position - player.transform.position).magnitude;
+        if (distance <= attackRange && attackInterval < 0 && !Movement.isDashing && !GodMode.godMode)
         {
             stats.TakeDamage(EnemyScript.enemyDmg);
+			rb.AddForce((player.transform.position - transform.position).normalized * -200, ForceMode2D.Force); 
             attackInterval = 2f;
         }
     }

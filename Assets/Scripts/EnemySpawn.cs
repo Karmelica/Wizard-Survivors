@@ -7,17 +7,14 @@ public class EnemySpawn : MonoBehaviour
 	public GameObject[] enemyPrefabs;
 
 	static public float spawnRate;
-	static public int spawnMax;
+	//static public int spawnMax;
 	static public int spawned = 0;
 	public float setSpawnRate = 6f;
-	public int SetSpawnMax = 10;
-
-	private bool oneTime = false;
-	private bool canSpawn = true;
+	//public int SetSpawnMax = 10;
 
 	private IEnumerator Spawner()
 	{
-		while (canSpawn)
+		while (true)
 		{
 			yield return new WaitForSeconds(spawnRate);
 
@@ -25,39 +22,19 @@ public class EnemySpawn : MonoBehaviour
 
 			GameObject enemyToSpawn = enemyPrefabs[randomlySelectedPrefabType];
 
-			Vector3 randomPos = Random.insideUnitCircle.normalized * 4;
+			Vector3 randomPos = Random.insideUnitCircle.normalized * 2.5f;
 
 			Instantiate(enemyToSpawn, holder.transform.position + randomPos, Quaternion.identity);
 
-			spawned++;
+			//spawned++;
 		}
 	}
 
 	private void Start()
 	{
 		spawnRate = setSpawnRate;
-		spawnMax = SetSpawnMax;
-		StartCoroutine(Spawner());
-		StartCoroutine(Spawner());
-		StartCoroutine(Spawner());
-		StartCoroutine(Spawner());
-	}
-
-	private void Update()
-	{
-		if (spawned >= spawnMax)
-		{
-			canSpawn = false;
-			oneTime = true;
-		}
-		else if (oneTime == true)
-		{
-			canSpawn = true;
-			StartCoroutine(Spawner());
-			StartCoroutine(Spawner());
-			StartCoroutine(Spawner());
-			StartCoroutine(Spawner());
-			oneTime = false;
-		}
-	}
+        StartCoroutine(Spawner());
+        StartCoroutine(Spawner());
+        StartCoroutine(Spawner());
+    }
 }
