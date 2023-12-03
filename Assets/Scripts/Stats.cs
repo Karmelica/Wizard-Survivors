@@ -45,7 +45,7 @@ public class Stats : MonoBehaviour
         {
             if (GodMode.godMode == false)
             {
-                TakeDamage(Enemy.enemyDmg);
+                TakeDamage(EnemyScript.enemyDmg);
             }
         }
     }
@@ -94,7 +94,7 @@ public class Stats : MonoBehaviour
     {
         maxHp += 10;
         //Slash.heal++;
-        Enemy.enemyDmg++;
+        EnemyScript.enemyDmg++;
         currentHp = maxHp;
 
         currentLevel++;
@@ -116,7 +116,10 @@ public class Stats : MonoBehaviour
         }
         if(currentLevel % 4 == 0)
         {
-            EnemySpawn.spawnRate /= 2;
+            if(EnemySpawn.spawnRate > 1)
+            {
+                EnemySpawn.spawnRate--;
+            }
         }
         
     }
@@ -157,6 +160,7 @@ public class Stats : MonoBehaviour
     void Start()
     {
         //overHeal = 0;
+        unlockShop = false;
         currentHp = maxHp;
         healthBar.SetMaxHealth(maxHp);
         currentExp = exp;

@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField]
     public Animator animator;
     public Transform pfFireball;
     public GameObject player;

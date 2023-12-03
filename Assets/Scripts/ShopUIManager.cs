@@ -8,13 +8,16 @@ public class ShopUIManager : MonoBehaviour
     public static ShopUIManager Instance;
     private bool canBuy;
 
-    [Header("Components")]
-    public GameObject cursor;
+    [Header("Scripts")]
     public Stats stats;
     public CoinCounter coinCounter;
     public ShopManager shopManager;
     public HealthBar healthBar;
     public Movement movement;
+    public Damage damge;
+
+    [Header("GameObjects")]
+    public GameObject cursor;
     public GameObject shop;
     public GameObject cooldownUpgradeButton;
     public GameObject bootsOfSwiftnessUpgradeButton;
