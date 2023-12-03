@@ -17,7 +17,7 @@ public class Movement : MonoBehaviour
     static public float dashCooldown;
     static public float uiDashCooldown;
     public float setDashCooldown = 5f;
-    private bool isDashing = false;
+    static public bool isDashing = false;
 
     void Flip()
     {

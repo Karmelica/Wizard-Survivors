@@ -620,7 +620,7 @@ GameObject:
   - component: {fileID: 6779059546134093130}
   - component: {fileID: 5915956735069033738}
   - component: {fileID: 1219204895510423524}
-  - component: {fileID: 4223594870537982971}
+  - component: {fileID: 5478535226659185140}
   m_Layer: 6
   m_Name: pfBat
   m_TagString: Enemy
@@ -705,7 +705,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
   tr: {fileID: 8020632464414137212}
---- !u!114 &4223594870537982971
+--- !u!114 &5478535226659185140
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -714,40 +714,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 7026042985259673346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d58e306a5f0fbfa4d9a8634156f4c8af, type: 3}
+  m_Script: {fileID: 11500000, guid: ad448e54a04ed1541b2dc36464f5a345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 0}
-  gradient:
+  player: {fileID: 0}
+  colider: {fileID: 3742309304470852142}
+  stats: {fileID: 0}
+  playerMask:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 65535
-    ctime2: 0
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
+    m_Bits: 8
 --- !u!1 &8178094829802171310
 GameObject:
   m_ObjectHideFlags: 0

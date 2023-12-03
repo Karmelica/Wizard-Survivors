@@ -19,7 +19,7 @@ public class Flipper : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame

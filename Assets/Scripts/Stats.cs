@@ -39,16 +39,6 @@ public class Stats : MonoBehaviour
         }
     }
     */
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            if (GodMode.godMode == false)
-            {
-                TakeDamage(EnemyScript.enemyDmg);
-            }
-        }
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -61,7 +51,7 @@ public class Stats : MonoBehaviour
     }
 
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHp -= damage;
     }
@@ -160,7 +150,16 @@ public class Stats : MonoBehaviour
     void Start()
     {
         //overHeal = 0;
-        unlockShop = false;
+        if (GodMode.godMode)
+        {
+            unlockShop = true;
+            currentCoins = 999;
+        }
+        else
+        {
+            unlockShop = false;
+            currentCoins = 0;
+        }
         currentHp = maxHp;
         healthBar.SetMaxHealth(maxHp);
         currentExp = exp;
