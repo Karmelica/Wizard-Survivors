@@ -2998,6 +2998,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8520477399676140931, guid: 3b886ce8f8447994b93e6acd360e34c9, type: 3}
+      propertyPath: SetSpawnMax
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8520477399676140931, guid: 3b886ce8f8447994b93e6acd360e34c9, type: 3}
       propertyPath: enemyPrefabs.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -4034,12 +4038,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 743e747116f4d524590b8e08d2014110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cursor: {fileID: 1073987108}
   stats: {fileID: 1943610508}
   coinCounter: {fileID: 51975004}
   shopManager: {fileID: 1943610519}
   healthBar: {fileID: 1123608244}
   movement: {fileID: 1943610515}
+  damge: {fileID: 0}
+  cursor: {fileID: 1073987108}
   shop: {fileID: 2127631125}
   cooldownUpgradeButton: {fileID: 966083428}
   bootsOfSwiftnessUpgradeButton: {fileID: 97156140}

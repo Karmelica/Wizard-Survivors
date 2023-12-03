@@ -2,28 +2,14 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
-    [SerializeField]
-
     public GameObject player;
     public Rigidbody2D body;
-    public Stats stats;
-
-    [SerializeField]
 
     private Vector3 mousePos;
     private float mousePosX;
     private float mousePosY;
     private float time = 3f;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Vector3 deadPreFabCoords = collision.gameObject.transform.position;
-        Destroy(collision.gameObject);
-        ExpManager.Instance.AddExp(Enemy.enemyExp);
-        Destroy(gameObject);
-        EnemySpawn.spawned--;
-        FindAnyObjectByType<CoinDrop>().Drop(deadPreFabCoords);
-    }
     void MousePos()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -34,8 +20,6 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<ExpManager>();
-        GetComponent<Enemy>();
         player = GameObject.FindGameObjectWithTag("Player");
         MousePos();
         body = GetComponent<Rigidbody2D>();

@@ -13,12 +13,6 @@ public class ToolTipHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         toolTip.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void OnPointerEnter(PointerEventData eventData) 
     {
         toolTip.SetActive(true);
