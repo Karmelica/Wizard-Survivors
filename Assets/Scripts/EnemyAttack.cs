@@ -7,6 +7,7 @@ public class EnemyAttack : MonoBehaviour
 {
 	private float attackInterval = 2f;
 	private readonly float attackRange = 0.4f;
+	public Collider2D colli;
 	private Rigidbody2D rb;
 	public GameObject player;
 	public Stats stats;
@@ -23,11 +24,11 @@ public class EnemyAttack : MonoBehaviour
 	void Update()
 	{
         attackInterval -= Time.deltaTime;
-		float distance = (transform.position - player.transform.position).magnitude;
+		float distance = (colli.transform.position - player.transform.position).magnitude;
         if (distance <= attackRange && attackInterval < 0 && !Movement.isDashing && !GodMode.godMode)
         {
             stats.TakeDamage(EnemyScript.enemyDmg);
-			rb.AddForce((player.transform.position - transform.position).normalized * -200, ForceMode2D.Force); 
+			rb.AddForce((player.transform.position - colli.transform.position).normalized * -200, ForceMode2D.Force); 
             attackInterval = 2f;
         }
     }

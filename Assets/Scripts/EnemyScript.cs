@@ -5,6 +5,7 @@ public class EnemyScript : MonoBehaviour
 {
 	[Header("Properties")]
 	public GameObject player;
+	public Collider2D colli;
 	public Rigidbody2D rbody2D;
 	[SerializeField] private float despawnTime = 30f;
 
@@ -17,21 +18,21 @@ public class EnemyScript : MonoBehaviour
 
 	[Header("Ruch")]
 	public float speed = 4;
-	private float enemyMoveX;
-	private float enemyMoveY;
+	private float enemyPosX;
+	private float enemyPosY;
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (collision.gameObject.CompareTag("Player"))
+		if (other.gameObject.CompareTag("Player"))
 		{
 			TakeDamage(2);
 		}
-		if (collision.CompareTag("Weapon"))
+		if (other.CompareTag("Weapon"))
 		{
-			TakeDamage(collision.GetComponent<Damage>().attackDamage);
-			if (collision.gameObject.name == "pfProjectile(Clone)")
+			TakeDamage(other.GetComponent<Damage>().attackDamage);
+			if (other.gameObject.name == "pfProjectile(Clone)")
 			{
-				Destroy(collision.gameObject);
+				Destroy(other.gameObject);
 			}
 		}
 	}
@@ -42,7 +43,7 @@ public class EnemyScript : MonoBehaviour
 	}
 	void EnemyDied()
 	{
-		Vector3 deadPreFabCoords = transform.position;
+		Vector3 deadPreFabCoords = colli.transform.position;
 		Destroy(gameObject);
 		//EnemySpawn.spawned--;
 		ExpManager.Instance.AddExp(enemyExp);
@@ -51,9 +52,9 @@ public class EnemyScript : MonoBehaviour
 
 	void EnemyMove()
 	{
-		enemyMoveX = transform.position.x;
-		enemyMoveY = transform.position.y;
-		rbody2D.AddForce(0.5f * -speed * new Vector2(enemyMoveX - player.transform.position.x, enemyMoveY - player.transform.position.y).normalized, ForceMode2D.Force);
+		enemyPosX = colli.transform.position.x;
+		enemyPosY = colli.transform.position.y;
+		rbody2D.AddForce(0.5f * -speed * new Vector2(enemyPosX - player.transform.position.x, enemyPosY - player.transform.position.y).normalized, ForceMode2D.Force);
 	}
 
 
@@ -83,7 +84,7 @@ public class EnemyScript : MonoBehaviour
 
 		if (despawnTime < 20f)
 		{
-			speed = 12;
+			speed = 14;
 		}
         if (despawnTime < 0)
         {

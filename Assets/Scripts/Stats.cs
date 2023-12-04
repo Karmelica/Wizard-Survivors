@@ -98,13 +98,9 @@ public class Stats : MonoBehaviour
 		if (currentLevel % 3 == 0)
 		{
 			unlockShop = true;
-			if (EnemySpawn.spawnRate >= 1f)
+			if (EnemySpawn.spawnRate > 1f)
 			{
 				EnemySpawn.spawnRate -= 1f;
-			}
-			else if (EnemySpawn.spawnRate >= 0.3f && EnemySpawn.spawnRate < 1f)
-			{
-				EnemySpawn.spawnRate -= 0.2f;
 			}
 		}
 	}
@@ -143,7 +139,7 @@ public class Stats : MonoBehaviour
 	void Start()
 	{
 		//overHeal = 0;
-		
+
 		unlockShop = false;
 		currentHp = maxHp;
 		healthBar.SetMaxHealth(maxHp);

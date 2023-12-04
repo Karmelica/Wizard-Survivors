@@ -354,8 +354,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4007742114265204684, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
+  colli: {fileID: 3696673639529461420}
   rbody2D: {fileID: 0}
-  despawnTime: 40
+  despawnTime: 60
   enemyMaxHp: 3
   enemyCurrentHp: 2
   speed: 7
@@ -385,6 +386,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad448e54a04ed1541b2dc36464f5a345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colli: {fileID: 3696673639529461420}
   player: {fileID: 0}
   stats: {fileID: 0}
 --- !u!1 &7226263659551725311

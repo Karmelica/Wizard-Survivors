@@ -516,7 +516,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
   m_LocalPosition: {x: 0, y: -1, z: 0}
-  m_LocalScale: {x: 0.32955, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 1.3182, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8020632464414137212}
@@ -672,8 +672,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4007742114265204684, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
+  colli: {fileID: 3742309304470852142}
   rbody2D: {fileID: 0}
-  despawnTime: 40
+  despawnTime: 60
   enemyMaxHp: 1
   enemyCurrentHp: 2
   speed: 6
@@ -703,6 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad448e54a04ed1541b2dc36464f5a345, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  colli: {fileID: 3742309304470852142}
   player: {fileID: 0}
   stats: {fileID: 0}
 --- !u!1 &8178094829802171310
