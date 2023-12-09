@@ -27,7 +27,7 @@ public class Stats : MonoBehaviour
 	public CoinCounter coinCounter;
 	public Image overHealBar;
 
-	/* nie wiem skad sie to wzielo wiec narazie zostawie
+    /* nie wiem skad sie to wzielo wiec narazie zostawie
 	private void OnTriggerEnter(Collider other)
 	{
 		if (other.gameObject.CompareTag("Coin"))
@@ -38,19 +38,18 @@ public class Stats : MonoBehaviour
 		}
 	}
 	*/
-
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-		if (collision.gameObject.CompareTag("Coin"))
-		{
-			Destroy(collision.gameObject);
-			currentCoins++;
-			coinCounter.CoinCount(currentCoins);
-		}
-	}
-
-
-	public void TakeDamage(int damage)
+	/*
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Coin"))
+        {
+            Destroy(collision.gameObject);
+            currentCoins++;
+            coinCounter.CoinCount(currentCoins);
+        }
+    }
+	*/
+    public void TakeDamage(int damage)
 	{
 		currentHp -= damage;
 	}
