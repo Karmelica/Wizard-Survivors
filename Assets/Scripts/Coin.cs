@@ -10,7 +10,7 @@ public class Coin : MonoBehaviour
 
     bool hasTarget;
     Vector3 targetPosition;
-    float moveSpeed = 5;
+    float moveSpeed = 3;
 
     private void Awake()
     {

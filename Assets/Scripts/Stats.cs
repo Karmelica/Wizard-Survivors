@@ -26,6 +26,8 @@ public class Stats : MonoBehaviour
 	public LevelCounter levelCounter;
 	public CoinCounter coinCounter;
 	public Image overHealBar;
+	public GameObject MagnetCollider;
+	public MagnetText magnetText;
 
     /* nie wiem skad sie to wzielo wiec narazie zostawie
 	private void OnTriggerEnter(Collider other)
@@ -101,6 +103,12 @@ public class Stats : MonoBehaviour
 			{
 				EnemySpawn.spawnRate -= 1f;
 			}
+		}
+
+		if (currentLevel == 5)
+		{
+			MagnetCollider.SetActive(true);
+			StartCoroutine(magnetText.Text());
 		}
 	}
 
