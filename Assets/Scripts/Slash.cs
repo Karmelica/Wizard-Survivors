@@ -3,6 +3,7 @@ using UnityEngine;
 public class Slash : MonoBehaviour
 {
     //public HealthBar healthBar;
+    private Animator animator;
     private float time = 1f;
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -15,6 +16,8 @@ public class Slash : MonoBehaviour
 
     void Start()
     {
+        animator = GetComponent<Animator>();
+        animator.Play("Slash");
         //healthBar = FindObjectOfType<HealthBar>();
     }
 

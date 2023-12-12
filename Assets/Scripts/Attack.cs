@@ -6,6 +6,7 @@ public class Attack : MonoBehaviour
 	public Transform pfSlash;
 	public Transform pfFireball;
 	public Animator animator;
+	public Animator slash;
 	public GameObject player;
 
 	static public bool attackUpgraded = false;
@@ -50,7 +51,7 @@ public class Attack : MonoBehaviour
 			if (attackUpgraded)
 			{
 				animator.Play("Attack");
-				attackCooldown = setAttackCooldown;
+                attackCooldown = setAttackCooldown;
 				if (transform.rotation.y == 0)
 				{
 					Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0), transform.rotation);
@@ -65,7 +66,7 @@ public class Attack : MonoBehaviour
 			else
 			{
 				animator.Play("Attack");
-				attackCooldown = setAttackCooldown;
+                attackCooldown = setAttackCooldown;
 				if (transform.rotation.y == 0)
 				{
 					Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0), transform.rotation);
