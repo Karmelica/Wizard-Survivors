@@ -279,6 +279,11 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!1 &36508347 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3411530940430999113, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
+  m_PrefabInstance: {fileID: 1428496171}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &51975000
 GameObject:
   m_ObjectHideFlags: 0
@@ -3385,6 +3390,10 @@ PrefabInstance:
     - target: {fileID: 5722047476007890143, guid: 3b886ce8f8447994b93e6acd360e34c9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6756737145413265227, guid: 3b886ce8f8447994b93e6acd360e34c9, type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6756737145413265227, guid: 3b886ce8f8447994b93e6acd360e34c9, type: 3}
       propertyPath: m_Name
@@ -6977,7 +6986,7 @@ PrefabInstance:
       objectReference: {fileID: 1146608067}
     - target: {fileID: 3028800166207298786, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: setGodMode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3245047050426871915, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: m_IsTrigger
@@ -7217,11 +7226,11 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4007742114265204684, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1430531148}
-    - targetCorrespondingSourceObject: {fileID: 4007742114265204684, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 18686713}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3411530940430999113, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1779981195}
   m_SourcePrefab: {fileID: 100100000, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
 --- !u!1 &1429185199
 GameObject:
@@ -7298,88 +7307,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429185199}
   m_CullTransparentMesh: 1
---- !u!1 &1430531147
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1430531148}
-  - component: {fileID: 1430531149}
-  - component: {fileID: 1430531150}
-  m_Layer: 3
-  m_Name: CoinCollector
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1430531148
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430531147}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.30690214, y: 0.30690214, z: 0.30690214}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1943610522}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1430531149
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430531147}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d1f1534ff6a22a4cb33f816dfa05e22, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stats: {fileID: 1943610508}
-  coinCounter: {fileID: 51975004}
---- !u!70 &1430531150
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1430531147}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
-  m_Direction: 0
 --- !u!1 &1450003521
 GameObject:
   m_ObjectHideFlags: 0
@@ -8297,6 +8224,20 @@ CapsuleCollider2D:
   m_CorrespondingSourceObject: {fileID: 5007369536215927220, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
   m_PrefabInstance: {fileID: 1428496171}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1779981195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36508347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1f1534ff6a22a4cb33f816dfa05e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 1943610508}
+  coinCounter: {fileID: 51975004}
 --- !u!1 &1794584437
 GameObject:
   m_ObjectHideFlags: 0
@@ -9648,10 +9589,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 571909471}
-  - {fileID: 1125885030}
-  - {fileID: 966083429}
   - {fileID: 894598525}
   - {fileID: 1189761325}
+  - {fileID: 1125885030}
+  - {fileID: 966083429}
   - {fileID: 97156141}
   m_Father: {fileID: 716643903}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

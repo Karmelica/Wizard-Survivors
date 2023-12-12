@@ -35,8 +35,8 @@ public class Movement : MonoBehaviour
 	IEnumerator DashHandler()
 	{
 		dashCooldown = setDashCooldown;
-		collider2d.isTrigger = true;
-		isDashing = true;
+        isDashing = true;
+        collider2d.isTrigger = true;
 		animator.Play("Dash");
 		trailRenderer.GetComponent<TrailRenderer>().emitting = true;
 
