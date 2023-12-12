@@ -110,6 +110,11 @@ public class Stats : MonoBehaviour
 			MagnetCollider.SetActive(true);
 			StartCoroutine(magnetText.Text());
 		}
+
+		if(currentLevel == 30)
+		{
+			EnemySpawn.spawnRate = 0.5f; //po 30lvl wrogowie spawni¹ siê szybko
+		}
 	}
 
 	public void GainExp()
@@ -158,7 +163,7 @@ public class Stats : MonoBehaviour
 	void Update()
 	{
 		//OverHeal();
-		textMeshHP.text = currentHp + "/" + maxHp;
+		textMeshHP.text = currentHp + "/" + maxHp; //tak jak mówi³ dawid trzeba przestawiæ do tam gdzie ¿ycie faktycznie siê zmienia a nie w update
 		coinCounter.CoinCount(currentCoins);
 		healthBar.SetHealth(currentHp);
 		GainExp();
