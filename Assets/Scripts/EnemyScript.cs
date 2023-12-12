@@ -15,7 +15,6 @@ public class EnemyScript : MonoBehaviour
 	public int enemyMaxHp = 2;
 	public int enemyCurrentHp = 2;
 
-
 	[Header("Ruch")]
 	public float speed = 4;
 	private float enemyPosX;
