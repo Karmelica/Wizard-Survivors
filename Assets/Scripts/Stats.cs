@@ -117,6 +117,11 @@ public class Stats : MonoBehaviour
 			MagnetCollider.SetActive(true);
 			StartCoroutine(magnetText.Text());
 		}
+
+		if(currentLevel == 30)
+		{
+			EnemySpawn.spawnRate = 0.5f; //po 30lvl wrogowie spawni¹ siê szybko
+		}
 	}
 
 	public void GainExp()
@@ -127,7 +132,7 @@ public class Stats : MonoBehaviour
 		}
 	}
 
-	/* leczenie atakiem i tak na razie jest wy��czone
+	/* leczenie atakiem i tak na razie jest wy³¹czone
 	 * private void OverHeal()
 	{
 		if (currentHp > maxHp * 2)
@@ -159,5 +164,4 @@ public class Stats : MonoBehaviour
 		currentExp = exp;
 		expBar.SetStartExp(currentExp);
 	}
-
 }

@@ -7009,6 +7009,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1146608067}
     - target: {fileID: 3028800166207298786, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3028800166207298786, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: setGodMode
       value: 0
       objectReference: {fileID: 0}
