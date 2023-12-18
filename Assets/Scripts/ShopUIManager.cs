@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShopUIManager : MonoBehaviour
 {
     public static ShopUIManager Instance;
-    [SerializeField] private bool canBuy = false;
+    static public bool canBuy = false;
 
     [Header("Scripts")]
     public Stats stats;
@@ -24,15 +24,21 @@ public class ShopUIManager : MonoBehaviour
     public GameObject projectileUpgradeButton;
     public GameObject shopIndicator;
 
+    public void UnlockShop()
+    {
+        canBuy = true;
+        shopIndicator.SetActive(true);
+    }
     public void IncreaseHealth()
     {
         if (stats.currentCoins >= shopManager.coinCostHp && canBuy)
         {
             stats.maxHp += Mathf.RoundToInt(stats.maxHp * 0.33f);
             stats.currentCoins -= shopManager.coinCostHp;
+            coinCounter.CoinCount(stats.currentCoins);
             shopManager.coinCostHp++;
             healthBar.SetMaxHealth(stats.maxHp);
-            Stats.unlockShop = false;
+            shopIndicator.SetActive(false);
             canBuy = false;
         }
     }
@@ -44,8 +50,9 @@ public class ShopUIManager : MonoBehaviour
             movement.setDashCooldown = 3f;
             Movement.uiDashCooldown = 3f;
             stats.currentCoins -= shopManager.coinCostDashCdUp;
+            coinCounter.CoinCount(stats.currentCoins);
             cooldownUpgradeButton.SetActive(false);
-            Stats.unlockShop = false;
+            shopIndicator.SetActive(false);
             canBuy = false;
         }
     }
@@ -55,8 +62,9 @@ public class ShopUIManager : MonoBehaviour
         {
             Movement.playerSpeed*= 1.2f;
             stats.currentCoins -= shopManager.coinCostBOS;
+            coinCounter.CoinCount(stats.currentCoins);
             bootsOfSwiftnessUpgradeButton.SetActive(false);
-            Stats.unlockShop = false;
+            shopIndicator.SetActive(false);
             canBuy = false;
         }
     }
@@ -67,8 +75,9 @@ public class ShopUIManager : MonoBehaviour
         {
             Attack.attackUpgraded = true;
             stats.currentCoins -= shopManager.coinCostSlashUp;
+            coinCounter.CoinCount(stats.currentCoins);
             slashUpgradeButton.SetActive(false);
-            Stats.unlockShop = false;
+            shopIndicator.SetActive(false);
             canBuy = false;
         }
     }
@@ -78,8 +87,9 @@ public class ShopUIManager : MonoBehaviour
         {
             Attack.projectileUpgraded = true;
             stats.currentCoins -= shopManager.coinCostProjUp;
+            coinCounter.CoinCount(stats.currentCoins);
             projectileUpgradeButton.SetActive(false);
-            Stats.unlockShop = false;
+            shopIndicator.SetActive(false);
             canBuy = false;
         }
     }
@@ -114,22 +124,8 @@ public class ShopUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shopIndicator.SetActive(false);
         shop.SetActive(false);
         canBuy = false;
     }
-
-    void Update()
-    {
-        if(Stats.unlockShop)
-        {
-            shopIndicator.SetActive(true);
-            canBuy = true;
-        }
-        else
-        {
-            shopIndicator.SetActive(false);
-            canBuy = false;
-        }
-    }
-
 }

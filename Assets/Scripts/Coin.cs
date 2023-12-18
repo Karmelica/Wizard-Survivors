@@ -10,21 +10,17 @@ public class Coin : MonoBehaviour
 
     bool hasTarget;
     Vector3 targetPosition;
-    float moveSpeed = 3;
+    readonly float moveSpeed = 3;
+
+    public void SetTarget(Vector3 position)
+    {
+        targetPosition = position;
+        hasTarget = true;
+    }
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        despawnTime -= Time.deltaTime;
-        if (despawnTime < 0)
-        {
-            Destroy(gameObject);
-        }
     }
 
     public void FixedUpdate()
@@ -36,9 +32,13 @@ public class Coin : MonoBehaviour
         }
     }
 
-    public void SetTarget(Vector3 position)
+    // Update is called once per frame
+    void Update()
     {
-        targetPosition = position;
-        hasTarget = true;
+        despawnTime -= Time.deltaTime;
+        if (despawnTime < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

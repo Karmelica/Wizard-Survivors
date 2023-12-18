@@ -40,7 +40,7 @@ public class Movement : MonoBehaviour
 		animator.Play("Dash");
 		trailRenderer.GetComponent<TrailRenderer>().emitting = true;
 
-		rbody.AddForce(playerSpeed * new Vector2(moveX, moveY).normalized, ForceMode2D.Impulse);
+		rbody.AddForce(playerSpeed * rbody.velocity.normalized, ForceMode2D.Impulse);
 
 		yield return new WaitForSeconds(1);
         collider2d.isTrigger = false;

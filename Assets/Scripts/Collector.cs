@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Collector : MonoBehaviour
 {
-
     public Stats stats;
     public CoinCounter coinCounter;
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
