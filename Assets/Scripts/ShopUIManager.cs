@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ShopUIManager : MonoBehaviour
 {
     public static ShopUIManager Instance;
-    private bool canBuy;
+    [SerializeField] private bool canBuy = false;
 
     [Header("Scripts")]
     public Stats stats;
@@ -115,6 +115,7 @@ public class ShopUIManager : MonoBehaviour
     void Start()
     {
         shop.SetActive(false);
+        canBuy = false;
     }
 
     void Update()
@@ -122,11 +123,12 @@ public class ShopUIManager : MonoBehaviour
         if(Stats.unlockShop)
         {
             shopIndicator.SetActive(true);
+            canBuy = true;
         }
         else
         {
             shopIndicator.SetActive(false);
-            canBuy = true;
+            canBuy = false;
         }
     }
 

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEditor;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ public class EnemyScript : MonoBehaviour
 	public Collider2D colli;
 	public Rigidbody2D rbody2D;
 	[SerializeField] private float despawnTime = 30f;
+	[SerializeField] private Animator slimeAnimator;
 
 	[Header("Stats")]
 	static public int enemyDmg = 5;
@@ -56,6 +58,19 @@ public class EnemyScript : MonoBehaviour
 		rbody2D.AddForce(0.5f * -speed * new Vector2(enemyPosX - player.transform.position.x, enemyPosY - player.transform.position.y).normalized, ForceMode2D.Force);
 	}
 
+	IEnumerator SlimeMove()
+    {
+		while (true)
+		{
+			yield return new WaitForSeconds(7/speed - 0.5f);
+			enemyPosX = colli.transform.position.x;
+			enemyPosY = colli.transform.position.y;
+			slimeAnimator.Play("Slime");
+            yield return new WaitForSeconds(0.5f);
+            rbody2D.AddForce(-4 * new Vector2(enemyPosX - player.transform.position.x, enemyPosY - player.transform.position.y).normalized, ForceMode2D.Impulse);
+		}
+    }
+
 
 	// Start is called before the first frame update
 	void Start()
@@ -64,12 +79,21 @@ public class EnemyScript : MonoBehaviour
 		rbody2D = GetComponent<Rigidbody2D>();
 		rbody2D.freezeRotation = true;
 		enemyCurrentHp = enemyMaxHp;
-	}
+
+        if (gameObject.name == "pfSlime(Clone)")
+        {
+            StartCoroutine(SlimeMove());
+        }
+    }
 
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		EnemyMove();
+		if (gameObject.name != "pfSlime(Clone)")
+		{
+			EnemyMove();
+        }
+		
 	}
 
 	void Update()
