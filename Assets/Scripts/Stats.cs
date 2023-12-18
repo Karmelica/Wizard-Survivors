@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class Stats : MonoBehaviour
 {
-	public static bool unlockShop;
 
 	[Header("Stats")]
 	public int maxHp = 20;
@@ -54,7 +53,9 @@ public class Stats : MonoBehaviour
     public void TakeDamage(int damage)
 	{
 		currentHp -= damage;
-	}
+        textMeshHP.text = currentHp + "/" + maxHp;
+        healthBar.SetHealth(currentHp);
+    }
 
 	private void OnEnable()
 	{
@@ -82,26 +83,32 @@ public class Stats : MonoBehaviour
 
 	private void LevelUp()
 	{
-		maxHp += 10;
 		//Slash.heal++;
 		EnemyScript.enemyDmg++;
-		currentHp = maxHp;
 
 		currentLevel++;
 
-		currentExp = 0;
-		maxExp += 100;
-
+        maxExp += 100;
+        currentExp = 0;
 		levelCounter.LevelCount(currentLevel);
-		healthBar.SetMaxHealth(maxHp);
 		expBar.SetStartExp(currentExp);
 
-		if (currentLevel % 3 == 0)
+        maxHp += 10;
+        currentHp = maxHp;
+        healthBar.SetMaxHealth(maxHp);
+        healthBar.SetHealth(currentHp);
+        textMeshHP.text = currentHp + "/" + maxHp;
+
+        if (currentLevel % 3 == 0)
 		{
-			unlockShop = true;
+			shopUIManager.UnlockShop();
 			if (EnemySpawn.spawnRate > 1f)
 			{
 				EnemySpawn.spawnRate -= 1f;
+			}
+			else if (EnemySpawn.spawnRate > 0.5f)
+			{
+				EnemySpawn.spawnRate -= 0.1f;
 			}
 		}
 
@@ -113,7 +120,7 @@ public class Stats : MonoBehaviour
 
 		if(currentLevel == 30)
 		{
-			EnemySpawn.spawnRate = 0.5f; //po 30lvl wrogowie spawni¹ siê szybko
+			EnemySpawn.spawnRate = 0.5f; //po 30lvl wrogowie spawniÂ¹ siÃª szybko
 		}
 	}
 
@@ -125,7 +132,7 @@ public class Stats : MonoBehaviour
 		}
 	}
 
-	/* leczenie atakiem i tak na razie jest wy³¹czone
+	/* leczenie atakiem i tak na razie jest wyÂ³Â¹czone
 	 * private void OverHeal()
 	{
 		if (currentHp > maxHp * 2)
@@ -151,21 +158,10 @@ public class Stats : MonoBehaviour
 	void Start()
 	{
 		//overHeal = 0;
-
-		unlockShop = false;
 		currentHp = maxHp;
 		healthBar.SetMaxHealth(maxHp);
+
 		currentExp = exp;
 		expBar.SetStartExp(currentExp);
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		//OverHeal();
-		textMeshHP.text = currentHp + "/" + maxHp; //tak jak mówi³ dawid trzeba przestawiæ do tam gdzie ¿ycie faktycznie siê zmienia a nie w update
-		coinCounter.CoinCount(currentCoins);
-		healthBar.SetHealth(currentHp);
-		GainExp();
 	}
 }

@@ -5,10 +5,12 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour
 {
 	[Header("Properties")]
-	public GameObject player;
-	public Collider2D colli;
-	public Rigidbody2D rbody2D;
-	[SerializeField] private float despawnTime = 30f;
+	[SerializeField] private GameObject player;
+    [SerializeField] private Collider2D colli;
+    private Rigidbody2D rbody2D;
+	private Stats stats;
+
+    [SerializeField] private float despawnTime = 30f;
 	[SerializeField] private Animator slimeAnimator;
 
 	[Header("Stats")]
@@ -41,13 +43,17 @@ public class EnemyScript : MonoBehaviour
 	public void TakeDamage(int damageTaken)
 	{
 		enemyCurrentHp -= damageTaken;
-	}
+		if (enemyCurrentHp <= 0)
+        {
+            EnemyDied();
+        }
+    }
 	void EnemyDied()
 	{
 		Vector3 deadPreFabCoords = colli.transform.position;
 		Destroy(gameObject);
-		//EnemySpawn.spawned--;
 		ExpManager.Instance.AddExp(enemyExp);
+		stats.GainExp();
 		FindAnyObjectByType<CoinDrop>().Drop(deadPreFabCoords);
 	}
 
@@ -71,11 +77,11 @@ public class EnemyScript : MonoBehaviour
 		}
     }
 
-
 	// Start is called before the first frame update
 	void Start()
 	{
-		player = GameObject.FindGameObjectWithTag("Player");
+		player = GameObject.Find("Player");
+		stats = player.GetComponent<Stats>();
 		rbody2D = GetComponent<Rigidbody2D>();
 		rbody2D.freezeRotation = true;
 		enemyCurrentHp = enemyMaxHp;
@@ -93,16 +99,10 @@ public class EnemyScript : MonoBehaviour
 		{
 			EnemyMove();
         }
-		
 	}
 
 	void Update()
 	{
-		if (enemyCurrentHp <= 0)
-		{
-			EnemyDied();
-		}
-
 		despawnTime -= Time.deltaTime;
 
 		if (despawnTime < 20f)
@@ -112,7 +112,6 @@ public class EnemyScript : MonoBehaviour
         if (despawnTime < 0)
         {
             Destroy(gameObject);
-            //EnemySpawn.spawned--;
         }
 
     }

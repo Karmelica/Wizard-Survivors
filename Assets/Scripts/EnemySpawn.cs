@@ -7,10 +7,7 @@ public class EnemySpawn : MonoBehaviour
 	public GameObject[] enemyPrefabs;
 
 	static public float spawnRate;
-	//static public int spawnMax;
-	static public int spawned = 0;
 	public float setSpawnRate = 6f;
-	//public int SetSpawnMax = 10;
 
 	private IEnumerator Spawner()
 	{
@@ -25,8 +22,6 @@ public class EnemySpawn : MonoBehaviour
 			Vector3 randomPos = Random.insideUnitCircle.normalized * 2.5f;
 
 			Instantiate(enemyToSpawn, holder.transform.position + randomPos, Quaternion.identity);
-
-			//spawned++;
 		}
 	}
 

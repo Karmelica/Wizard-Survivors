@@ -20,7 +20,7 @@ public class ShopManager : MonoBehaviour
 
     public void Shop()
     {
-        if (Input.GetKeyDown(KeyCode.B) && check == false && Stats.unlockShop)
+        if (Input.GetKeyDown(KeyCode.B) && check == false && ShopUIManager.canBuy)
         {
             Time.timeScale = 0f;
             check = !check;
