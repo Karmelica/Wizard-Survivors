@@ -8,12 +8,17 @@ public class Stats : MonoBehaviour
 	[Header("Stats")]
 	public int maxHp = 20;
 	static public int currentHp;
+
 	public static int exp = 0;
 	public int maxExp = 100;
 	public int currentExp;
 	static public int currentLevel = 1;
+
 	public int currentCoins;
-	public int playerDmg = 1;
+
+	public int projectileDmg = 1;
+	public int slashDmg = 2;
+	public int dashDmg = 2;
 	//private float overHeal;
 	//private float vel = 1f;
 
@@ -50,11 +55,18 @@ public class Stats : MonoBehaviour
         }
     }
 	*/
+
+	public void UpdateHealthBar()
+    {
+        healthBar.SetMaxHealth(maxHp);
+        healthBar.SetHealth(currentHp);
+        textMeshHP.text = currentHp + "/" + maxHp;
+    }
+
     public void TakeDamage(int damage)
 	{
 		currentHp -= damage;
-        textMeshHP.text = currentHp + "/" + maxHp;
-        healthBar.SetHealth(currentHp);
+		UpdateHealthBar();
     }
 
 	private void OnEnable()
@@ -66,7 +78,6 @@ public class Stats : MonoBehaviour
 	{
 		ExpManager.Instance.ExpChange -= HandleExpChange;
 	}
-
 
 	public void HandleExpChange(int newExp)
 	{
@@ -95,9 +106,7 @@ public class Stats : MonoBehaviour
 
         maxHp += 10;
         currentHp = maxHp;
-        healthBar.SetMaxHealth(maxHp);
-        healthBar.SetHealth(currentHp);
-        textMeshHP.text = currentHp + "/" + maxHp;
+		UpdateHealthBar();
 
         if (currentLevel % 3 == 0)
 		{
@@ -106,7 +115,7 @@ public class Stats : MonoBehaviour
 			{
 				EnemySpawn.spawnRate -= 1f;
 			}
-			else if (EnemySpawn.spawnRate > 0.5f)
+			else if (EnemySpawn.spawnRate > 0.5f) //wrogowie spawnia sie czybko ale skala jest liniowa
 			{
 				EnemySpawn.spawnRate -= 0.1f;
 			}
@@ -116,11 +125,6 @@ public class Stats : MonoBehaviour
 		{
 			MagnetCollider.SetActive(true);
 			StartCoroutine(magnetText.Text());
-		}
-
-		if(currentLevel == 30)
-		{
-			EnemySpawn.spawnRate = 0.5f; //po 30lvl wrogowie spawni¹ siê szybko
 		}
 	}
 
@@ -163,5 +167,5 @@ public class Stats : MonoBehaviour
 
 		currentExp = exp;
 		expBar.SetStartExp(currentExp);
-	}
+	} //usunąłem cały update i wrzuciłem funkcje do kodu tam gdzie są wywoływane np. udpate healthbar
 }

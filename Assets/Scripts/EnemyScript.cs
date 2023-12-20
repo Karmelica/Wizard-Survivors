@@ -23,16 +23,21 @@ public class EnemyScript : MonoBehaviour
 	public float speed = 4;
 	private float enemyPosX;
 	private float enemyPosY;
+	private float playerPosX;
+	private float playerPosY;
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.gameObject.CompareTag("Player"))
 		{
-			TakeDamage(2);
+			TakeDamage(stats.dashDmg);
 		}
 		if (other.CompareTag("Weapon"))
 		{
-			TakeDamage(other.GetComponent<Damage>().attackDamage);
+			int damage = other.GetComponentInParent<Damage>().attackDamage;
+
+            TakeDamage(damage);
+
 			if (other.gameObject.name == "pfProjectile(Clone)")
 			{
 				Destroy(other.gameObject);
@@ -61,7 +66,10 @@ public class EnemyScript : MonoBehaviour
 	{
 		enemyPosX = colli.transform.position.x;
 		enemyPosY = colli.transform.position.y;
-		rbody2D.AddForce(0.5f * -speed * new Vector2(enemyPosX - player.transform.position.x, enemyPosY - player.transform.position.y).normalized, ForceMode2D.Force);
+		playerPosX = player.transform.position.x;
+		playerPosY = player.transform.position.y;
+
+		rbody2D.AddForce(0.5f * -speed * new Vector2(enemyPosX - playerPosX, enemyPosY - playerPosY).normalized, ForceMode2D.Force);
 	}
 
 	IEnumerator SlimeMove()
@@ -69,11 +77,15 @@ public class EnemyScript : MonoBehaviour
 		while (true)
 		{
 			yield return new WaitForSeconds(7/speed - 0.5f);
-			enemyPosX = colli.transform.position.x;
-			enemyPosY = colli.transform.position.y;
 			slimeAnimator.Play("Slime");
             yield return new WaitForSeconds(0.5f);
-            rbody2D.AddForce(-4 * new Vector2(enemyPosX - player.transform.position.x, enemyPosY - player.transform.position.y).normalized, ForceMode2D.Impulse);
+
+            enemyPosX = colli.transform.position.x;
+            enemyPosY = colli.transform.position.y;
+			playerPosX = player.transform.position.x;
+            playerPosY = player.transform.position.y;
+
+            rbody2D.AddForce(-4 * new Vector2(enemyPosX - playerPosX, enemyPosY - playerPosY).normalized, ForceMode2D.Impulse);
 		}
     }
 

@@ -6979,7 +6979,7 @@ PrefabInstance:
     - target: {fileID: -4347809588913682561, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: pfSlash
       value: 
-      objectReference: {fileID: 1523445528302173737, guid: e909edae8610812499344f6d23fe62d8, type: 3}
+      objectReference: {fileID: 5073390224587836978, guid: e909edae8610812499344f6d23fe62d8, type: 3}
     - target: {fileID: -4347809588913682561, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: animator
       value: 
@@ -6991,7 +6991,7 @@ PrefabInstance:
     - target: {fileID: -4347809588913682561, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: pfFireball
       value: 
-      objectReference: {fileID: 1805113043313996540, guid: 4d5757ce760acde4ea58884b71c65f8b, type: 3}
+      objectReference: {fileID: 3621023564299458670, guid: 4d5757ce760acde4ea58884b71c65f8b, type: 3}
     - target: {fileID: -4347809588913682561, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
       propertyPath: setAttackCooldown
       value: 2

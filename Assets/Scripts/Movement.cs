@@ -21,12 +21,12 @@ public class Movement : MonoBehaviour
 
 	void Flip()
 	{
-		if (Input.GetAxis("Horizontal") < 0)
+		if (moveX < 0)
 		{
 			transform.rotation = Quaternion.Euler(0, 180, 0);
 			trailRenderer.transform.position = transform.position + new Vector3(0, 0, 1f);
 		}
-		if (Input.GetAxis("Horizontal") > 0)
+		if (moveX > 0)
 		{
 			transform.rotation = Quaternion.Euler(0, 0, 0);
 			trailRenderer.transform.position = transform.position + new Vector3(0, 0, 1f);

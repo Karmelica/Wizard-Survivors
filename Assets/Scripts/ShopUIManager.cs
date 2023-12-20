@@ -37,7 +37,7 @@ public class ShopUIManager : MonoBehaviour
             stats.currentCoins -= shopManager.coinCostHp;
             coinCounter.CoinCount(stats.currentCoins);
             shopManager.coinCostHp++;
-            healthBar.SetMaxHealth(stats.maxHp);
+            stats.UpdateHealthBar();
             shopIndicator.SetActive(false);
             canBuy = false;
         }
