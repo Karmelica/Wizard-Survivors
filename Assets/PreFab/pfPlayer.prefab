@@ -179,6 +179,7 @@ Transform:
   m_Children:
   - {fileID: 1658157540833718409}
   - {fileID: 5209801050760978302}
+  - {fileID: 3607937738078978206}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3981570110704479562
@@ -251,8 +252,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pfSlash: {fileID: 2313812488302209286, guid: c5f93bd4380a9764d9ea10c6d3cc473e, type: 3}
-  setAttackCooldown: 3
+  pfFireball: {fileID: 0}
+  pfEarth: {fileID: 0}
   animator: {fileID: 2772099433366747489}
+  player: {fileID: 0}
+  setAttackCooldown: 3
+  setFireballCooldown: 1
+  setEarthCooldown: 5
 --- !u!114 &5571546035917568139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,9 +274,11 @@ MonoBehaviour:
   maxHp: 20
   maxExp: 100
   currentExp: 0
-  currentLevel: 1
   currentCoins: 0
-  playerDmg: 1
+  projectileDmg: 1
+  slashDmg: 2
+  dashDmg: 2
+  earthDmg: 2
   shopUIManager: {fileID: 0}
   textMeshHP: {fileID: 0}
   healthBar: {fileID: 0}
@@ -278,6 +286,8 @@ MonoBehaviour:
   levelCounter: {fileID: 0}
   coinCounter: {fileID: 0}
   overHealBar: {fileID: 0}
+  MagnetCollider: {fileID: 0}
+  magnetText: {fileID: 0}
 --- !u!114 &8755581517302622204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,8 +302,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   check: 0
   coinCostHp: 10
-  coinCostDc: 15
+  coinCostDashCdUp: 15
   coinCostBOS: 20
+  coinCostSlashUp: 40
+  coinCostProjUp: 80
   timeManager: {fileID: 0}
   shopUIManager: {fileID: 0}
 --- !u!1 &7935739688993505524
@@ -441,3 +453,83 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 0
   m_ApplyActiveColorSpace: 1
+--- !u!1 &8847219278407178837
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3607937738078978206}
+  - component: {fileID: 534900970465403547}
+  - component: {fileID: 1228726683294504158}
+  m_Layer: 3
+  m_Name: MagnetCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3607937738078978206
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8847219278407178837}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4007742114265204684}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &534900970465403547
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8847219278407178837}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &1228726683294504158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8847219278407178837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2934bb21dd9f5e44885b69021eb35039, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
