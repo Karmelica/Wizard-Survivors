@@ -595,7 +595,7 @@ GameObject:
   - component: {fileID: 1219204895510423524}
   - component: {fileID: -8848858454903807332}
   m_Layer: 6
-  m_Name: pfEnemy 2
+  m_Name: pfGoblin
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -42,6 +42,11 @@ public class EnemyScript : MonoBehaviour
 			{
 				Destroy(other.gameObject);
 			}
+
+			if(other.gameObject.name == "pfEarthAttack(Clone)")
+			{
+                rbody2D.AddForce((player.transform.position - colli.transform.position).normalized * -200, ForceMode2D.Force);
+            }
 		}
 	}
 

@@ -5,20 +5,25 @@ public class Attack : MonoBehaviour
 {
     public GameObject pfSlash;
     public GameObject pfFireball;
+    public GameObject pfEarth;
     public Animator animator;
-    public Animator slash;
     public GameObject player;
     private Stats stats;
 
     static public bool attackUpgraded = false;
     static public bool projectileUpgraded = false;
 
-    public float setAttackCooldown = 3f;
-    public float setFireballCooldown = 1f;
-    static public float uiAttackCooldown;
-    static public float uiFireballCooldown;
     static public float attackCooldown;
+    static public float uiAttackCooldown;
+    public float setAttackCooldown = 3f;
+
     static public float fireballCooldown;
+    static public float uiFireballCooldown;
+    public float setFireballCooldown = 1f;
+
+    static public float earthCooldown;
+    static public float uiEarthCooldown;
+    public float setEarthCooldown = 5f;
 
     IEnumerator Fireball()
     {
@@ -27,17 +32,21 @@ public class Attack : MonoBehaviour
         {
             animator.Play("Attack");
             fireballCooldown = setFireballCooldown;
-            Instantiate(pfFireball, player.transform.position, Quaternion.identity).GetComponent<Damage>().SetDamage(stats.projectileDmg);
+            Instantiate(pfFireball, player.transform.position, Quaternion.identity)
+                .GetComponent<Damage>().SetDamage(stats.projectileDmg);
             yield return new WaitForSeconds(0.2f);
-            Instantiate(pfFireball, player.transform.position, Quaternion.identity).GetComponent<Damage>().SetDamage(stats.projectileDmg);
+            Instantiate(pfFireball, player.transform.position, Quaternion.identity)
+                .GetComponent<Damage>().SetDamage(stats.projectileDmg);
             yield return new WaitForSeconds(0.2f);
-            Instantiate(pfFireball, player.transform.position, Quaternion.identity).GetComponent<Damage>().SetDamage(stats.projectileDmg);
+            Instantiate(pfFireball, player.transform.position, Quaternion.identity)
+                .GetComponent<Damage>().SetDamage(stats.projectileDmg);
         }
         else
         {
             animator.Play("Attack");
             fireballCooldown = setFireballCooldown;
-            Instantiate(pfFireball, player.transform.position, Quaternion.identity).GetComponent<Damage>().SetDamage(stats.projectileDmg);
+            Instantiate(pfFireball, player.transform.position, Quaternion.identity)
+                .GetComponent<Damage>().SetDamage(stats.projectileDmg);
         }
     }
 
@@ -56,8 +65,8 @@ public class Attack : MonoBehaviour
             }
             else
             {
-                Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0) * -1, transform.rotation).GetComponent<Damage>()
-                    .SetDamage(stats.slashDmg);
+                Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0) * -1, transform.rotation)
+                    .GetComponent<Damage>().SetDamage(stats.slashDmg);
                 Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0), transform.rotation * Quaternion.Euler(180, 180, 0))
                     .GetComponent<Damage>().SetDamage(stats.slashDmg);
             }
@@ -79,6 +88,22 @@ public class Attack : MonoBehaviour
         }
     }
 
+    void Earth()
+    {
+        animator.Play("Attack");
+        earthCooldown = setEarthCooldown;
+        if (transform.rotation.y == 0)
+        {
+            Instantiate(pfEarth, transform.position + new Vector3(1f, 0, 0), transform.rotation)
+            .GetComponent<Damage>().SetDamage(stats.earthDmg);
+        }
+        else
+        {
+            Instantiate(pfEarth, transform.position + new Vector3(1f, 0, 0) * -1, transform.rotation)
+            .GetComponent<Damage>().SetDamage(stats.earthDmg);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +116,9 @@ public class Attack : MonoBehaviour
 
         uiFireballCooldown = setFireballCooldown;
         fireballCooldown = 0f;
+
+        uiEarthCooldown = setEarthCooldown;
+        earthCooldown = 0f;
 
         player = GameObject.Find("Player");
     }
@@ -106,9 +134,13 @@ public class Attack : MonoBehaviour
         {
             Slash();
         }
+        if (Input.GetKeyDown(KeyCode.Space) && earthCooldown <= 0f && Time.timeScale != 0)
+        {
+            Earth();
+        }
 
         attackCooldown -= Time.deltaTime;
         fireballCooldown -= Time.deltaTime;
-
+        earthCooldown -= Time.deltaTime;
     }
 }
