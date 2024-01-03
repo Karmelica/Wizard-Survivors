@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 1958188691933897095}
   - component: {fileID: 2772099433366747489}
   - component: {fileID: 5007369536215927220}
+  - component: {fileID: 2654271040352977575}
+  - component: {fileID: 7958169759456929366}
   m_Layer: 0
   m_Name: FoxSprite
   m_TagString: Untagged
@@ -142,6 +144,32 @@ CapsuleCollider2D:
   m_Offset: {x: 0.011526756, y: -0.0065867007}
   m_Size: {x: 0.15533207, y: 0.30023986}
   m_Direction: 0
+--- !u!114 &2654271040352977575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3411530940430999113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b27755af6073194097ff8e5ccbac0b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7958169759456929366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3411530940430999113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d1f1534ff6a22a4cb33f816dfa05e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stats: {fileID: 5571546035917568139}
+  coinCounter: {fileID: 0}
 --- !u!1 &4126212245634156363
 GameObject:
   m_ObjectHideFlags: 0

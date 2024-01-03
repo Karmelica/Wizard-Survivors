@@ -8,10 +8,9 @@ public class EnemyHealthBar : MonoBehaviour
 {
     public EnemyScript enemyScript;
     public TextMeshProUGUI tekst;
-    // Update is called once per frame
-    void Update()
+
+    public void UpdateText()
     {
         tekst.text = enemyScript.enemyCurrentHp + " / " + enemyScript.enemyMaxHp;
-
     }
 }

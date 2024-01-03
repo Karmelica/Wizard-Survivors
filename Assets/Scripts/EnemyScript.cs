@@ -12,12 +12,13 @@ public class EnemyScript : MonoBehaviour
 
     [SerializeField] private float despawnTime = 30f;
 	[SerializeField] private Animator slimeAnimator;
+	[SerializeField] private EnemyHealthBar healthBar;
 
 	[Header("Stats")]
 	static public int enemyDmg = 5;
 	static public int enemyExp = 100;
 	public int enemyMaxHp = 2;
-	public int enemyCurrentHp = 2;
+	public int enemyCurrentHp;
 
 	[Header("Ruch")]
 	public float speed = 4;
@@ -53,6 +54,7 @@ public class EnemyScript : MonoBehaviour
 	public void TakeDamage(int damageTaken)
 	{
 		enemyCurrentHp -= damageTaken;
+		healthBar.UpdateText();
 		if (enemyCurrentHp <= 0)
         {
             EnemyDied();

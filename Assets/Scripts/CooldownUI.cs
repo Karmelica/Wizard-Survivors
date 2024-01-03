@@ -15,6 +15,7 @@ public class CooldownUI : MonoBehaviour
     public Image FireballCooldown;
     public Image DashCooldown;
     public Image AttackCooldown;
+    public Image EarthCooldown;
 
     // Update is called once per frame
     void Update()
@@ -24,6 +25,8 @@ public class CooldownUI : MonoBehaviour
         AttackCooldown.fillAmount = 1 - (Attack.attackCooldown / Attack.uiAttackCooldown);
 
         FireballCooldown.fillAmount = 1 - (Attack.fireballCooldown / Attack.uiFireballCooldown);
+
+        EarthCooldown.fillAmount = 1 - (Attack.earthCooldown / Attack.uiEarthCooldown);
 
 
         hpUpgradeCost.text = shopManager.coinCostHp.ToString();

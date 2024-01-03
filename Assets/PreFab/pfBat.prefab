@@ -673,9 +673,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4007742114265204684, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
   colli: {fileID: 3742309304470852142}
-  rbody2D: {fileID: 0}
   despawnTime: 60
-  enemyMaxHp: 1
+  slimeAnimator: {fileID: 0}
+  healthBar: {fileID: 1773691444416365530}
+  enemyMaxHp: 2
   enemyCurrentHp: 2
   speed: 6
 --- !u!114 &1219204895510423524

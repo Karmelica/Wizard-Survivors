@@ -5,7 +5,13 @@ using UnityEngine;
 public class EarthAttack : MonoBehaviour
 {
     private float time = 2f;
+    [SerializeField] private Animator animator;
 
+    private void Start()
+    {
+        animator = GetComponent<Animator>();
+        animator.Play("EarthAttack");
+    }
     // Update is called once per frame
     void Update()
     {

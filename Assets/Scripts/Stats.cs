@@ -19,7 +19,7 @@ public class Stats : MonoBehaviour
 	public int projectileDmg = 1;
 	public int slashDmg = 2;
 	public int dashDmg = 2;
-	public int earthDmg = 2;
+	public int earthDmg = 1;
 	//private float overHeal;
 	//private float vel = 1f;
 

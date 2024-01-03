@@ -33,20 +33,20 @@ public class Attack : MonoBehaviour
             animator.Play("Attack");
             fireballCooldown = setFireballCooldown;
             Instantiate(pfFireball, player.transform.position, Quaternion.identity)
-                .GetComponent<Damage>().SetDamage(stats.projectileDmg);
+            .GetComponent<Damage>().SetDamage(stats.projectileDmg);
             yield return new WaitForSeconds(0.2f);
             Instantiate(pfFireball, player.transform.position, Quaternion.identity)
-                .GetComponent<Damage>().SetDamage(stats.projectileDmg);
+            .GetComponent<Damage>().SetDamage(stats.projectileDmg);
             yield return new WaitForSeconds(0.2f);
             Instantiate(pfFireball, player.transform.position, Quaternion.identity)
-                .GetComponent<Damage>().SetDamage(stats.projectileDmg);
+            .GetComponent<Damage>().SetDamage(stats.projectileDmg);
         }
         else
         {
             animator.Play("Attack");
             fireballCooldown = setFireballCooldown;
             Instantiate(pfFireball, player.transform.position, Quaternion.identity)
-                .GetComponent<Damage>().SetDamage(stats.projectileDmg);
+            .GetComponent<Damage>().SetDamage(stats.projectileDmg);
         }
     }
 
@@ -59,16 +59,16 @@ public class Attack : MonoBehaviour
             if (transform.rotation.y == 0)
             {
                 Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0), transform.rotation)
-                    .GetComponent<Damage>().SetDamage(stats.slashDmg);
+                .GetComponent<Damage>().SetDamage(stats.slashDmg);
                 Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0) * -1, transform.rotation * Quaternion.Euler(180, 180, 0))
-                    .GetComponent<Damage>().SetDamage(stats.slashDmg);
+                .GetComponent<Damage>().SetDamage(stats.slashDmg);
             }
             else
             {
                 Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0) * -1, transform.rotation)
-                    .GetComponent<Damage>().SetDamage(stats.slashDmg);
+                .GetComponent<Damage>().SetDamage(stats.slashDmg);
                 Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0), transform.rotation * Quaternion.Euler(180, 180, 0))
-                    .GetComponent<Damage>().SetDamage(stats.slashDmg);
+                .GetComponent<Damage>().SetDamage(stats.slashDmg);
             }
         }
         else
@@ -94,12 +94,12 @@ public class Attack : MonoBehaviour
         earthCooldown = setEarthCooldown;
         if (transform.rotation.y == 0)
         {
-            Instantiate(pfEarth, transform.position + new Vector3(1f, 0, 0), transform.rotation)
+            Instantiate(pfEarth, transform.position + new Vector3(0.5f, 0, 0), transform.rotation)
             .GetComponent<Damage>().SetDamage(stats.earthDmg);
         }
         else
         {
-            Instantiate(pfEarth, transform.position + new Vector3(1f, 0, 0) * -1, transform.rotation)
+            Instantiate(pfEarth, transform.position + new Vector3(0.5f, 0, 0) * -1, transform.rotation)
             .GetComponent<Damage>().SetDamage(stats.earthDmg);
         }
     }
