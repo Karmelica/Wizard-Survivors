@@ -664,7 +664,7 @@ MonoBehaviour:
   slimeAnimator: {fileID: 0}
   healthBar: {fileID: 3722060128689135732}
   enemyMaxHp: 3
-  enemyCurrentHp: 2
+  enemyCurrentHp: 3
   speed: 5
 --- !u!114 &1219204895510423524
 MonoBehaviour:

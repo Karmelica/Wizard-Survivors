@@ -25,9 +25,9 @@ public class EnemyAttack : MonoBehaviour
 	{
         attackInterval -= Time.deltaTime;
 		float distance = (colli.transform.position - player.transform.position).magnitude;
-        if (distance <= attackRange && attackInterval < 0 && !Movement.isDashing && !GodMode.godMode)
+        if (distance <= attackRange && attackInterval < 0 && !Movement.isDashing)
         {
-			Debug.Log("Atakuje: " + gameObject.name);
+			Debug.Log(gameObject.name + "Atakuje: ");
             stats.TakeDamage(EnemyScript.enemyDmg);
 			rb.AddForce((player.transform.position - colli.transform.position).normalized * -200, ForceMode2D.Force);
             attackInterval = 2f;

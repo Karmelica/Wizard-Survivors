@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 	private float moveX;
 	private float moveY;
 
-	public AfterImage afterimage;
+	public TrailRenderer trail;
 	private Rigidbody2D rbody;
 	public Collider2D collider2d;
 	public Animator animator;
@@ -24,12 +24,12 @@ public class Movement : MonoBehaviour
 		if (moveX < 0)
 		{
 			transform.rotation = Quaternion.Euler(0, 180, 0);
-			afterimage.transform.position = transform.position + new Vector3(0, 0, 1f);
+			trail.transform.position = transform.position + new Vector3(0, 0, 1f);
 		}
 		if (moveX > 0)
 		{
 			transform.rotation = Quaternion.Euler(0, 0, 0);
-			afterimage.transform.position = transform.position + new Vector3(0, 0, 1f);
+			trail.transform.position = transform.position + new Vector3(0, 0, 1f);
 		}
 	}
 	IEnumerator DashHandler()
@@ -38,14 +38,14 @@ public class Movement : MonoBehaviour
         isDashing = true;
         collider2d.isTrigger = true;
 		animator.Play("Dash");
-		afterimage.StartAfterimage();
+		trail.emitting = true;
 
 		rbody.AddForce(playerSpeed * rbody.velocity.normalized, ForceMode2D.Impulse);
 
 		yield return new WaitForSeconds(1);
         collider2d.isTrigger = false;
         isDashing = false;
-		afterimage.StopAfterimage();
+		trail.emitting = false;
 	}
 	void MyInput()
 	{

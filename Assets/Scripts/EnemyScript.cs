@@ -99,7 +99,8 @@ public class EnemyScript : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
-		player = GameObject.Find("Player");
+        healthBar.UpdateText();
+        player = GameObject.Find("Player");
 		stats = player.GetComponent<Stats>();
 		rbody2D = GetComponent<Rigidbody2D>();
 		rbody2D.freezeRotation = true;
