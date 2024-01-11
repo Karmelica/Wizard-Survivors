@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Coin
   - Coin Drop
+  - border
   layers:
   - Default
   - TransparentFX
