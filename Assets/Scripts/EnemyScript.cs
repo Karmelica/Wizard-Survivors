@@ -29,10 +29,19 @@ public class EnemyScript : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
+		if(other.gameObject.name == "IceField")
+		{
+			if(Attack.IceUnlocked)
+			{
+				speed /= 2;
+			}
+		}
+
 		if (other.gameObject.CompareTag("Player"))
 		{
 			TakeDamage(stats.dashDmg);
 		}
+
 		if (other.CompareTag("Weapon"))
 		{
 			int damage = other.GetComponentInParent<Damage>().attackDamage;
@@ -51,7 +60,18 @@ public class EnemyScript : MonoBehaviour
 		}
 	}
 
-	public void TakeDamage(int damageTaken)
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name == "IceField")
+        {
+            if (Attack.IceUnlocked)
+            {
+                speed *= 2;
+            }
+        }
+    }
+
+    public void TakeDamage(int damageTaken)
 	{
 		enemyCurrentHp -= damageTaken;
 		healthBar.UpdateText();
@@ -83,7 +103,7 @@ public class EnemyScript : MonoBehaviour
     {
 		while (true)
 		{
-			yield return new WaitForSeconds(7/speed - 0.5f);
+			yield return new WaitForSeconds(7/speed - 0.3f);
 			slimeAnimator.Play("Slime");
             yield return new WaitForSeconds(0.5f);
 

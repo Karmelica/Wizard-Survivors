@@ -6,6 +6,9 @@ public class EnemySpawn : MonoBehaviour
 	public Transform holder;
 	public GameObject[] enemyPrefabs;
 
+    static public int rangeStart;
+    static public int rangeEnd;
+
 	static public float spawnRate;
 	public float setSpawnRate = 6f;
 
@@ -15,7 +18,9 @@ public class EnemySpawn : MonoBehaviour
 		{
 			yield return new WaitForSeconds(spawnRate);
 
-			int randomlySelectedPrefabType = Random.Range(0, enemyPrefabs.Length);
+			int randomlySelectedPrefabType = Random.Range(rangeStart, rangeEnd + 1);
+
+			//Debug.Log(rangeStart + ", " + rangeEnd + ", " + randomlySelectedPrefabType);
 
 			GameObject enemyToSpawn = enemyPrefabs[randomlySelectedPrefabType];
 
@@ -28,7 +33,7 @@ public class EnemySpawn : MonoBehaviour
 	private void Start()
 	{
 		spawnRate = setSpawnRate;
-        StartCoroutine(Spawner());
+		StartCoroutine(Spawner());
         StartCoroutine(Spawner());
         StartCoroutine(Spawner());
     }

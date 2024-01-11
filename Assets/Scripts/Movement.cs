@@ -10,6 +10,7 @@ public class Movement : MonoBehaviour
 	private Rigidbody2D rbody;
 	public Collider2D collider2d;
 	public Animator animator;
+	static public bool dashUnlocked;
 
 	[Header("Ruch")]
 	public float setPlayerSpeed = 5f;
@@ -56,6 +57,7 @@ public class Movement : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		dashUnlocked = false;
 		playerSpeed = setPlayerSpeed;
 		uiDashCooldown = setDashCooldown;
 		rbody = GetComponent<Rigidbody2D>();
@@ -75,7 +77,7 @@ public class Movement : MonoBehaviour
 		Flip();
 
 		dashCooldown -= Time.deltaTime;
-		if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown <= 0)
+		if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown <= 0 && dashUnlocked)
 		{
 			StartCoroutine(DashHandler());
 		}

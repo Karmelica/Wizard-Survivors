@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Attack : MonoBehaviour
@@ -9,6 +10,11 @@ public class Attack : MonoBehaviour
     public Animator animator;
     public GameObject player;
     private Stats stats;
+
+    static public bool slashUnlocked;
+    static public bool earthUnlocked;
+    static public bool IceUnlocked;
+
 
     static public bool attackUpgraded = false;
     static public bool projectileUpgraded = false;
@@ -24,6 +30,8 @@ public class Attack : MonoBehaviour
     static public float earthCooldown;
     static public float uiEarthCooldown;
     public float setEarthCooldown = 5f;
+
+    
 
     IEnumerator Fireball()
     {
@@ -107,6 +115,9 @@ public class Attack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        slashUnlocked = false;
+        IceUnlocked = false;
+
         stats = player.GetComponent<Stats>();
         attackUpgraded = false;
         projectileUpgraded = false;
@@ -130,7 +141,7 @@ public class Attack : MonoBehaviour
         {
             StartCoroutine(Fireball());
         }
-        if (Input.GetMouseButton(0) && attackCooldown <= 0f && Time.timeScale != 0)
+        if (Input.GetMouseButton(0) && attackCooldown <= 0f && Time.timeScale != 0 && slashUnlocked)
         {
             Slash();
         }

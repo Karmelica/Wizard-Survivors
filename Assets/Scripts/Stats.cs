@@ -20,6 +20,8 @@ public class Stats : MonoBehaviour
 	public int slashDmg = 2;
 	public int dashDmg = 2;
 	public int earthDmg = 1;
+
+	static public string biome;
 	//private float overHeal;
 	//private float vel = 1f;
 
@@ -34,30 +36,9 @@ public class Stats : MonoBehaviour
 	public GameObject MagnetCollider;
 	public MagnetText magnetText;
 
-    /* nie wiem skad sie to wzielo wiec narazie zostawie
-	private void OnTriggerEnter(Collider other)
-	{
-		if (other.gameObject.CompareTag("Coin"))
-		{
-			Destroy(other.gameObject);
-			currentCoins++;
-			coinCounter.CoinCount(currentLevel);
-		}
-	}
-	*/
-	/*
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Coin"))
-        {
-            Destroy(collision.gameObject);
-            currentCoins++;
-            coinCounter.CoinCount(currentCoins);
-        }
-    }
-	*/
+    
 
-	public void UpdateHealthBar()
+    public void UpdateHealthBar()
     {
         healthBar.SetMaxHealth(maxHp);
         healthBar.SetHealth(currentHp);
