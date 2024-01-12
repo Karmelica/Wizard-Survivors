@@ -70,6 +70,10 @@ public class Movement : MonoBehaviour
 	{
 		MyInput();
 		rbody.AddForce(0.5f * playerSpeed * new Vector2(moveX, moveY).normalized, ForceMode2D.Force);
+		if (rbody.velocity.magnitude * 10 > 1f && !isDashing)
+		{
+			animator.Play("walk_anim");
+		}
 	}
 
 	void Update()

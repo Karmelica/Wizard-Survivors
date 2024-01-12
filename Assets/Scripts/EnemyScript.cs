@@ -126,7 +126,7 @@ public class EnemyScript : MonoBehaviour
 		rbody2D.freezeRotation = true;
 		enemyCurrentHp = enemyMaxHp;
 
-        if (gameObject.name == "pfSlime(Clone)")
+        if (gameObject.name == "pfSlimeFire(Clone)" || gameObject.name == "pfSlimeGreen(Clone)" || gameObject.name == "pfSlimeIce(Clone)")
         {
             StartCoroutine(SlimeMove());
         }
@@ -135,7 +135,7 @@ public class EnemyScript : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		if (gameObject.name != "pfSlime(Clone)")
+		if (gameObject.name != "pfSlimeFire(Clone)" && gameObject.name != "pfSlimeGreen(Clone)" && gameObject.name != "pfSlimeIce(Clone)")
 		{
 			EnemyMove();
         }
