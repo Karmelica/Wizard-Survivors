@@ -14,7 +14,9 @@ public class TimeManager : MonoBehaviour
     [Header("Components")]
     public GameObject cursor;
     public ShopManager shopManager;
-    
+    public AudioClip gameOver;
+    public AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +54,7 @@ public class TimeManager : MonoBehaviour
         {
             Time.timeScale = 0;
             GameOverScreen.SetActive(true);
+            audioSource.PlayOneShot(gameOver, 1);
         }
     }
 }

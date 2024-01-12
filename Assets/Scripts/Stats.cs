@@ -35,9 +35,10 @@ public class Stats : MonoBehaviour
 	public Image overHealBar;
 	public GameObject MagnetCollider;
 	public MagnetText magnetText;
-
-    
-
+	public AudioClip lvlUp;
+	public AudioClip magnetUnlocked;
+	private AudioSource audioSource;
+	
     public void UpdateHealthBar()
     {
         healthBar.SetMaxHealth(maxHp);
@@ -76,6 +77,8 @@ public class Stats : MonoBehaviour
 
 	private void LevelUp()
 	{
+		audioSource.PlayOneShot(lvlUp, 1);
+
 		//Slash.heal++;
 		EnemyScript.enemyDmg++;
 
@@ -104,8 +107,9 @@ public class Stats : MonoBehaviour
 		}
 
 		if (currentLevel == 5)
-		{
-			MagnetCollider.SetActive(true);
+        {
+            audioSource.PlayOneShot(magnetUnlocked, 1);
+            MagnetCollider.SetActive(true);
 			StartCoroutine(magnetText.Text());
 		}
 	}
@@ -149,5 +153,7 @@ public class Stats : MonoBehaviour
 
 		currentExp = exp;
 		expBar.SetStartExp(currentExp);
+
+		audioSource = GetComponent<AudioSource>();
 	} //usunąłem cały update i wrzuciłem funkcje do kodu tam gdzie są wywoływane np. udpate healthbar
 }

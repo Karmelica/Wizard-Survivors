@@ -109,6 +109,7 @@ public class ShopUIManager : MonoBehaviour
             shop.SetActive(false);
         }
     }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
