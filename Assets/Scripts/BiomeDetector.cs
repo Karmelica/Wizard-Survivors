@@ -24,13 +24,13 @@ public class BiomeDetector : MonoBehaviour
         {
             Attack.IceUnlocked = true;
             iceField.SetActive(true);
-            EnemySpawn.rangeStart = 0;
-            EnemySpawn.rangeEnd = 3;
+            EnemySpawn.rangeStart = 5;
+            EnemySpawn.rangeEnd = 5;
         }
         if (collision.CompareTag("Green"))
         {
             EnemySpawn.rangeStart = 3;
-            EnemySpawn.rangeEnd = 3;
+            EnemySpawn.rangeEnd = 4;
         }
     }
 }

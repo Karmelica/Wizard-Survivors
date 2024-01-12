@@ -377,7 +377,7 @@ GameObject:
   - component: {fileID: -5697408689286699254}
   - component: {fileID: 1013400298713330733}
   m_Layer: 6
-  m_Name: pfSlime
+  m_Name: pfSlimeFire
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
