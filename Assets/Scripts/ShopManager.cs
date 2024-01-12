@@ -17,6 +17,7 @@ public class ShopManager : MonoBehaviour
 
     public TimeManager timeManager;
     public ShopUIManager shopUIManager;
+    public GameObject pauseMenu;
 
     public void Shop()
     {
@@ -28,7 +29,10 @@ public class ShopManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.B) || (Input.GetKeyDown(KeyCode.Escape)) && check == true)
         {
-            Time.timeScale = 1f;
+            if(!pauseMenu.activeInHierarchy)
+            {
+                Time.timeScale = 1f;
+            }
             check = !check;
             ShopUIManager.Instance.ButtonActive(!bActive);
         }
