@@ -25,6 +25,7 @@ public class EnemyAttack : MonoBehaviour
 	{
         attackInterval -= Time.deltaTime;
 		float distance = (colli.transform.position - player.transform.position).magnitude;
+		Debug.Log(distance);
         if (distance <= attackRange && attackInterval < 0 && !Movement.isDashing)
         {
             stats.TakeDamage(EnemyScript.enemyDmg);

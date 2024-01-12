@@ -20,13 +20,32 @@ public class CooldownUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        DashCooldown.fillAmount = 1 - (Movement.dashCooldown / Movement.uiDashCooldown);
+        if(Movement.dashUnlocked)
+        {
+            var tempColor = DashCooldown.color;
+            tempColor.a = 1;
+            DashCooldown.color = tempColor;
+            DashCooldown.fillAmount = 1 - (Movement.dashCooldown / Movement.uiDashCooldown);
+        }
 
-        AttackCooldown.fillAmount = 1 - (Attack.attackCooldown / Attack.uiAttackCooldown);
+        if(Attack.slashUnlocked)
+        {
+            var tempColor = AttackCooldown.color;
+            tempColor.a = 1;
+            AttackCooldown.color = tempColor;
+            AttackCooldown.fillAmount = 1 - (Attack.attackCooldown / Attack.uiAttackCooldown);
+        }
+
+        if(Attack.earthUnlocked)
+        {
+            var tempColor = EarthCooldown.color;
+            tempColor.a = 1;
+            EarthCooldown.color = tempColor;
+            EarthCooldown.fillAmount = 1 - (Attack.earthCooldown / Attack.uiEarthCooldown);
+
+        }
 
         FireballCooldown.fillAmount = 1 - (Attack.fireballCooldown / Attack.uiFireballCooldown);
-
-        EarthCooldown.fillAmount = 1 - (Attack.earthCooldown / Attack.uiEarthCooldown);
 
 
         hpUpgradeCost.text = shopManager.coinCostHp.ToString();

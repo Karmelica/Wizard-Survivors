@@ -17,7 +17,7 @@ public class Slash : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        animator.Play("Slash");
+        animator.Play("SlashNew");
         //healthBar = FindObjectOfType<HealthBar>();
     }
 

@@ -29,6 +29,7 @@ public class BiomeDetector : MonoBehaviour
         }
         if (collision.CompareTag("Green"))
         {
+            Attack.earthUnlocked = true;
             EnemySpawn.rangeStart = 3;
             EnemySpawn.rangeEnd = 4;
         }

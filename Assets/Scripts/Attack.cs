@@ -117,6 +117,7 @@ public class Attack : MonoBehaviour
     {
         slashUnlocked = false;
         IceUnlocked = false;
+        earthUnlocked = false;
 
         stats = player.GetComponent<Stats>();
         attackUpgraded = false;

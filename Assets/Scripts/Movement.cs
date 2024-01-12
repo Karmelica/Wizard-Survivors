@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
 
 		rbody.AddForce(playerSpeed * rbody.velocity.normalized, ForceMode2D.Impulse);
 
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(1.5f);
         collider2d.isTrigger = false;
         isDashing = false;
 		trail.emitting = false;

@@ -54,7 +54,7 @@ public class TimeManager : MonoBehaviour
         {
             Time.timeScale = 0;
             GameOverScreen.SetActive(true);
-            audioSource.PlayOneShot(gameOver, 1);
+            audioSource.PlayOneShot(gameOver, 0.1f);
         }
     }
 }

@@ -327,7 +327,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4007742114265204684}
   - component: {fileID: 3981570110704479562}
-  - component: {fileID: 3028800166207298786}
   - component: {fileID: 7182158682728169412}
   - component: {fileID: -4347809588913682561}
   - component: {fileID: 5571546035917568139}
@@ -386,19 +385,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &3028800166207298786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4126212245634156363}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abcaac1e6e14c5d45a86ae07b95f45f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  setGodMode: 0
 --- !u!114 &7182158682728169412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -487,6 +473,7 @@ MonoBehaviour:
   coinCostProjUp: 80
   timeManager: {fileID: 0}
   shopUIManager: {fileID: 0}
+  pauseMenu: {fileID: 0}
 --- !u!82 &7489305177179119797
 AudioSource:
   m_ObjectHideFlags: 0
