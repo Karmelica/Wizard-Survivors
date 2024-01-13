@@ -235,7 +235,7 @@ RectTransform:
   m_GameObject: {fileID: 1859248965552955028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 0.15, z: 1}
+  m_LocalScale: {x: 1.1061, y: 0.23435494, z: 1.1061}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4911359224270703567}
@@ -244,7 +244,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 25}
+  m_AnchoredPosition: {x: 0, y: 34.4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &3722060128689135732
@@ -548,7 +548,7 @@ Transform:
   m_LocalRotation: {x: 0.35355338, y: 0.35355338, z: -0.1464466, w: 0.8535535}
   m_LocalPosition: {x: 0.299, y: -0.192, z: 1}
   m_LocalScale: {x: 1.3182, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 8020632464414137212}
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 0}
@@ -739,3 +739,4 @@ MonoBehaviour:
   colli: {fileID: 4747915500599287046}
   player: {fileID: 0}
   stats: {fileID: 0}
+  pfSnowball: {fileID: 6855317708689221065, guid: 7129308bfda01d645840fe9ee568231c, type: 3}

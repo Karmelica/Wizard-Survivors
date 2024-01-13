@@ -390,6 +390,7 @@ MonoBehaviour:
   colli: {fileID: 3696673639529461420}
   player: {fileID: 0}
   stats: {fileID: 0}
+  pfSnowball: {fileID: 6855317708689221065, guid: 7129308bfda01d645840fe9ee568231c, type: 3}
 --- !u!1 &7226263659551725311
 GameObject:
   m_ObjectHideFlags: 0

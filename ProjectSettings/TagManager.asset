@@ -13,6 +13,8 @@ TagManager:
   - Green
   - Air
   - Fire
+  - Bridge
+  - Border
   layers:
   - Default
   - TransparentFX
