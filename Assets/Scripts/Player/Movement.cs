@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
 
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
-		if (collision.gameObject.CompareTag("Ice"))
+		if (collision.gameObject.CompareTag("IceLake"))
 		{
 			slippery = 0.3f;
 			rbody.drag = 1;
@@ -32,7 +32,7 @@ public class Movement : MonoBehaviour
 
 	private void OnTriggerExit2D(Collider2D collision)
 	{
-		if (collision.gameObject.CompareTag("Ice"))
+		if (collision.gameObject.CompareTag("IceLake"))
 		{
 			slippery = 1f;
 			rbody.drag = 6;
