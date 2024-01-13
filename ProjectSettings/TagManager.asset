@@ -15,6 +15,7 @@ TagManager:
   - Fire
   - Bridge
   - Border
+  - Minimap
   layers:
   - Default
   - TransparentFX
