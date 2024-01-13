@@ -17,6 +17,7 @@ TagManager:
   - Border
   - Minimap
   - IceLake
+  - LavaLake
   layers:
   - Default
   - TransparentFX

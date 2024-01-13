@@ -20,6 +20,7 @@ public class ShopUIManager : MonoBehaviour
     public GameObject shop;
     public GameObject cooldownUpgradeButton;
     public GameObject bootsOfSwiftnessUpgradeButton;
+    public GameObject lavaBoots;
     public GameObject slashUpgradeButton;
     public GameObject projectileUpgradeButton;
     public GameObject shopIndicator;
@@ -64,6 +65,19 @@ public class ShopUIManager : MonoBehaviour
             stats.currentCoins -= shopManager.coinCostBOS;
             coinCounter.CoinCount(stats.currentCoins);
             bootsOfSwiftnessUpgradeButton.SetActive(false);
+            shopIndicator.SetActive(false);
+            canBuy = false;
+        }
+    }
+
+    public void LavaBoots()
+    {
+        if (stats.currentCoins >= shopManager.coinCostLBO && canBuy)
+        {
+            LavaDmg.lavaDmg = 0;
+            stats.currentCoins -= shopManager.coinCostLBO;
+            coinCounter.CoinCount(stats.currentCoins);
+            lavaBoots.SetActive(false);
             shopIndicator.SetActive(false);
             canBuy = false;
         }

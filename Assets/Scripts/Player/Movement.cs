@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Text;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -28,6 +29,12 @@ public class Movement : MonoBehaviour
 			slippery = 0.3f;
 			rbody.drag = 1;
 		}
+
+		if (collision.gameObject.CompareTag("LavaLake"))
+		{
+			slippery = 2f;
+			rbody.drag = 10;
+		}
 	}
 
 	private void OnTriggerExit2D(Collider2D collision)
@@ -37,9 +44,15 @@ public class Movement : MonoBehaviour
 			slippery = 1f;
 			rbody.drag = 6;
 		}
+
+		if (collision.gameObject.CompareTag("LavaLake"))
+		{
+			slippery = 1f;
+			rbody.drag = 6;
+		}
 	}
 
-	public void IsInBorder()
+    public void IsInBorder()
 	{
 		rbody.velocity = Vector3.zero;
 	}
