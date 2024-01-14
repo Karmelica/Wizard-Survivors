@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
 	static public bool dashUnlocked;
 
 	[Header("Ruch")]
-	private float slippery = 1f;
+	private float dashReducer = 1f; //controls dash power
 	public float setPlayerSpeed = 5f;
 	public float setDashCooldown = 5f;
 	public static float playerSpeed;
@@ -26,13 +26,13 @@ public class Movement : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("IceLake"))
 		{
-			slippery = 0.3f;
-			rbody.drag = 1;
+			dashReducer = 0.3f;
+			rbody.drag = 1; //friction
 		}
 
 		if (collision.gameObject.CompareTag("LavaLake"))
 		{
-			slippery = 2f;
+			dashReducer = 0.6f;
 			rbody.drag = 10;
 		}
 	}
@@ -41,13 +41,13 @@ public class Movement : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("IceLake"))
 		{
-			slippery = 1f;
+			dashReducer = 1f;
 			rbody.drag = 6;
 		}
 
 		if (collision.gameObject.CompareTag("LavaLake"))
 		{
-			slippery = 1f;
+			dashReducer = 1f;
 			rbody.drag = 6;
 		}
 	}
@@ -78,7 +78,7 @@ public class Movement : MonoBehaviour
 		animator.Play("Dash");
 		trail.emitting = true;
 
-		rbody.AddForce(playerSpeed * slippery * rbody.velocity.normalized, ForceMode2D.Impulse);
+		rbody.AddForce(playerSpeed * dashReducer * rbody.velocity.normalized, ForceMode2D.Impulse);
 
 		yield return new WaitForSeconds(1.5f);
 		collider2d.isTrigger = false;

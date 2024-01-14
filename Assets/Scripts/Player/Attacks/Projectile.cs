@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    public Transform projectileSpawn;
     public GameObject player;
     public Rigidbody2D body;
 
@@ -13,14 +14,14 @@ public class Projectile : MonoBehaviour
     void MousePos()
     {
         mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePosX = mousePos.x - player.transform.position.x;
-        mousePosY = mousePos.y - player.transform.position.y;
-
+        mousePosX = mousePos.x - projectileSpawn.position.x;
+        mousePosY = mousePos.y - projectileSpawn.position.y;
     }
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
+        projectileSpawn = GameObject.Find("ProjectileSpawn").transform;
         MousePos();
         body = GetComponent<Rigidbody2D>();
         body.AddForce(2f * (new Vector2(mousePosX, mousePosY)).normalized, ForceMode2D.Impulse);

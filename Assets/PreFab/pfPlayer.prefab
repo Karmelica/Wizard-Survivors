@@ -193,7 +193,6 @@ GameObject:
   - component: {fileID: 8755581517302622204}
   - component: {fileID: 7489305177179119797}
   - component: {fileID: 5940492118148846901}
-  - component: {fileID: 992184444134690345}
   m_Layer: 3
   m_Name: pfPlayer
   m_TagString: Player
@@ -217,6 +216,7 @@ Transform:
   - {fileID: 1658157540833718409}
   - {fileID: 5209801050760978302}
   - {fileID: 3607937738078978206}
+  - {fileID: 2437692147816678133}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3981570110704479562
@@ -258,9 +258,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b149c1ce6677a1241bcac19ae7b74318, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trail: {fileID: 0}
-  collider2d: {fileID: 0}
-  animator: {fileID: 0}
+  trail: {fileID: 3875105806270613894}
+  collider2d: {fileID: 5007369536215927220}
+  animator: {fileID: 2772099433366747489}
   setPlayerSpeed: 30
   setDashCooldown: 5
 --- !u!114 &-4347809588913682561
@@ -275,11 +275,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7723341378304f44095bb5bcf9ea8c05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pfSlash: {fileID: 2313812488302209286, guid: c5f93bd4380a9764d9ea10c6d3cc473e, type: 3}
-  pfFireball: {fileID: 0}
-  pfEarth: {fileID: 0}
+  pfSlash: {fileID: 5073390224587836978, guid: e909edae8610812499344f6d23fe62d8, type: 3}
+  pfFireball: {fileID: 3621023564299458670, guid: 4d5757ce760acde4ea58884b71c65f8b, type: 3}
+  pfEarth: {fileID: 2848720101811936646, guid: 75135d395093da048b6bfa0517093c7e, type: 3}
   animator: {fileID: 2772099433366747489}
   player: {fileID: 0}
+  ProjectileSpawn: {fileID: 2437692147816678133}
   setAttackCooldown: 3
   setFireballCooldown: 1
   setEarthCooldown: 5
@@ -333,6 +334,7 @@ MonoBehaviour:
   coinCostHp: 10
   coinCostDashCdUp: 15
   coinCostBOS: 20
+  coinCostLBO: 25
   coinCostSlashUp: 40
   coinCostProjUp: 80
   timeManager: {fileID: 0}
@@ -530,102 +532,37 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &992184444134690345
-AudioSource:
+--- !u!1 &4510353770035933868
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4126212245634156363}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2437692147816678133}
+  m_Layer: 3
+  m_Name: ProjectileSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2437692147816678133
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4510353770035933868}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.113, y: 0.038, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4007742114265204684}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7935739688993505524
 GameObject:
   m_ObjectHideFlags: 0

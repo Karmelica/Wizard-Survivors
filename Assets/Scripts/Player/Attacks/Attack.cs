@@ -9,6 +9,7 @@ public class Attack : MonoBehaviour
     public GameObject pfEarth;
     public Animator animator;
     public GameObject player;
+    public Transform projectileSpawn;
     private Stats stats;
 
     static public bool slashUnlocked;
@@ -40,20 +41,20 @@ public class Attack : MonoBehaviour
         {
             animator.Play("Attack");
             fireballCooldown = setFireballCooldown;
-            Instantiate(pfFireball, player.transform.position, Quaternion.identity)
+            Instantiate(pfFireball, projectileSpawn.position, Quaternion.identity)
             .GetComponent<Damage>().SetDamage(stats.projectileDmg);
             yield return new WaitForSeconds(0.2f);
-            Instantiate(pfFireball, player.transform.position, Quaternion.identity)
+            Instantiate(pfFireball, projectileSpawn.position, Quaternion.identity)
             .GetComponent<Damage>().SetDamage(stats.projectileDmg);
             yield return new WaitForSeconds(0.2f);
-            Instantiate(pfFireball, player.transform.position, Quaternion.identity)
+            Instantiate(pfFireball, projectileSpawn.position, Quaternion.identity)
             .GetComponent<Damage>().SetDamage(stats.projectileDmg);
         }
         else
         {
             animator.Play("Attack");
             fireballCooldown = setFireballCooldown;
-            Instantiate(pfFireball, player.transform.position, Quaternion.identity)
+            Instantiate(pfFireball, projectileSpawn.position, Quaternion.identity)
             .GetComponent<Damage>().SetDamage(stats.projectileDmg);
         }
     }
