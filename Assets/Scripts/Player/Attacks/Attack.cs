@@ -103,12 +103,12 @@ public class Attack : MonoBehaviour
         earthCooldown = setEarthCooldown;
         if (transform.rotation.y == 0)
         {
-            Instantiate(pfEarth, transform.position + new Vector3(0.5f, 0, 0), transform.rotation)
+            Instantiate(pfEarth, transform.position + new Vector3(0.7f, 0, 0), transform.rotation)
             .GetComponent<Damage>().SetDamage(stats.earthDmg);
         }
         else
         {
-            Instantiate(pfEarth, transform.position + new Vector3(0.5f, 0, 0) * -1, transform.rotation)
+            Instantiate(pfEarth, transform.position + new Vector3(0.7f, 0, 0) * -1, transform.rotation)
             .GetComponent<Damage>().SetDamage(stats.earthDmg);
         }
     }

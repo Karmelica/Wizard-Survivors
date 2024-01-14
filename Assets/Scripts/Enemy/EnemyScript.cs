@@ -22,10 +22,8 @@ public class EnemyScript : MonoBehaviour
 
 	[Header("Ruch")]
 	public float speed = 4;
-	private float enemyPosX;
-	private float enemyPosY;
-	private float playerPosX;
-	private float playerPosY;
+	private float distanceX;
+	private float distanceY;
 
 	private void OnTriggerEnter2D(Collider2D other)
 	{
@@ -55,7 +53,7 @@ public class EnemyScript : MonoBehaviour
 
 			if(other.gameObject.name == "pfEarthAttack(Clone)")
 			{
-                rbody2D.AddForce((player.transform.position - colli.transform.position).normalized * -200, ForceMode2D.Force);
+                rbody2D.AddForce(new Vector2(distanceX, distanceY).normalized * 200, ForceMode2D.Force);
             }
 		}
 	}
@@ -91,12 +89,10 @@ public class EnemyScript : MonoBehaviour
 
 	void EnemyMove()
 	{
-		enemyPosX = colli.transform.position.x;
-		enemyPosY = colli.transform.position.y;
-		playerPosX = player.transform.position.x;
-		playerPosY = player.transform.position.y;
+		distanceX = colli.transform.position.x - player.transform.position.x;
+		distanceY = colli.transform.position.y - player.transform.position.y;
 
-		rbody2D.AddForce(0.5f * -speed * new Vector2(enemyPosX - playerPosX, enemyPosY - playerPosY).normalized, ForceMode2D.Force);
+		rbody2D.AddForce(0.5f * -speed * new Vector2(distanceX, distanceY).normalized, ForceMode2D.Force);
 	}
 
 	IEnumerator SlimeMove()
@@ -107,12 +103,10 @@ public class EnemyScript : MonoBehaviour
 			slimeAnimator.Play("Slime");
             yield return new WaitForSeconds(0.5f);
 
-            enemyPosX = colli.transform.position.x;
-            enemyPosY = colli.transform.position.y;
-			playerPosX = player.transform.position.x;
-            playerPosY = player.transform.position.y;
+            distanceX = colli.transform.position.x - player.transform.position.x;
+            distanceY = colli.transform.position.y - player.transform.position.y;
 
-            rbody2D.AddForce(-4 * new Vector2(enemyPosX - playerPosX, enemyPosY - playerPosY).normalized, ForceMode2D.Impulse);
+            rbody2D.AddForce(-4 * new Vector2(distanceX, distanceY).normalized, ForceMode2D.Impulse);
 		}
     }
 

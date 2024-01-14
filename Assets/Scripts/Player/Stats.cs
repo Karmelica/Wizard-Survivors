@@ -132,7 +132,9 @@ public class Stats : MonoBehaviour
         if (currentLevel % 3 == 0)
 		{
 			shopUIManager.UnlockShop();
-			if (EnemySpawn.spawnRate > 1f)
+            PlaySoundOneShot(magnetUnlocked, 1);
+
+            if (EnemySpawn.spawnRate > 1f)
 			{
 				EnemySpawn.spawnRate -= 1f;
 			}
@@ -144,7 +146,6 @@ public class Stats : MonoBehaviour
 
 		if (currentLevel == 5)
         {
-			PlaySoundOneShot(magnetUnlocked, 1);
             MagnetCollider.SetActive(true);
 			StartCoroutine(magnetText.Text());
 		}

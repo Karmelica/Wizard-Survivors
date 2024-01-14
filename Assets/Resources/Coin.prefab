@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6192538756943095780}
   - component: {fileID: -3319148271071788755}
   - component: {fileID: 5141095431553132587}
+  - component: {fileID: 1423248882871378295}
   m_Layer: 3
   m_Name: Coin
   m_TagString: Coin
@@ -30,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5154907, y: 0.13965, z: 0}
-  m_LocalScale: {x: 0.39774048, y: 0.39774048, z: 0.39774048}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: df699076dcd8a734f89a4ecb90e00c10, type: 3}
+  m_Sprite: {fileID: -1712783768, guid: 0a0b6bef79f3df3459d538c21216a1b5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,7 +124,7 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.3, y: 0.3}
+    oldSize: {x: 0.08, y: 0.09}
     newSize: {x: 0.3, y: 0.3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -131,18 +132,18 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.03399073, y: 0.10760572}
-      - {x: -0.044835735, y: 0.10554}
-      - {x: -0.106056295, y: 0.058122136}
-      - {x: -0.10554004, y: -0.06798138}
-      - {x: -0.057934206, y: -0.11553995}
-      - {x: 0.04023492, y: -0.11657284}
-      - {x: 0.095539965, y: -0.067605704}
-      - {x: 0.09450714, y: 0.05535219}
-    - - {x: 0, y: 0.01}
-      - {x: -0.01, y: 0.01}
-      - {x: -0.01, y: -0.02}
-      - {x: 0, y: -0.02}
+    - - {x: 0.020782843, y: 0.046241462}
+      - {x: -0.020146951, y: 0.045702815}
+      - {x: -0.04118021, y: 0.025931915}
+      - {x: -0.04184722, y: -0.02555149}
+      - {x: -0.020237364, y: -0.046388492}
+      - {x: 0.021386497, y: -0.046571903}
+      - {x: 0.040913586, y: -0.02491796}
+      - {x: 0.040940087, y: 0.02507082}
+    - - {x: 0.008874477, y: 0.014141436}
+      - {x: -0.009408364, y: 0.014141437}
+      - {x: -0.0085209105, y: -0.014083665}
+      - {x: 0.008874477, y: -0.01408365}
   m_UseDelaunayMesh: 0
 --- !u!114 &-3319148271071788755
 MonoBehaviour:
@@ -183,3 +184,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &1423248882871378295
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5321820179275007038}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 103de3729b736ae47b2c87bf0d6e5e25, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

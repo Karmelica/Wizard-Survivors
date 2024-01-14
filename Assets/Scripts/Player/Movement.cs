@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
 	public Animator animator;
 	static public bool dashUnlocked;
 
-	[Header("Ruch")]
+    [Header("Ruch")]
 	private float dashReducer = 1f; //controls dash power
 	public float setPlayerSpeed = 5f;
 	public float setDashCooldown = 5f;
@@ -52,7 +52,7 @@ public class Movement : MonoBehaviour
 		}
 	}
 
-    public void IsInBorder()
+	public void IsInBorder()
 	{
 		rbody.velocity = Vector3.zero;
 	}

@@ -8,9 +8,9 @@ public class BiomeDetector : MonoBehaviour
 	public EnemySpawn enemySpawn;
     public GameObject iceField;
     public AudioClip iceWalk;
-    public AudioClip greenWalk = null;
-    public AudioClip rockWalk = null;
-    public AudioClip bridgeWalk = null;
+    public AudioClip greenWalk;
+    public AudioClip rockWalk;
+    public AudioClip bridgeWalk;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
