@@ -190,5 +190,9 @@ public class Stats : MonoBehaviour
 
 		currentExp = exp;
 		expBar.SetStartExp(currentExp);
+
+		currentExp = 1;
+
+		currentLevel = 1;
 	} //usunąłem cały update i wrzuciłem funkcje do kodu tam gdzie są wywoływane np. udpate healthbar
 }
