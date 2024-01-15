@@ -8,8 +8,9 @@ public class LavaDmg : MonoBehaviour
 {
     private float attackInterval = 1f;
 
+
     [Header("Lava Damage")]
-    public static int lavaDmg = 1;
+    public static float lavaDamagePercentage = 0.1f;
    
     [HideInInspector]public Stats stats;
     [HideInInspector]public GameObject player;
@@ -29,13 +30,25 @@ public class LavaDmg : MonoBehaviour
         }
     }
 
+    private int DamageCalculator()
+    {
+        float currentMaxHp = stats.maxHp;
+
+        float calculatedDamage = currentMaxHp * lavaDamagePercentage;
+
+        int damage = Mathf.RoundToInt(calculatedDamage);
+
+        return damage;
+    }
+
     private void LavaAttack()
     {
+        int damage = DamageCalculator();
         attackInterval -= Time.deltaTime;
 
         if (attackInterval < 0 && !Movement.isDashing )
         {
-            stats.TakeDamage(lavaDmg);
+            stats.TakeDamage(damage);
             attackInterval = 1f;
         }
     }

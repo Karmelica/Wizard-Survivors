@@ -74,7 +74,7 @@ public class ShopUIManager : MonoBehaviour
     {
         if (stats.currentCoins >= shopManager.coinCostLBO && canBuy)
         {
-            LavaDmg.lavaDmg = 0;
+            LavaDmg.lavaDamagePercentage = 0;
             stats.currentCoins -= shopManager.coinCostLBO;
             coinCounter.CoinCount(stats.currentCoins);
             lavaBoots.SetActive(false);
