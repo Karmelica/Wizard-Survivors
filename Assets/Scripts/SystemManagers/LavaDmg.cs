@@ -7,11 +7,10 @@ using UnityEngine;
 public class LavaDmg : MonoBehaviour
 {
     private float attackInterval = 1f;
-
-
-    [Header("Lava Damage")]
+    
+    [Header("Lava Damage in percentage")]
     public static float lavaDamagePercentage = 0.1f;
-   
+    
     [HideInInspector]public Stats stats;
     [HideInInspector]public GameObject player;
 
