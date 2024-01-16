@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 440288994989147773}
   - component: {fileID: -2933034177627906072}
   m_Layer: 6
-  m_Name: pfSnowball
+  m_Name: pfFireProjectile
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,7 +58,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 1856
+    m_Bits: 1984
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562f185ec9ea8b840b5d6ea9ce0c3ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snowman: {fileID: 0}
+  snowman: {fileID: 8855370602522871460, guid: a3caf0ac5855b0c4bac72d353da30d6a, type: 3}
 --- !u!1 &7104792999163765012
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +198,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a55fc2e0c76c2fb4da8d001bd0ca2c3d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.35982987, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
