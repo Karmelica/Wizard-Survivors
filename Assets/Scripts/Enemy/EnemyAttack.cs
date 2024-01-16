@@ -55,13 +55,13 @@ public class EnemyAttack : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-        if(this.name != "pfSnowman(Clone)")
-		{
-			NormalAtttack();
-		}
+        if(this.name == "pfSnowman(Clone)" || this.name == "pfFireEnemy(Clone)")
+        {
+            SnowmanAttack();
+        }
 		else
-		{
-			SnowmanAttack();
+        {
+            NormalAtttack();
 		}
     }
 }

@@ -24,6 +24,7 @@ public class ShopUIManager : MonoBehaviour
     public GameObject slashUpgradeButton;
     public GameObject projectileUpgradeButton;
     public GameObject shopIndicator;
+    public AudioClip cash;
 
     public void UnlockShop()
     {
@@ -34,6 +35,7 @@ public class ShopUIManager : MonoBehaviour
     {
         if (stats.currentCoins >= shopManager.coinCostHp && canBuy)
         {
+            stats.PlaySoundOneShot(cash, 1);
             stats.maxHp += Mathf.RoundToInt(stats.maxHp * 0.33f);
             stats.currentCoins -= shopManager.coinCostHp;
             coinCounter.CoinCount(stats.currentCoins);
@@ -48,6 +50,7 @@ public class ShopUIManager : MonoBehaviour
     {
         if (stats.currentCoins >= shopManager.coinCostDashCdUp && canBuy)
         {
+            stats.PlaySoundOneShot(cash, 1);
             movement.setDashCooldown = 3f;
             Movement.uiDashCooldown = 3f;
             stats.currentCoins -= shopManager.coinCostDashCdUp;
@@ -61,6 +64,7 @@ public class ShopUIManager : MonoBehaviour
     {
         if (stats.currentCoins >= shopManager.coinCostBOS && canBuy)
         {
+            stats.PlaySoundOneShot(cash, 1);
             Movement.playerSpeed*= 1.2f;
             stats.currentCoins -= shopManager.coinCostBOS;
             coinCounter.CoinCount(stats.currentCoins);
@@ -74,6 +78,7 @@ public class ShopUIManager : MonoBehaviour
     {
         if (stats.currentCoins >= shopManager.coinCostLBO && canBuy)
         {
+            stats.PlaySoundOneShot(cash, 1);
             LavaDmg.lavaDamagePercentage = 0;
             stats.currentCoins -= shopManager.coinCostLBO;
             coinCounter.CoinCount(stats.currentCoins);
@@ -87,6 +92,7 @@ public class ShopUIManager : MonoBehaviour
     {
         if (stats.currentCoins >= shopManager.coinCostSlashUp && canBuy)
         {
+            stats.PlaySoundOneShot(cash, 1);
             Attack.attackUpgraded = true;
             stats.currentCoins -= shopManager.coinCostSlashUp;
             coinCounter.CoinCount(stats.currentCoins);
@@ -99,6 +105,7 @@ public class ShopUIManager : MonoBehaviour
     {
         if (stats.currentCoins >= shopManager.coinCostProjUp && canBuy)
         {
+            stats.PlaySoundOneShot(cash, 1);
             Attack.projectileUpgraded = true;
             stats.currentCoins -= shopManager.coinCostProjUp;
             coinCounter.CoinCount(stats.currentCoins);

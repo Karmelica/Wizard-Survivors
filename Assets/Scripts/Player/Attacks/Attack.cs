@@ -11,6 +11,7 @@ public class Attack : MonoBehaviour
     public GameObject player;
     public Transform projectileSpawn;
     private Stats stats;
+    public AudioClip[] attack;
 
     static public bool slashUnlocked;
     static public bool earthUnlocked;
@@ -141,14 +142,19 @@ public class Attack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && fireballCooldown <= 0f && Time.timeScale != 0)
         {
+            stats.PlaySoundOneShot(attack[0], 0.1f);
             StartCoroutine(Fireball());
         }
+
         if (Input.GetMouseButton(0) && attackCooldown <= 0f && Time.timeScale != 0 && slashUnlocked)
         {
+            stats.PlaySoundOneShot(attack[0], 0.1f);
             Slash();
         }
-        if (Input.GetKeyDown(KeyCode.Space) && earthCooldown <= 0f && Time.timeScale != 0)
+
+        if (Input.GetKeyDown(KeyCode.Space) && earthCooldown <= 0f && Time.timeScale != 0 && earthUnlocked)
         {
+            stats.PlaySoundOneShot(attack[0], 0.1f);
             Earth();
         }
 

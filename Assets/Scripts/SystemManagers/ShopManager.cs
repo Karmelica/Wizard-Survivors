@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Android;
 
 public class ShopManager : MonoBehaviour
 {
-    public bool check = false;
+    [HideInInspector] public bool check = false;
     private readonly bool bActive = true;
 
     [Header("Properties")]
@@ -30,7 +27,7 @@ public class ShopManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.B) || (Input.GetKeyDown(KeyCode.Escape)) && check == true)
         {
-            if(!pauseMenu.activeInHierarchy)
+            if (!pauseMenu.activeInHierarchy)
             {
                 Time.timeScale = 1f;
             }

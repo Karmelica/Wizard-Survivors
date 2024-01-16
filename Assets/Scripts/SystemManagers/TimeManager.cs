@@ -15,7 +15,7 @@ public class TimeManager : MonoBehaviour
     public GameObject cursor;
     public ShopManager shopManager;
     public AudioClip gameOver;
-    public AudioSource audioSource;
+    public Stats stats;
 
 
     // Start is called before the first frame update
@@ -54,7 +54,7 @@ public class TimeManager : MonoBehaviour
         {
             Time.timeScale = 0;
             GameOverScreen.SetActive(true);
-            audioSource.PlayOneShot(gameOver, 0.1f);
+            stats.PlaySoundOneShot(gameOver, 0.01f);
         }
     }
 }
