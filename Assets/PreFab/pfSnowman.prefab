@@ -75,6 +75,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &542706978730304889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2667668704561484896}
+  m_Layer: 6
+  m_Name: Snowball location
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2667668704561484896
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 542706978730304889}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.091, y: 0.435, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8855370602522871460}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1863908191212326639
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +379,7 @@ Transform:
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_ConstrainProportionsScale: 1
   m_Children:
+  - {fileID: 2667668704561484896}
   - {fileID: 4543752469705675737}
   - {fileID: 7975984166222677993}
   - {fileID: 186190262658583258}
@@ -431,6 +463,7 @@ MonoBehaviour:
   player: {fileID: 0}
   stats: {fileID: 0}
   pfSnowball: {fileID: 6855317708689221065, guid: 7129308bfda01d645840fe9ee568231c, type: 3}
+  snowballLocation: {fileID: 2667668704561484896}
   animatorSnowman: {fileID: 4297444847721323425}
 --- !u!1 &5131532960611330018
 GameObject:

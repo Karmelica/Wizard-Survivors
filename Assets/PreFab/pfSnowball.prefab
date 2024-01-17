@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8390067713482510171}
   - component: {fileID: 4792308759467255417}
-  - component: {fileID: 9184843490938132645}
   - component: {fileID: 440288994989147773}
   - component: {fileID: -2933034177627906072}
   m_Layer: 6
@@ -30,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2.271, y: 0.539, z: 0}
-  m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2311289890899022290}
@@ -63,19 +62,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &9184843490938132645
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6855317708689221065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac2da97659ffe0f4a9a85e0ac2b21dd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 1
 --- !u!58 &440288994989147773
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -123,7 +109,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 562f185ec9ea8b840b5d6ea9ce0c3ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snowman: {fileID: 0}
 --- !u!1 &7104792999163765012
 GameObject:
   m_ObjectHideFlags: 0

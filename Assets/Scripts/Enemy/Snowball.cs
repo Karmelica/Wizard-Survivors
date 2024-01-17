@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Snowball : MonoBehaviour
 {
-    public Transform snowman;
     private Transform player;
     private Rigidbody2D rb;
     private float despawnTime = 2f;
@@ -16,7 +15,10 @@ public class Snowball : MonoBehaviour
         player = GameObject.Find("Player").transform;
         float posX = transform.position.x - player.transform.position.x;
         float posY = transform.position.y - player.transform.position.y;
-        rb.AddForce(new Vector2(posX, posY).normalized * -2f, ForceMode2D.Impulse);
+
+        Vector2 pos = new(posX, posY);
+
+        rb.AddForce(pos.normalized * -0.75f, ForceMode2D.Impulse);
     }
 
     private void Update()

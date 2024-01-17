@@ -12,6 +12,7 @@ public class EnemyAttack : MonoBehaviour
 	public GameObject player;
 	public Stats stats;
 	public GameObject pfSnowball;
+	public Transform snowballLocation;
 	public Animator animatorSnowman;
 
 	private void NormalAtttack()
@@ -38,8 +39,7 @@ public class EnemyAttack : MonoBehaviour
         if (distance <= 1.1f && attackInterval < 0)
         {
 			animatorSnowman.Play("SnowmanThrow");
-            GameObject snowball = Instantiate(pfSnowball, transform.position, Quaternion.identity);
-            snowball.GetComponent<Snowball>().snowman = transform;
+            Instantiate(pfSnowball, snowballLocation.transform.position, Quaternion.identity);
             attackInterval = 3f;
         }
 	}
@@ -55,7 +55,7 @@ public class EnemyAttack : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-        if(this.name == "pfSnowman(Clone)" || this.name == "pfFireEnemy(Clone)")
+        if(name == "pfSnowman(Clone)" || name == "pfFireEnemy(Clone)")
         {
             SnowmanAttack();
         }
