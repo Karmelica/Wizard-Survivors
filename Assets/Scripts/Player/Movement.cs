@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
     private float moveX;
     private float moveY;
 
-    public AudioSource audioSourceLoop;
+    //public AudioSource audioSourceLoop;
     public TrailRenderer trail;
     private Rigidbody2D rbody;
     public Collider2D collider2d;

@@ -11,4 +11,20 @@ public class Border : MonoBehaviour
             collision.gameObject.SendMessageUpwards("IsInBorder");
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name != "Player")
+        {
+            collision.gameObject.SendMessageUpwards("IsInBorder");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.name != "Player")
+        {
+            collision.gameObject.SendMessageUpwards("BorderExit");
+        }
+    }
 }

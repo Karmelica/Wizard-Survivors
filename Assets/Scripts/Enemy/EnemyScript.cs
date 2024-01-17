@@ -7,6 +7,7 @@ public class EnemyScript : MonoBehaviour
 	[Header("Properties")]
 	[SerializeField] private GameObject player;
     [SerializeField] private Collider2D colli;
+	[SerializeField] private SpriteRenderer spriteRenderer;
     private Rigidbody2D rbody2D;
 	private Stats stats;
 
@@ -67,6 +68,24 @@ public class EnemyScript : MonoBehaviour
                 speed *= 3;
             }
         }
+    }
+
+    public void IsInBorder()
+	{
+		colli.isTrigger = true;
+		Color alpha = spriteRenderer.color;
+		alpha.a -= 0.5f;
+		spriteRenderer.color = alpha;
+		speed /= 2;
+	}
+
+	public void BorderExit()
+    {
+        colli.isTrigger = false;
+        Color alpha = spriteRenderer.color;
+        alpha.a += 0.5f;
+        spriteRenderer.color = alpha;
+		speed *= 2;
     }
 
     public void TakeDamage(int damageTaken)

@@ -154,7 +154,7 @@ public class Attack : MonoBehaviour
             earthCooldown = setEarthCooldown;
             animator.Play("Attack");
             shadowAnimator.Play("Attack");
-            stats.PlaySoundOneShot(attack[0], 0.1f);
+            stats.PlaySoundOneShot(attack[1], 1f);
             Earth();
         }
 

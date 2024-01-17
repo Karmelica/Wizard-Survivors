@@ -396,6 +396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   colli: {fileID: 6993254092606926499}
+  spriteRenderer: {fileID: 2722231025122129465}
   despawnTime: 60
   slimeAnimator: {fileID: 4297444847721323425}
   healthBar: {fileID: 8069761114438193442}

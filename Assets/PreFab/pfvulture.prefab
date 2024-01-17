@@ -440,6 +440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 4007742114265204684, guid: a636d0e665a227d42bb1e214784fe543, type: 3}
   colli: {fileID: 3696673639529461420}
+  spriteRenderer: {fileID: 1334657797533268363}
   despawnTime: 60
   slimeAnimator: {fileID: 0}
   healthBar: {fileID: 3094620930832597667}
@@ -476,6 +477,7 @@ MonoBehaviour:
   player: {fileID: 0}
   stats: {fileID: 0}
   pfSnowball: {fileID: 6855317708689221065, guid: 7129308bfda01d645840fe9ee568231c, type: 3}
+  snowballLocation: {fileID: 0}
   animatorSnowman: {fileID: 0}
 --- !u!1 &7226263659551725311
 GameObject:
