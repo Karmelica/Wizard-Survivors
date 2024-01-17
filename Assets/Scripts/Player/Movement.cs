@@ -6,16 +6,16 @@ public class Movement : MonoBehaviour
     private float moveX;
     private float moveY;
 
-    private Stats stats;
     public AudioSource audioSourceLoop;
     public TrailRenderer trail;
     private Rigidbody2D rbody;
     public Collider2D collider2d;
     public Animator animator;
+    public Animator shadowAnim;
+    [SerializeField] private GameObject shadow;
     static public bool dashUnlocked;
 
     [Header("Ruch")]
-    private bool stopped;
     private float dashReducer = 1f; //controls dash power (0 - 1)
     public float setPlayerSpeed = 5f;
     public float setDashCooldown = 5f;
@@ -75,6 +75,7 @@ public class Movement : MonoBehaviour
     IEnumerator DashHandler()
     {
         dashCooldown = setDashCooldown;
+        shadow.SetActive(false);
         isDashing = true;
         collider2d.isTrigger = true;
         animator.Play("Dash");
@@ -82,10 +83,11 @@ public class Movement : MonoBehaviour
 
         rbody.AddForce(playerSpeed * dashReducer * rbody.velocity.normalized, ForceMode2D.Impulse);
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1.8f);
         collider2d.isTrigger = false;
         isDashing = false;
         trail.emitting = false;
+        shadow.SetActive(true);
     }
     void MyInput()
     {
@@ -96,11 +98,9 @@ public class Movement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioSourceLoop.enabled = true;
         dashUnlocked = false;
         playerSpeed = setPlayerSpeed;
         uiDashCooldown = setDashCooldown;
-        stats = GetComponent<Stats>();
         rbody = GetComponent<Rigidbody2D>();
         rbody.freezeRotation = true;
         dashCooldown = 0f;
@@ -111,24 +111,12 @@ public class Movement : MonoBehaviour
     {
         MyInput();
         rbody.AddForce(0.5f * playerSpeed * new Vector2(moveX, moveY).normalized, ForceMode2D.Force);
-        if (rbody.velocity.magnitude * 10 > 1f && !isDashing && !AnimationEvents.attackAnim)
-        {
-            animator.Play("walk_anim");
-        }
+        animator.SetFloat("Speed", rbody.velocity.magnitude * 10f);
+        shadowAnim.SetFloat("Speed", rbody.velocity.magnitude * 10f);
     }
 
     void Update()
     {
-        /*if (AnimationEvents.hasStopped)
-        {
-            audioSourceLoop.enabled = false;
-            stats.PlaySoundLoop(BiomeDetector.currentWalkClip, 1);
-        }
-        else
-        {
-            audioSourceLoop.enabled = true;
-        }*/
-
         Flip();
 
         dashCooldown -= Time.deltaTime;

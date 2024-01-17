@@ -15,29 +15,46 @@ public class BiomeDetector : MonoBehaviour
         if (collision.CompareTag("Air"))
         {
             currentWalkClip = walking[2];
-            Movement.dashUnlocked = true;
+            if(Movement.dashUnlocked != true)
+            {
+                Movement.dashUnlocked = true;
+            }
+
             EnemySpawn.rangeStart = 0;
             EnemySpawn.rangeEnd = 1;
         }
         if (collision.CompareTag("Fire"))
         {
             currentWalkClip = walking[2];
-            Attack.slashUnlocked = true;
+            if(Attack.slashUnlocked != true)
+            {
+                Attack.slashUnlocked = true;
+            }
+
             EnemySpawn.rangeStart = 2;
             EnemySpawn.rangeEnd = 3;
         }
         if (collision.CompareTag("Green"))
         {
             currentWalkClip = walking[1];
-            Attack.earthUnlocked = true;
+
+            if (Attack.earthUnlocked != true)
+            {
+                Attack.earthUnlocked = true; 
+            } 
+
             EnemySpawn.rangeStart = 4;
             EnemySpawn.rangeEnd = 5;
         }
         if (collision.CompareTag("Ice"))
         {
             currentWalkClip = walking[0];
-            Attack.IceUnlocked = true;
-            iceField.SetActive(true);
+
+            if (Attack.IceUnlocked != true)
+            {
+                Attack.IceUnlocked = true;
+                iceField.SetActive(true);
+            }
             EnemySpawn.rangeStart = 6;
             EnemySpawn.rangeEnd = 7;
         }

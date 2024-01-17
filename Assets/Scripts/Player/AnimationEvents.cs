@@ -1,9 +1,10 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AnimationEvents : MonoBehaviour
 {
+    [SerializeField] private AudioSource audioSourceStep;
     static public bool attackAnim;
-    static public bool hasStopped;
 
     public void IsAttacking()
     {
@@ -17,11 +18,18 @@ public class AnimationEvents : MonoBehaviour
 
     public void Walk()
     {
-        hasStopped = false;
+        if(audioSourceStep != null)
+        {
+            audioSourceStep.Stop();
+            audioSourceStep.PlayOneShot(BiomeDetector.currentWalkClip, 1);
+        }
     }
 
-    public void Stand()
+    public void StopWalk()
     {
-        hasStopped = true;
+        if(audioSourceStep != null)
+        {
+            audioSourceStep.Stop();
+        }
     }
 }

@@ -1,4 +1,3 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -39,7 +38,6 @@ public class Stats : MonoBehaviour
     public AudioClip magnetUnlocked;
     public AudioClip[] takeDamage;
     [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioSource audioSourceLoop;
 
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -49,23 +47,6 @@ public class Stats : MonoBehaviour
             TakeDamage(EnemyScript.enemyDmg);
             Destroy(collision.gameObject);
         }
-    }
-
-    IEnumerator AudioLoop(AudioClip sound, float volume)
-    {
-        float lenght = sound.length;
-        while (audioSourceLoop.enabled)
-        {
-            audioSourceLoop.PlayOneShot(sound, volume);
-            yield return new WaitForSeconds(lenght - 0.1f);
-        }
-    }
-
-    public void PlaySoundLoop(AudioClip sound, float volume)
-    {
-        StopAllCoroutines();
-        audioSourceLoop.Stop();
-        StartCoroutine(AudioLoop(sound, volume));
     }
 
     public void PlaySoundOneShot(AudioClip sound, float volume)

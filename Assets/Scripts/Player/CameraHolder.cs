@@ -18,7 +18,7 @@ public class CameraHolder : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-        if (player.transform.position.y < -5.58f || player.transform.position.y > 4.78f)
+		if (player.transform.position.y < -5.58f || player.transform.position.y > 4.78f)
 		{
 			posY = transform.position.y;
 		}
@@ -40,13 +40,13 @@ public class CameraHolder : MonoBehaviour
 
 		if(player.transform.position.x > 6.70f || player.transform.position.x < -5.89f || player.transform.position.y < -5.90f || player.transform.position.y > 5.27f)
 		{
-            fairy.SetActive(true);
-        }
-        else
-        {
-            fairy.SetActive(false);
-        }
+			fairy.SetActive(true);
+		}
+		else
+		{
+			fairy.SetActive(false);
+		}
 		
 
-    }
+	}
 }

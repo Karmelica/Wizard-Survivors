@@ -8,6 +8,7 @@ public class Attack : MonoBehaviour
     public GameObject pfFireball;
     public GameObject pfEarth;
     public Animator animator;
+    public Animator shadowAnimator;
     public GameObject player;
     public Transform projectileSpawn;
     private Stats stats;
@@ -40,8 +41,6 @@ public class Attack : MonoBehaviour
 
         if (projectileUpgraded)
         {
-            animator.Play("Attack");
-            fireballCooldown = setFireballCooldown;
             Instantiate(pfFireball, projectileSpawn.position, Quaternion.identity)
             .GetComponent<Damage>().SetDamage(stats.projectileDmg);
             yield return new WaitForSeconds(0.2f);
@@ -53,8 +52,6 @@ public class Attack : MonoBehaviour
         }
         else
         {
-            animator.Play("Attack");
-            fireballCooldown = setFireballCooldown;
             Instantiate(pfFireball, projectileSpawn.position, Quaternion.identity)
             .GetComponent<Damage>().SetDamage(stats.projectileDmg);
         }
@@ -64,8 +61,6 @@ public class Attack : MonoBehaviour
     {
         if (attackUpgraded)
         {
-            animator.Play("Attack");
-            attackCooldown = setAttackCooldown;
             if (transform.rotation.y == 0)
             {
                 Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0), transform.rotation)
@@ -83,8 +78,6 @@ public class Attack : MonoBehaviour
         }
         else
         {
-            animator.Play("Attack");
-            attackCooldown = setAttackCooldown;
             if (transform.rotation.y == 0)
             {
                 Instantiate(pfSlash, transform.position + new Vector3(0.5f, 0, 0), transform.rotation)
@@ -100,8 +93,6 @@ public class Attack : MonoBehaviour
 
     void Earth()
     {
-        animator.Play("Attack");
-        earthCooldown = setEarthCooldown;
         if (transform.rotation.y == 0)
         {
             Instantiate(pfEarth, transform.position + new Vector3(0.7f, 0, 0), transform.rotation)
@@ -142,18 +133,27 @@ public class Attack : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && fireballCooldown <= 0f && Time.timeScale != 0)
         {
+            fireballCooldown = setFireballCooldown;
+            animator.Play("Attack");
+            shadowAnimator.Play("Attack");
             stats.PlaySoundOneShot(attack[0], 0.1f);
             StartCoroutine(Fireball());
         }
 
         if (Input.GetMouseButton(0) && attackCooldown <= 0f && Time.timeScale != 0 && slashUnlocked)
         {
+            attackCooldown = setAttackCooldown;
+            animator.Play("Attack");
+            shadowAnimator.Play("Attack");
             stats.PlaySoundOneShot(attack[0], 0.1f);
             Slash();
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && earthCooldown <= 0f && Time.timeScale != 0 && earthUnlocked)
         {
+            earthCooldown = setEarthCooldown;
+            animator.Play("Attack");
+            shadowAnimator.Play("Attack");
             stats.PlaySoundOneShot(attack[0], 0.1f);
             Earth();
         }
