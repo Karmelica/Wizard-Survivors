@@ -35,7 +35,7 @@ public class EnemyAttack : MonoBehaviour
         float distX = colli.transform.position.x - player.transform.position.x;
         float distY = colli.transform.position.y - player.transform.position.y;
         float distance = new Vector2(distX, distY).magnitude;
-        if (distance <= 1f && attackInterval < 0)
+        if (distance <= 1.1f && attackInterval < 0)
         {
 			animatorSnowman.Play("SnowmanThrow");
             GameObject snowball = Instantiate(pfSnowball, transform.position, Quaternion.identity);

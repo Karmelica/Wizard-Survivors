@@ -91,11 +91,29 @@ public class EnemyScript : MonoBehaviour
 	{
 		distanceX = colli.transform.position.x - player.transform.position.x;
 		distanceY = colli.transform.position.y - player.transform.position.y;
+		
+		Vector2 distance = new(distanceX, distanceY);
 
-		rbody2D.AddForce(0.5f * -speed * new Vector2(distanceX, distanceY).normalized, ForceMode2D.Force);
+        rbody2D.AddForce(0.5f * -speed * distance.normalized, ForceMode2D.Force);
 	}
+    void EnemyMoveSnowman()
+    {
+        distanceX = colli.transform.position.x - player.transform.position.x;
+        distanceY = colli.transform.position.y - player.transform.position.y;
 
-	IEnumerator SlimeMove()
+		Vector2 distance = new(distanceX, distanceY);
+
+		if (distance.magnitude > 1.1f){
+			rbody2D.AddForce(0.5f * -speed * distance.normalized, ForceMode2D.Force);
+
+		}
+		else if (distance.magnitude < 1f)
+		{
+            rbody2D.AddForce(0.25f * speed * distance.normalized, ForceMode2D.Force);
+        }
+    }
+
+    IEnumerator SlimeMove()
     {
 		while (true)
 		{
@@ -106,7 +124,9 @@ public class EnemyScript : MonoBehaviour
             distanceX = colli.transform.position.x - player.transform.position.x;
             distanceY = colli.transform.position.y - player.transform.position.y;
 
-            rbody2D.AddForce(-4 * new Vector2(distanceX, distanceY).normalized, ForceMode2D.Impulse);
+            Vector2 distance = new(distanceX, distanceY);
+
+            rbody2D.AddForce(-4 * distance.normalized, ForceMode2D.Impulse);
 		}
     }
 
@@ -129,10 +149,14 @@ public class EnemyScript : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
 	{
-		if (gameObject.name != "pfSlimeFire(Clone)" && gameObject.name != "pfSlimeGreen(Clone)" && gameObject.name != "pfSlimeIce(Clone)")
+		if (gameObject.name != "pfSlimeFire(Clone)" && gameObject.name != "pfSlimeGreen(Clone)" && gameObject.name != "pfSlimeIce(Clone)" && gameObject.name != "pfFireEnemy(Clone)" && gameObject.name != "pfSnowman(Clone)")
 		{
 			EnemyMove();
         }
+		if (gameObject.name == "pfSnowman(Clone)" || gameObject.name == "pfFireEnemy(Clone)")
+		{
+			EnemyMoveSnowman();
+		}
 	}
 
 	void Update()
