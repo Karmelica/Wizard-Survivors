@@ -34,7 +34,6 @@ public class Attack : MonoBehaviour
     static public float uiEarthCooldown;
     public float setEarthCooldown = 5f;
 
-    
 
     IEnumerator Fireball()
     {
@@ -136,7 +135,7 @@ public class Attack : MonoBehaviour
             fireballCooldown = setFireballCooldown;
             animator.Play("Attack");
             shadowAnimator.Play("Attack");
-            stats.PlaySoundOneShot(attack[0], 0.1f);
+            stats.PlaySoundOneShot(attack[2], 0.1f);
             StartCoroutine(Fireball());
         }
 

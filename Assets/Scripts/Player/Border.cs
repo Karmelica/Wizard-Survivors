@@ -14,7 +14,7 @@ public class Border : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.name != "Player")
+        if(collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.SendMessageUpwards("IsInBorder");
         }
@@ -22,7 +22,7 @@ public class Border : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name != "Player")
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             collision.gameObject.SendMessageUpwards("BorderExit");
         }

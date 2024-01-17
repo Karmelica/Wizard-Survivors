@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 7975984166222677993}
   - component: {fileID: 5702563722635974140}
   - component: {fileID: 5636157093684119730}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2141502630, guid: 74290be43b4ec5c4c9e4e71b8c3fe8e2, type: 3}
+  m_Sprite: {fileID: 1837070910, guid: 8076e457eab78ee40b42927bbe8a424c, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.48235294}
   m_FlipX: 0
   m_FlipY: 0
@@ -304,7 +304,7 @@ Animator:
   m_GameObject: {fileID: 2304302352950716689}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 98c7c7b640fdf464f91e196e6ff9ccc0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4e1a30c48a26f88498116524612d690a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -377,7 +377,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 448
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 5784745606958619301}
   m_Layer: 6
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -563,8 +563,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2141502630, guid: 74290be43b4ec5c4c9e4e71b8c3fe8e2, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 1837070910, guid: 8076e457eab78ee40b42927bbe8a424c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -606,8 +606,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.003554225, y: 0.009295046}
-  m_Size: {x: 0.13475966, y: 0.28231537}
+  m_Offset: {x: -0.0023572445, y: -0.0003683567}
+  m_Size: {x: 0.08449125, y: 0.09303379}
   m_Direction: 0
 --- !u!95 &4297444847721323425
 Animator:
@@ -619,7 +619,7 @@ Animator:
   m_GameObject: {fileID: 5746191184748471152}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 98c7c7b640fdf464f91e196e6ff9ccc0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 4e1a30c48a26f88498116524612d690a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

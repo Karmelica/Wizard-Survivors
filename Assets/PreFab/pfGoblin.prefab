@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 1319488842593210588}
   m_Layer: 6
   m_Name: Sprite
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -614,7 +614,7 @@ GameObject:
   - component: {fileID: 4837413894188085338}
   - component: {fileID: 2708494520037069676}
   - component: {fileID: 6607019800378262375}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -120,7 +120,7 @@ public class Stats : MonoBehaviour
             }
             else if (EnemySpawn.spawnRate > 0.5f) //wrogowie spawnia sie szybko ale skala jest liniowa
             {
-                EnemySpawn.spawnRate -= 0.1f;
+                EnemySpawn.spawnRate -= 0.05f;
             }
         }
 
@@ -139,7 +139,7 @@ public class Stats : MonoBehaviour
         }
     }
 
-    /* leczenie atakiem i tak na razie jest wy³¹czone
+    /* leczenie atakiem i tak na razie jest wylaczone
 	 * private void OverHeal()
 	{
 		if (currentHp > maxHp * 2)

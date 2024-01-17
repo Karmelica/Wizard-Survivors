@@ -33,12 +33,17 @@ public class EnemyAttack : MonoBehaviour
 	private void SnowmanAttack()
 	{
         attackInterval -= Time.deltaTime;
+
         float distX = colli.transform.position.x - player.transform.position.x;
         float distY = colli.transform.position.y - player.transform.position.y;
         float distance = new Vector2(distX, distY).magnitude;
+
         if (distance <= 1.1f && attackInterval < 0)
         {
-			animatorSnowman.Play("SnowmanThrow");
+			if(name == "pfSnowman(Clone)")
+            {
+                animatorSnowman.Play("SnowmanThrow");
+            }
             Instantiate(pfSnowball, snowballLocation.transform.position, Quaternion.identity);
             attackInterval = 3f;
         }

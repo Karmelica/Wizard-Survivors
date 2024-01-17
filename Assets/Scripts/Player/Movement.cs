@@ -6,7 +6,6 @@ public class Movement : MonoBehaviour
     private float moveX;
     private float moveY;
 
-    //public AudioSource audioSourceLoop;
     public TrailRenderer trail;
     private Rigidbody2D rbody;
     public Collider2D collider2d;
@@ -26,17 +25,20 @@ public class Movement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("IceLake"))
-        {
-            dashReducer = 0.3f;
-            rbody.drag = 1; //friction
-        }
+        if(this.name == "Player") {
+            if (collision.gameObject.CompareTag("IceLake"))
+            {
+                dashReducer = 0.3f;
+                rbody.drag = 1; //friction
+            }
 
-        if (collision.gameObject.CompareTag("LavaLake"))
-        {
-            dashReducer = 0.6f;
-            rbody.drag = 10;
+            if (collision.gameObject.CompareTag("LavaLake"))
+            {
+                dashReducer = 0.6f;
+                rbody.drag = 10;
+            }
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
