@@ -259,7 +259,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: f10280b35cdd5f141aa1a58fc553f9ee, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -764,7 +764,7 @@ MonoBehaviour:
   healthBar: {fileID: 1773691444416365530}
   enemyMaxHp: 2
   enemyCurrentHp: 2
-  speed: 6
+  speed: 5
 --- !u!114 &1219204895510423524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,7 +796,7 @@ MonoBehaviour:
   stats: {fileID: 0}
   pfSnowball: {fileID: 6855317708689221065, guid: 7129308bfda01d645840fe9ee568231c, type: 3}
   snowballLocation: {fileID: 0}
-  animatorSnowman: {fileID: 0}
+  animatorSnowman: {fileID: 4748853854360533730}
 --- !u!1 &8178094829802171310
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,38 +15,65 @@ public class EnemyAttack : MonoBehaviour
 	public Transform snowballLocation;
 	public Animator animatorSnowman;
 
-	private void NormalAtttack()
+	private IEnumerator BatDash(float distX, float distY)
 	{
-        attackInterval -= Time.deltaTime;
-		float distX = colli.transform.position.x - player.transform.position.x;
-		float distY = colli.transform.position.y - player.transform.position.y;
-        float distance = new Vector2(distX, distY).magnitude;
-		//Debug.Log(distance);
-        if (distance <= attackRange && attackInterval < 0 && !Movement.isDashing)
+        animatorSnowman.Play("BatAttack");
+        rb.AddForce(new Vector2(distX, distY) * -4f, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.5f);
+        if (!Movement.isDashing)
         {
             stats.TakeDamage(EnemyScript.enemyDmg);
-            rb.AddForce(new Vector2(distX,distY).normalized * 200, ForceMode2D.Force);
-            attackInterval = 2f;
         }
+        rb.AddForce(new Vector2(distX, distY).normalized * 200, ForceMode2D.Force);
     }
+	private void BatAttack()
+	{
+		attackInterval -= Time.deltaTime;
+
+		float distX = colli.transform.position.x - player.transform.position.x;
+		float distY = colli.transform.position.y - player.transform.position.y;
+		float distance = new Vector2(distX, distY).magnitude;
+
+		if (distance <= 1f && attackInterval < 0)
+		{
+			StartCoroutine(BatDash(distX, distY));
+            attackInterval = 4f;
+        }
+	}
+
+	private void NormalAtttack()
+	{
+		attackInterval -= Time.deltaTime;
+
+		float distX = colli.transform.position.x - player.transform.position.x;
+		float distY = colli.transform.position.y - player.transform.position.y;
+		float distance = new Vector2(distX, distY).magnitude;
+
+		if (distance <= attackRange && attackInterval < 0 && !Movement.isDashing)
+		{
+			stats.TakeDamage(EnemyScript.enemyDmg);
+			rb.AddForce(new Vector2(distX,distY).normalized * 200, ForceMode2D.Force);
+			attackInterval = 2f;
+		}
+	}
 
 	private void SnowmanAttack()
 	{
-        attackInterval -= Time.deltaTime;
+		attackInterval -= Time.deltaTime;
 
-        float distX = colli.transform.position.x - player.transform.position.x;
-        float distY = colli.transform.position.y - player.transform.position.y;
-        float distance = new Vector2(distX, distY).magnitude;
+		float distX = colli.transform.position.x - player.transform.position.x;
+		float distY = colli.transform.position.y - player.transform.position.y;
+		float distance = new Vector2(distX, distY).magnitude;
 
-        if (distance <= 1.1f && attackInterval < 0)
-        {
+		if (distance <= 1.1f && attackInterval < 0)
+		{
 			if(name == "pfSnowman(Clone)")
-            {
-                animatorSnowman.Play("SnowmanThrow");
-            }
-            Instantiate(pfSnowball, snowballLocation.transform.position, Quaternion.identity);
-            attackInterval = 3f;
-        }
+			{
+				animatorSnowman.Play("SnowmanThrow");
+			}
+			Instantiate(pfSnowball, snowballLocation.transform.position, Quaternion.identity);
+			attackInterval = 3f;
+		}
 	}
 
 	// Start is called before the first frame update
@@ -60,13 +87,17 @@ public class EnemyAttack : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-        if(name == "pfSnowman(Clone)" || name == "pfFireEnemy(Clone)")
-        {
-            SnowmanAttack();
-        }
-		else
-        {
-            NormalAtttack();
+		if(name == "pfSnowman(Clone)" || name == "pfFireEnemy(Clone)")
+		{
+			SnowmanAttack();
 		}
-    }
+		if(name == "pfBat(Clone)")
+		{
+			BatAttack();
+		}
+		else
+		{
+			NormalAtttack();
+		}
+	}
 }
