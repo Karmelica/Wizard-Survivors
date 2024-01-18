@@ -91,7 +91,7 @@ public class EnemyAttack : MonoBehaviour
 		{
 			SnowmanAttack();
 		}
-		if(name == "pfBat(Clone)")
+		if(name == "pfBat(Clone)" || name == "pfvulture(Clone)")
 		{
 			BatAttack();
 		}
