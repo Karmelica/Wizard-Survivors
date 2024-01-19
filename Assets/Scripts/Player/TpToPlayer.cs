@@ -9,7 +9,7 @@ public class TpToPlayer : MonoBehaviour
     void Start()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
