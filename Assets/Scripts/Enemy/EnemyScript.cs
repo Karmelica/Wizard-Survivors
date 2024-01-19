@@ -1,9 +1,13 @@
 using System.Collections;
+using System.Runtime.Serialization;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
 {
+	[SerializeField] private CooldownUI cooldownUI;
+
 	[Header("Properties")]
 	[SerializeField] private GameObject player;
     [SerializeField] private Collider2D colli;
@@ -99,7 +103,12 @@ public class EnemyScript : MonoBehaviour
     }
 	void EnemyDied()
 	{
-		Vector3 deadPreFabCoords = colli.transform.position;
+		CooldownUI.enemiesKilled++;
+		if (CooldownUI.enemiesKilled == 100)
+        {
+            cooldownUI.Josh();
+        }
+        Vector3 deadPreFabCoords = colli.transform.position;
 		Destroy(gameObject);
 		ExpManager.Instance.AddExp(enemyExp);
 		stats.GainExp();
@@ -152,6 +161,7 @@ public class EnemyScript : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		cooldownUI = GameObject.Find("Canvas").GetComponent<CooldownUI>();
         healthBar.UpdateText();
         player = GameObject.Find("Player");
 		stats = player.GetComponent<Stats>();

@@ -4,6 +4,7 @@ using UnityEngine;
 public class Stats : MonoBehaviour
 {
 
+
     [Header("Stats")]
     public int maxHp = 20;
     static public int currentHp;

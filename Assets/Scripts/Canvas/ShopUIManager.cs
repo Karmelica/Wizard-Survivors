@@ -26,11 +26,13 @@ public class ShopUIManager : MonoBehaviour
     public GameObject shopIndicator;
     public AudioClip cash;
 
+
     public void UnlockShop()
     {
         canBuy = true;
         shopIndicator.SetActive(true);
     }
+
     public void IncreaseHealth()
     {
         if (stats.currentCoins >= shopManager.coinCostHp && canBuy)

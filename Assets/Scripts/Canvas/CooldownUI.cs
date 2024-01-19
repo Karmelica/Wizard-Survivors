@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,6 +7,10 @@ public class CooldownUI : MonoBehaviour
 {
     public ShopManager shopManager;
 
+    [SerializeField] private GameObject josh;
+    static public int enemiesKilled = 0;
+
+    public TextMeshProUGUI killed;
     public TextMeshProUGUI hpUpgradeCost;
     public TextMeshProUGUI dashUpgradeCost;
     public TextMeshProUGUI speedUpgradeCost;
@@ -17,10 +22,26 @@ public class CooldownUI : MonoBehaviour
     public Image AttackCooldown;
     public Image EarthCooldown;
 
+
+
+    private IEnumerator JoshEnable()
+    {
+        josh.SetActive(true);
+        yield return new WaitForSeconds(8);
+        josh.SetActive(false);
+    }
+
+    public void Josh()
+    {
+        StartCoroutine(JoshEnable());
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if(Movement.dashUnlocked)
+        killed.text = enemiesKilled.ToString();
+
+        if (Movement.dashUnlocked)
         {
             var tempColor = DashCooldown.color;
             tempColor.a = 1;
